@@ -45,9 +45,7 @@ Construir uma plataforma capaz de capturar continuamente dados de estações met
 
 ### ✨ A Solução
 
-O **Pulso Urbano** classifica a qualidade do ar coletada em tempo real segundo o **Índice de Qualidade do Ar (IQAr)**, padrão nacional oficial (Lei Federal nº 14.850/2024 e Resolução CONAMA nº 506/2024) que associa cada faixa de concentração de poluentes a efeitos documentados sobre a saúde — com atenção especial a grupos vulneráveis, incluindo pessoas com doenças respiratórias. Quando os níveis atingem uma faixa considerada prejudicial, a plataforma dispara alerta automático para a Secretaria de Saúde, permitindo ação preventiva antes que o quadro se agrave.
-
-Uma rede de estações ambientais de baixo custo, compartilhada entre municípios do consórcio, alimenta essa classificação continuamente — entregando à Secretaria tanto o alerta imediato quanto uma base histórica estruturada para, futuramente, cruzar com seus próprios registros de atendimento e investigar padrões que hoje passam despercebidos.
+O Pulso Urbano classifica a qualidade do ar coletada em tempo real segundo o Índice de Qualidade do Ar (IQAr), padrão nacional oficial que associa cada faixa de concentração de poluentes a efeitos documentados sobre a saúde — com atenção especial a grupos vulneráveis, incluindo pessoas com doenças respiratórias. Quando os níveis atingem uma faixa considerada prejudicial, a plataforma dispara alerta automático para a Secretaria de Saúde, permitindo ação preventiva antes que o quadro se agrave.
 
 ---
 
