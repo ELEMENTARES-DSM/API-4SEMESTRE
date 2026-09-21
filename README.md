@@ -45,7 +45,9 @@ Construir uma plataforma capaz de capturar continuamente dados de estações met
 
 ### ✨ A Solução
 
-O Pulso Urbano classifica a qualidade do ar coletada em tempo real segundo o Índice de Qualidade do Ar (IQAr), padrão nacional oficial que associa cada faixa de concentração de poluentes a efeitos documentados sobre a saúde — com atenção especial a grupos vulneráveis, incluindo pessoas com doenças respiratórias. Quando os níveis atingem uma faixa considerada prejudicial, a plataforma dispara alerta automático para a Secretaria de Saúde, permitindo ação preventiva antes que o quadro se agrave.
+O **Pulso Urbano** classifica a qualidade do ar coletada em tempo real segundo o **Índice de Qualidade do Ar (IQAr)**, padrão nacional oficial (Lei Federal nº 14.850/2024 e Resolução CONAMA nº 506/2024) que associa cada faixa de concentração de poluentes a efeitos documentados sobre a saúde — com atenção especial a grupos vulneráveis, incluindo pessoas com doenças respiratórias. Quando os níveis atingem uma faixa considerada prejudicial, a plataforma dispara alerta automático para a Secretaria de Saúde, permitindo ação preventiva antes que o quadro se agrave.
+
+Uma rede de estações ambientais de baixo custo, compartilhada entre municípios do consórcio, alimenta essa classificação continuamente — entregando à Secretaria tanto o alerta imediato quanto uma base histórica estruturada para, futuramente, cruzar com seus próprios registros de atendimento e investigar padrões que hoje passam despercebidos.
 
 ---
 
@@ -67,22 +69,50 @@ O backlog segue a classificação de itens definida pelo cliente: **User Stories
 | 4 | **US-05** | Negócio | Sem calibração correta, os valores de PM2.5 e temperatura ficam incorretos — inviabiliza a classificação de qualidade do ar prometida na 1ª Entrega. | Como gestor público, quero parametrizar e calibrar os sensores associados às estações para que as leituras brutas sejam convertidas em grandezas reais. | EPIC-02 | ELEM-27 | RF-01, RF-02 | 5 | 1 |
 | 5 | **US-04** | Negócio | Entrega nomeada na 1ª Entrega ao cliente: garante que uma falha de campo seja percebida pela Secretaria antes que vire lacuna nos dados. | Como gestor público, quero monitorar a conectividade e disponibilidade das estações para identificar quedas de sinal e falhas operacionais. | EPIC-03 | ELEM-23 | RF-03 | 8 | 1 |
 | 6 | **US-06** | Negócio | É o motor do IQAr: converte leitura calibrada em alerta de saúde acionável — a entrega central do MVP apresentada ao cliente. | Como técnico da Defesa Civil, quero configurar regras de alerta e limiares críticos para disparar avisos preventivos em condições ambientais severas. | EPIC-03 | ELEM-32 | RF-02, RF-05 | 8 | 1 |
-| — | **US-07** | Técnico | Garante que qualquer avaliador, incluindo o cliente, entenda o estado real do projeto sem depender de explicação verbal. | Documentação e Rastreabilidade do Projeto. | EPIC-04 | ELEM-58 | RNF-02 | 3\* | 1 |
-| — | **US-08** | Técnico | Reduz o tempo de setup e evita divergência de ambiente entre máquinas — o custo de não fazer isso aparece como bug em produção depois. | Estruturação de Repositórios e Arquitetura de Código. | EPIC-04 | ELEM-59 | RNF-03 | 3\* | 1 |
-| — | **US-09** | Técnico | Garante que uma falha de qualidade seja detectada antes de chegar ao usuário final — sustenta a confiabilidade prometida ao cliente. | Observabilidade e Processos de QA. | EPIC-04 | ELEM-60 | RNF-05 | 3\* | 1 |
-| — | **US-10** | Técnico | Garante que nenhuma entrega futura quebre o que já foi validado com o cliente nesta Sprint. | Estratégia de Testes (Unitários e Integração). | EPIC-04 | ELEM-61 | RNF-03 | 3\* | 1 |
+| — | **US-07** | Técnico | Garante que qualquer avaliador, incluindo o cliente, entenda o estado real do projeto sem depender de explicação verbal. | Como membro da equipe Elementares, quero manter a documentação do projeto centralizada, atualizada e vinculada aos tickets do Jira, para garantir que qualquer integrante ou avaliador externo compreenda o estado real do projeto sem depender de explicação verbal. | EPIC-04 | ELEM-58 | RNF-02 | 3\* | 1-3 (contínuo) |
+| — | **US-08** | Técnico | Reduz o tempo de setup e evita divergência de ambiente entre máquinas — o custo de não fazer isso aparece como bug em produção depois. | Como desenvolvedor da equipe Elementares, quero ter os repositórios organizados com estrutura de pastas padronizada e ambiente de desenvolvimento reproduzível, para garantir que qualquer integrante trabalhe sobre a mesma base técnica, reduzindo divergência de ambiente e tempo de configuração. | EPIC-04 | ELEM-59 | RNF-03 | 3\* | 1-3 (contínuo) |
+| — | **US-09** | Técnico | Garante que uma falha de qualidade seja detectada antes de chegar ao usuário final — sustenta a confiabilidade prometida ao cliente. | Como responsável por QA da equipe Elementares, quero definir processos de validação de qualidade e monitorar continuamente a saúde da API, do banco de dados e da esteira de integração, para identificar problemas antes que cheguem ao usuário final e garantir critério objetivo de aprovação das entregas. | EPIC-04 | ELEM-60 | RNF-05 | 3\* | 1-3 (contínuo) |
+| — | **US-10** | Técnico | Garante que nenhuma entrega futura quebre o que já foi validado com o cliente nesta Sprint. | Como desenvolvedor da equipe Elementares, quero implementar uma suíte de testes automatizados que cubra a lógica de negócio crítica e a integração entre a API e o banco de dados, para garantir que nenhuma alteração futura quebre funcionalidades já validadas com o cliente em sprints anteriores. | EPIC-04 | ELEM-61 | RNF-03 | 3\* | 1-3 (contínuo) |
 
-> **Pontos:** US-01 a US-06 somam 34 Story Points, consenso de Planning Poker (sequência de Fibonacci) — medem valor de negócio. \*Os 3 pontos de US-07 a US-10 são uma estimativa nominal de esforço de engenharia para fins de organização e apontamento de horas, **não fazem parte** do consenso de Planning Poker das histórias de negócio.
+> **Pontos:** US-01 a US-06 somam 34 Story Points, consenso de Planning Poker (sequência de Fibonacci) — medem valor de negócio. \*Os 3 pontos de US-07 a US-10 são uma estimativa nominal de esforço de engenharia **por sprint** em que houver trabalho ativo (setup inicial na Sprint 1, manutenção e verificação nas Sprints 2 e 3), para fins de organização e apontamento de horas — **não fazem parte** do consenso de Planning Poker das histórias de negócio.
 
 **Épicos:** `EPIC-01` Gestão de Acessos e Perfis de Usuários · `EPIC-02` Inventário Territorial de Estações e Sensores · `EPIC-03` Monitoramento Operacional e Gestão de Alertas · `EPIC-04` Engenharia de Plataforma, DevOps e Qualidade (Técnico).
+
+> **Entrega de valor vs. suporte contínuo:** apenas **US-01 a US-06** entregam valor direto ao cliente — são o que ele vê, usa e valida a cada Sprint. **US-07 a US-10 nunca entregam valor de negócio isoladamente**: são qualidade, documentação e infraestrutura de engenharia, mantidas continuamente ao longo das 3 sprints para que as histórias de negócio possam ser entregues de forma confiável.
 
 #### Por que estas 10 entregas estão priorizadas agora
 
 As seis histórias de negócio (US-01 a US-06) formam uma cadeia de dependência única, sem ramificação: contas → autenticação → cadastro de estações → calibração de sensores → monitoramento de disponibilidade → regras de alerta. **Nenhuma pode ser adiada isoladamente** sem quebrar a que vem depois, e juntas elas são, literalmente, o texto da 1ª Entrega já apresentada ao cliente. Os quatro itens técnicos (US-07 a US-10) não entregam valor direto ao usuário final, mas são pré-requisito de qualidade para que as seis anteriores sejam entregues de forma rastreável, testada e reproduzível — por isso correm em paralelo desde o início da Sprint, e não appareceram na sequência (`Rank: —`).
 
+**Por que US-07 a US-10 atravessam as 3 sprints:** diferente das histórias de negócio, que têm um ponto de conclusão claro (a regra foi cadastrada, o alerta dispara), processos de engenharia não "terminam" — documentação, CI, QA e testes precisam ser mantidos e verificados a cada entrega, não só configurados uma vez. Por isso elas aparecem com Sprint `1-3 (contínuo)`: a Sprint 1 cobre a definição e o setup inicial (ferramenta escolhida, processo documentado, pipeline configurado); as Sprints 2 e 3 cobrem a aplicação e a verificação desse processo contra o código novo que entra a cada sprint.
+
 ### 🏃 Sprint Backlog — Sprint 1
 
 Recorte operacional do Product Backlog para esta Sprint: o que é **compromisso** firmado com o cliente, quem executa, e como cada item comprova a Definition of Ready.
+
+**Entregas de valor da Sprint 1 (US-01 a US-06)**
+
+| Capacidade estimada pela equipe por Sprint | 34 Story Points (consenso de Planning Poker) |
+| ------------------------------------------- | :--------------------------------------------: |
+| **Meta da Sprint** | US-01 a US-06 — fundação da plataforma, monitoramento de disponibilidade e classificação de qualidade do ar (IQAr), conforme a 1ª Entrega apresentada ao cliente |
+| **Previsão da Sprint (extras, sem compromisso de entrega)** | Nenhuma — a capacidade da Sprint 1 já está integralmente ocupada pelas seis histórias de negócio. US-07 a US-10 rodam em paralelo como suporte contínuo e não entram nesse cálculo de capacidade de valor |
+
+| Rank | Prioridade | User Story | Estimativa | Sprint |
+| :--: | :--------: | ----------- | :--------: | :----: |
+| 01 | Alta | Como Administrador do Sistema (Governança Municipal / Consórcio), quero cadastrar, listar, associar papéis hierárquicos e inativar logicamente contas de usuários no sistema, para garantir que gestores públicos e pesquisadores acessem estritamente os recursos e dados autorizados sob governança municipal. | 5 | 1 |
+| 02 | Alta | Como usuário cadastrado (Administrador, Gestor Público ou Pesquisador), quero me autenticar com credenciais institucionais e manter minha sessão ativa de forma segura, para acessar os painéis de monitoramento e as ferramentas restritas ao meu perfil. | 3 | 1 |
+| 03 | Alta | Como Gestor Público Municipal, quero cadastrar e gerenciar estações meteorológicas georreferenciadas, para manter o inventário territorial sob governança municipal e habilitar a coleta de dados ambientais. | 5 | 1 |
+| 04 | Alta | Como Gestor Público Municipal, quero monitorar a conectividade e disponibilidade das estações, para identificar quedas de sinal e falhas operacionais antes que virem lacuna nos dados. | 8 | 1 |
+| 05 | Alta | Como Gestor Público Municipal, quero parametrizar e calibrar os sensores associados às estações, para que as leituras brutas sejam convertidas com precisão em grandezas reais. | 5 | 1 |
+| 06 | Alta | Como técnico da Defesa Civil, quero configurar regras de alerta e limiares críticos por sensor, para disparar avisos preventivos automáticos quando condições ambientais severas forem detectadas. | 8 | 1 |
+
+**Itens técnicos de suporte contínuo (US-07 a US-10)**
+
+| Documentação e Rastreabilidade do Projeto (US-07) | Estruturação de Repositórios (US-08) | Observabilidade e QA (US-09) | Estratégia de Testes (US-10) |
+| :--: | :--: | :--: | :--: |
+| 3 pts\* — contínuo (Sprints 1-3) | 3 pts\* — contínuo (Sprints 1-3) | 3 pts\* — contínuo (Sprints 1-3) | 3 pts\* — contínuo (Sprints 1-3) |
+
+**Recorte completo de rastreabilidade (todas as 10 USs)**
 
 | US | Compromisso / Previsão | Responsável | Estimativa | Critério de Aceite | DoR Verificado |
 | :--: | :---------------------: | :----------: | :--------: | :-----------------: | :--------------: |
@@ -98,6 +128,8 @@ Recorte operacional do Product Backlog para esta Sprint: o que é **compromisso*
 | US-10 | Compromisso | _(preencher)_ | 3 pts\* | [Especificação US-10](docs/user-stories/US-10_Estrategia_de_Testes.pdf) | ☐ |
 
 > As caixas de **DoR Verificado** são marcadas pelo responsável ao mover o card para "Em Andamento" no Jira, conforme o checklist da seção [Critérios de Aceite](#dor-dod) abaixo — refletem o estado real da Sprint, não uma declaração antecipada.
+
+> Este recorte reflete o compromisso da **Sprint 1**. US-07 a US-10 não se encerram aqui: o Sprint Backlog das Sprints 2 e 3 deve repeti-las como item de manutenção/verificação contínua, não como entrega nova.
 
 ### 🔍 Itens de Pesquisa e Débito Técnico (Spikes e Bugs)
 
