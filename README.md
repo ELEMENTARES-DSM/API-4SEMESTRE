@@ -73,8 +73,16 @@ O backlog segue a classificação de itens definida pelo cliente: **User Stories
 | — | **US-08** | Técnico | Reduz o tempo de setup e evita divergência de ambiente entre máquinas — o custo de não fazer isso aparece como bug em produção depois. | Como desenvolvedor da equipe Elementares, quero ter os repositórios organizados com estrutura de pastas padronizada e ambiente de desenvolvimento reproduzível, para garantir que qualquer integrante trabalhe sobre a mesma base técnica, reduzindo divergência de ambiente e tempo de configuração. | EPIC-04 | ELEM-59 | RNF-03 | 3\* | 1-3 (contínuo) |
 | — | **US-09** | Técnico | Garante que uma falha de qualidade seja detectada antes de chegar ao usuário final — sustenta a confiabilidade prometida ao cliente. | Como responsável por QA da equipe Elementares, quero definir processos de validação de qualidade e monitorar continuamente a saúde da API, do banco de dados e da esteira de integração, para identificar problemas antes que cheguem ao usuário final e garantir critério objetivo de aprovação das entregas. | EPIC-04 | ELEM-60 | RNF-05 | 3\* | 1-3 (contínuo) |
 | — | **US-10** | Técnico | Garante que nenhuma entrega futura quebre o que já foi validado com o cliente nesta Sprint. | Como desenvolvedor da equipe Elementares, quero implementar uma suíte de testes automatizados que cubra a lógica de negócio crítica e a integração entre a API e o banco de dados, para garantir que nenhuma alteração futura quebre funcionalidades já validadas com o cliente em sprints anteriores. | EPIC-04 | ELEM-61 | RNF-03 | 3\* | 1-3 (contínuo) |
+| 7 | **US-11** | Negócio | É a entrega que o cliente pediu explicitamente para a Sprint 2: pipeline real de ponta a ponta, não mais simulado. | Como Gestor Público Municipal, quero que os dados enviados pelas estações sejam recebidos, calibrados e avaliados automaticamente de ponta a ponta, disparando alerta quando necessário, para que o monitoramento funcione de forma contínua e confiável, sem depender de simulação manual. | EPIC-03 | _a criar_ | RF-03, RF-05, RNF-05 | 13\*\* | 2 |
+| 8 | **US-12** | Negócio | Sem visualização histórica, a Secretaria não consegue identificar tendência nenhuma — só o instante presente. | Como Gestor Público Municipal, quero visualizar dashboards com a série histórica de qualidade do ar e o status das estações, para acompanhar tendências e tomar decisões com base em dados consolidados. | EPIC-03 | _a criar_ | RF-04 | 8\*\* | 2 |
+| 9 | **US-13** | Negócio | Exigido explicitamente pelo cliente (RF-09) para auditoria formal das medições. | Como Gestor Público Municipal, quero gerar relatórios em formato exportável (PDF/CSV) com os dados coletados, para auditar medições ambientais históricas do município. | EPIC-03 | _a criar_ | RF-09 | 8\*\* | 2 |
+| 10 | **US-14** | Negócio | É o item que conecta o dado ambiental ao problema de saúde pública — o motivo de existir do projeto, segundo a dor original. | Como Pesquisador, quero aplicar análises estatísticas sobre as séries históricas de qualidade do ar, para investigar a relação entre condições ambientais e a demanda por atendimentos respiratórios. | EPIC-03 | _a criar_ | RF-10 | 13\*\* | 2 |
+| 11 | **US-15** | Negócio | Entrega o acesso sem cadastro ao munícipe — o terceiro perfil de usuário previsto desde a visão de produto. | Como Munícipe, quero consultar um painel público com os índices ambientais do meu município sem precisar de conta, para acompanhar a qualidade do ar do meu dia a dia. | EPIC-03 | _a criar_ | RF-04, RNF-01 | 8\*\* | 3 |
+| 12 | **US-16** | Negócio | Substitui a simulação por operação real de campo — fecha o ciclo iniciado com o simulador da Sprint 1/2. | Como Gestor Público Municipal, quero que os dados sejam recebidos diretamente do datalogger instalado na estação física real, para que a plataforma opere com hardware de campo em vez de dados simulados. | EPIC-03 | _a criar_ | RF-06, RF-07 | 13\*\* | 3 |
+| 13 | **US-17** | Negócio | Garante que o alerta chegue rápido o suficiente para ser útil, não só que ele exista. | Como Técnico da Defesa Civil, quero que os alertas sejam entregues com latência mínima e por múltiplos canais simultaneamente, para garantir resposta rápida em situações climáticas críticas. | EPIC-03 | _a criar_ | RF-05 | 5\*\* | 3 |
+| — | **US-18** | Técnico | Valida que a plataforma aguenta o volume real de acesso quando o Portal Público (US-15) entrar no ar. | Como Squad de Engenharia, quero validar e otimizar a performance da plataforma sob alto volume de acessos simultâneos, para garantir estabilidade quando o Portal Público entrar em operação. | EPIC-04 | _a criar_ | RNF-05 | 8\*\* | 3 |
 
-> **Pontos:** US-01 a US-06 somam 34 Story Points, consenso de Planning Poker (sequência de Fibonacci) — medem valor de negócio. \*Os 3 pontos de US-07 a US-10 são uma estimativa nominal de esforço de engenharia **por sprint** em que houver trabalho ativo (setup inicial na Sprint 1, manutenção e verificação nas Sprints 2 e 3), para fins de organização e apontamento de horas — **não fazem parte** do consenso de Planning Poker das histórias de negócio.
+> **Pontos:** US-01 a US-06 somam 34 Story Points, consenso de Planning Poker (sequência de Fibonacci) — medem valor de negócio. \*Os 3 pontos de US-07 a US-10 são uma estimativa nominal de esforço de engenharia **por sprint** em que houver trabalho ativo (setup inicial na Sprint 1, manutenção e verificação nas Sprints 2 e 3), para fins de organização e apontamento de horas — **não fazem parte** do consenso de Planning Poker das histórias de negócio. \*\*Estimativas de US-11 a US-18 são **preliminares, propostas pelo PO** — ainda não passaram por Planning Poker com o squad completo. Serão revalidadas na Sprint Planning de cada sprint.
 
 **Épicos:** `EPIC-01` Gestão de Acessos e Perfis de Usuários · `EPIC-02` Inventário Territorial de Estações e Sensores · `EPIC-03` Monitoramento Operacional e Gestão de Alertas · `EPIC-04` Engenharia de Plataforma, DevOps e Qualidade (Técnico).
 
@@ -116,16 +124,18 @@ Recorte operacional do Product Backlog para esta Sprint: o que é **compromisso*
 
 | US | Compromisso / Previsão | Responsável | Estimativa | Critério de Aceite | DoR Verificado |
 | :--: | :---------------------: | :----------: | :--------: | :-----------------: | :--------------: |
-| US-01 | Compromisso | _(preencher)_ | 5 pts | [Especificação US-01](docs/user-stories/US-01_Gestao_de_Contas_e_Perfis.pdf) | ☐ |
-| US-02 | Compromisso | _(preencher)_ | 3 pts | [Especificação US-02](docs/user-stories/US-02_Autenticacao_e_Controle_de_Sessao.pdf) | ☐ |
-| US-03 | Compromisso | _(preencher)_ | 5 pts | [Especificação US-03](docs/user-stories/US-03_Cadastro_de_Estacoes.pdf) | ☐ |
-| US-04 | Compromisso | _(preencher)_ | 8 pts | [Especificação US-04](docs/user-stories/US-04_Monitoramento_de_Disponibilidade.pdf) | ☐ |
-| US-05 | Compromisso | _(preencher)_ | 5 pts | [Especificação US-05](docs/user-stories/US-05_Parametrizacao_e_Calibracao_de_Sensores.pdf) | ☐ |
-| US-06 | Compromisso | _(preencher)_ | 8 pts | [Especificação US-06](docs/user-stories/US-06_Regras_e_Limiares_de_Alerta.pdf) | ☐ |
-| US-07 | Compromisso | _(preencher)_ | 3 pts\* | [Especificação US-07](docs/user-stories/US-07_Documentacao_e_Rastreabilidade.pdf) | ☐ |
-| US-08 | Compromisso | _(preencher)_ | 3 pts\* | [Especificação US-08](docs/user-stories/US-08_Estruturacao_de_Repositorios.pdf) | ☐ |
-| US-09 | Compromisso | _(preencher)_ | 3 pts\* | [Especificação US-09](docs/user-stories/US-09_Observabilidade_e_QA.pdf) | ☐ |
-| US-10 | Compromisso | _(preencher)_ | 3 pts\* | [Especificação US-10](docs/user-stories/US-10_Estrategia_de_Testes.pdf) | ☐ |
+| US-01 | Compromisso | _(preencher)_ | 5 pts | [PDF](docs/user-stories/US-01_Gestao_de_Contas_e_Perfis.pdf) · [Confluence](https://elementares-4sem.atlassian.net/wiki/x/g4Ch) | ☐ |
+| US-02 | Compromisso | _(preencher)_ | 3 pts | [PDF](docs/user-stories/US-02_Autenticacao_e_Controle_de_Sessao.pdf) · [Confluence](https://elementares-4sem.atlassian.net/wiki/x/NYKh) | ☐ |
+| US-03 | Compromisso | _(preencher)_ | 5 pts | [PDF](docs/user-stories/US-03_Cadastro_de_Estacoes.pdf) · [Confluence](https://elementares-4sem.atlassian.net/wiki/x/egCD) | ☐ |
+| US-04 | Compromisso | _(preencher)_ | 8 pts | [PDF](docs/user-stories/US-04_Monitoramento_de_Disponibilidade.pdf) · [Confluence](https://elementares-4sem.atlassian.net/wiki/x/RIKh) | ☐ |
+| US-05 | Compromisso | _(preencher)_ | 5 pts | [PDF](docs/user-stories/US-05_Parametrizacao_e_Calibracao_de_Sensores.pdf) · [Confluence](https://elementares-4sem.atlassian.net/wiki/x/UYKh) | ☐ |
+| US-06 | Compromisso | _(preencher)_ | 8 pts | [PDF](docs/user-stories/US-06_Regras_e_Limiares_de_Alerta.pdf) · [Confluence](https://elementares-4sem.atlassian.net/wiki/x/XoKh) | ☐ |
+| US-07 | Compromisso | _(preencher)_ | 3 pts\* | [PDF](docs/user-stories/US-07_Documentacao_e_Rastreabilidade.pdf) · [Confluence](https://elementares-4sem.atlassian.net/wiki/x/AYCZAQ) | ☐ |
+| US-08 | Compromisso | _(preencher)_ | 3 pts\* | [PDF](docs/user-stories/US-08_Estruturacao_de_Repositorios.pdf) · [Confluence](https://elementares-4sem.atlassian.net/wiki/x/A4CWAQ) | ☐ |
+| US-09 | Compromisso | _(preencher)_ | 3 pts\* | [PDF](docs/user-stories/US-09_Observabilidade_e_QA.pdf) · [Confluence](https://elementares-4sem.atlassian.net/wiki/x/DICWAQ) | ☐ |
+| US-10 | Compromisso | _(preencher)_ | 3 pts\* | [PDF](docs/user-stories/US-10_Estrategia_de_Testes.pdf) · [Confluence](https://elementares-4sem.atlassian.net/wiki/x/DoCaAQ) | ☐ |
+
+> O **PDF** é a versão condensada em linguagem de negócio (Regra 1.1), pensada para avaliação externa. O **Confluence** é o documento técnico vivo, com Regras de Negócio e Critérios de Aceitação detalhados, atualizado pelo squad no dia a dia.
 
 > As caixas de **DoR Verificado** são marcadas pelo responsável ao mover o card para "Em Andamento" no Jira, conforme o checklist da seção [Critérios de Aceite](#dor-dod) abaixo — refletem o estado real da Sprint, não uma declaração antecipada.
 
@@ -144,40 +154,50 @@ Itens concretos identificados durante o planejamento técnico, registrados aqui 
 
 > Os itens com ticket "a criar" ainda precisam ser abertos formalmente no Jira antes da próxima revisão — esta tabela documenta a existência deles, mas a rastreabilidade completa depende do ticket real.
 
-### 🗓️ Planejamento Futuro (ainda não commitado)
+### 🏃 Sprint Backlog — Sprint 2 (Prévia)
 
-Separado deliberadamente do Backlog do Produto acima: os itens abaixo já têm objetivo definido no [cronograma](#cronograma), mas ainda **não foram numerados nem criados no Jira** — a numeração `US-11` em diante será definida na Sprint Planning correspondente, para não colidir com os itens técnicos já registrados como US-07 a US-10.
+As Sprints 2 e 3 ainda não começaram (períodos no [cronograma](#cronograma)), então este recorte é uma **prévia de planejamento**, não um compromisso operacional como o da Sprint 1 — não tem Responsável nem DoR verificado ainda, porque a Sprint Planning de verdade só acontece quando a Sprint 1 fechar.
 
-| Prioridade | História (rascunho) | Requisitos | Sprint |
-| :--------: | -------------------- | :--------: | :----: |
-| Média | Como gestor público, quero emitir relatórios analíticos dos dados coletados para auditar medições ambientais históricas do município. | RF-09 | 2 |
-| Média | Como pesquisador, quero aplicar análises estatísticas sobre as séries históricas para investigar a relação entre condições ambientais e demanda por atendimentos. | RF-10 | 2 |
-| Baixa | Como munícipe, quero consultar um painel público de dados abertos para acompanhar os índices ambientais do meu município. | RF-04 | 3 |
+| Capacidade estimada pela equipe por Sprint | A confirmar (Planning Poker da Sprint 2 ainda não realizado) |
+| ------------------------------------------- | :--------------------------------------------: |
+| **Meta da Sprint** | US-11 a US-14 — pipeline de ingestão real de ponta a ponta, dashboards, relatórios e análise estatística, conforme resposta do cliente ao levantamento de requisitos ("recepção de dados de ponta a ponta + alertas e alarmes") |
+| **Previsão da Sprint (extras, sem compromisso de entrega)** | Nenhuma definida ainda — depende da velocidade real observada ao final da Sprint 1 |
+
+| Rank | Prioridade | User Story | Estimativa\*\* | Sprint |
+| :--: | :--------: | ----------- | :--------: | :----: |
+| 07 | Alta | Como Gestor Público Municipal, quero que os dados enviados pelas estações sejam recebidos, calibrados e avaliados automaticamente de ponta a ponta, disparando alerta quando necessário, para que o monitoramento funcione de forma contínua e confiável, sem depender de simulação manual. | 13 | 2 |
+| 08 | Alta | Como Gestor Público Municipal, quero visualizar dashboards com a série histórica de qualidade do ar e o status das estações, para acompanhar tendências e tomar decisões com base em dados consolidados. | 8 | 2 |
+| 09 | Alta | Como Gestor Público Municipal, quero gerar relatórios em formato exportável (PDF/CSV) com os dados coletados, para auditar medições ambientais históricas do município. | 8 | 2 |
+| 10 | Alta | Como Pesquisador, quero aplicar análises estatísticas sobre as séries históricas de qualidade do ar, para investigar a relação entre condições ambientais e a demanda por atendimentos respiratórios. | 13 | 2 |
+
+> \*\*Estimativas preliminares do PO, a validar em Planning Poker no início da Sprint 2 — ver nota da tabela de Backlog do Produto acima.
 
 ---
 
 ### 📋 Requisitos do Sistema
 
+> Os códigos RF/RNF seguem a numeração oficial definida com o cliente. As descrições abaixo foram detalhadas para refletir como cada requisito se manifesta especificamente na solução Pulso Urbano — não são texto genérico de briefing.
+
 **Requisitos Funcionais (RF):**
 
-* **RF-01 — Modelo de Dados Dinâmico:** Capacidade de receber e registrar estações meteorológicas equipadas com diversos tipos de sensores.
-* **RF-02 — CRUD de Estações, Parâmetros, Alertas e Usuários:** Funcionalidades completas de criação, leitura, atualização e exclusão dessas entidades.
-* **RF-03 — Recepção de Dados:** Processamento e armazenamento dos dados enviados pelas estações meteorológicas.
-* **RF-04 — Dashboards:** Visualização interativa dos parâmetros meteorológicos em painéis dedicados.
-* **RF-05 — Geração de Alertas:** Criação automática de notificações com base em condições meteorológicas específicas.
-* **RF-06 — Datalogger:** Implementação de módulo de datalogger para registrar medições em campo.
-* **RF-07 — Estação Meteorológica:** Construção física de uma estação com sensores e componentes necessários.
-* **RF-08 — Controle de Acesso:** Sistema de autenticação com múltiplos níveis de perfil (Administrador, Gestor Público e Pesquisador).
-* **RF-09 — Relatórios:** Emissão de relatórios analíticos em múltiplos formatos sobre as medições coletadas.
-* **RF-10 — Análise Estatística:** Aplicação de conceitos estatísticos consolidados aos dashboards e relatórios.
+* **RF-01 — Modelo de Dados Dinâmico:** o cadastro de sensores aceita qualquer grandeza (temperatura, umidade, PM2.5, vento, pressão) através do campo `grandeza` na tabela `sensores`, sem exigir alteração de schema para adicionar um novo tipo de sensor.
+* **RF-02 — CRUD de Estações, Parâmetros, Alertas e Usuários:** criação, listagem, edição e inativação lógica (nunca exclusão física) de estações, sensores, regras de alerta, contas e papéis — preservando o histórico de medições vinculado.
+* **RF-03 — Recepção de Dados:** ingestão via protocolo MQTT, com gravação imediata em banco temporário e processamento assíncrono via RabbitMQ, garantindo que uma falha no processamento não descarte a leitura de campo.
+* **RF-04 — Dashboards:** painéis exibindo a classificação de qualidade do ar (IQAr) em tempo real e o status de disponibilidade de cada estação (Ativa / Com Falha / Inativa), sempre isolados por município.
+* **RF-05 — Geração de Alertas:** disparo automático de evento quando uma leitura calibrada viola o limiar de uma regra ativa, publicado no RabbitMQ e consumido pelo `alertas-notificacoes` — sem depender de consulta periódica ao banco.
+* **RF-06 — Datalogger:** módulo embarcado na estação física (Sprint 3) responsável por registrar as leituras brutas dos sensores antes do envio via MQTT.
+* **RF-07 — Estação Meteorológica:** construção física da estação de baixo custo com sensores de temperatura, umidade, PM2.5, vento e pressão, integrada ao datalogger.
+* **RF-08 — Controle de Acesso:** autenticação via JWT com três perfis (Administrador, Gestor Público, Pesquisador) e isolamento territorial — um Gestor Público só acessa dados do seu próprio município.
+* **RF-09 — Relatórios:** exportação em PDF/CSV do histórico de medições e alarmes de um município, para auditoria pela Secretaria de Saúde.
+* **RF-10 — Análise Estatística:** correlação entre a série histórica de qualidade do ar e o histórico de atendimentos respiratórios (importado do SIVEP-Gripe/SIH-SUS), para identificar padrões sazonais.
 
 **Requisitos Não Funcionais (RNF):**
 
-* **RNF-01 — Experiência do Usuário (UX):** Interface moderna com Dark Mode, foco em acessibilidade e alta usabilidade visual.
-* **RNF-02 — Documentação de APIs:** Mapeamento técnico detalhado de todas as rotas da API com exemplos de requisição e resposta.
-* **RNF-03 — Integração Contínua (CI):** Esteira automatizada de build, linting e suíte de testes de regressão no GitHub Actions.
-* **RNF-04 — Deploy Automatizado (CD):** Entrega contínua configurada para ambiente de homologação e produção.
-* **RNF-05 — Robustez e Escalabilidade:** Suporte a volume concorrente de requisições por minuto compatível com as comarcas atendidas.
+* **RNF-01 — Experiência do Usuário (UX):** interface com Dark Mode exibindo badges de severidade (Informativo/Alerta/Crítico) e status de estação de forma visualmente imediata, sem exigir leitura de texto para identificar risco.
+* **RNF-02 — Documentação de APIs:** rotas documentadas com exemplo de requisição e resposta, priorizadas conforme o cliente definiu: manual de instalação, rotas da API, modelo de dados, arquitetura e manual do usuário, nesta ordem.
+* **RNF-03 — Integração Contínua (CI):** esteira no GitHub Actions com validação de tipos TypeScript, lint e suíte de testes, bloqueando merge em caso de falha — branches `main` e `develop` protegidas por *ruleset*.
+* **RNF-04 — Deploy Automatizado (CD):** entrega contínua para homologação e produção, acionada após aprovação de Pull Request.
+* **RNF-05 — Robustez e Escalabilidade:** suporte a picos de acesso simultâneo, especialmente no momento em que um alerta crítico é disparado — quando a consulta ao Portal Público tende a aumentar repentinamente. A recepção de dados (ingestão) é a função mais crítica do sistema: uma falha no dashboard é reversível consultando depois, uma falha na ingestão perde a leitura daquele período para sempre.
 
 ---
 
@@ -230,6 +250,10 @@ A plataforma adota uma arquitetura de **microsserviços**, com ingestão desacop
 
 Esse desacoplamento garante que uma falha no processamento nunca interrompa a coleta em campo: o dado bruto fica preservado e pode ser reprocessado.
 
+![Diagrama da Arquitetura de Microsserviços do Pulso Urbano](docs/arquitetura/diagrama_arquitetura.png)
+
+> Diagrama completo, com o racional de cada decisão, está em [Proposta de Arquitetura Final](docs/arquitetura/Proposta_Arquitetura_Final.pdf) e no histórico de decisão em [ADR-001](docs/arquitetura/ADR-001_Arquitetura_Microsservicos_MQTT_RabbitMQ.pdf).
+
 | Microsserviço | Responsabilidade |
 | ------------- | ---------------- |
 | `auth-service` | Autenticação e emissão de token de sessão. |
@@ -248,6 +272,12 @@ Esse desacoplamento garante que uma falha no processamento nunca interrompa a co
 * **Banco de Dados:** PostgreSQL acessado diretamente via biblioteca cliente `pg`, com integridade referencial estrita, índices analíticos e exclusão lógica (*soft delete*).
 * **Mensageria:** MQTT na borda (dispositivos) e RabbitMQ na comunicação entre microsserviços, com Dead Letter Queue para tratamento de falhas.
 * **Segurança:** Autenticação stateless via Token JWT (HMAC-SHA256) e senhas criptografadas com `bcryptjs` (salt rounds 10).
+
+### 🗄️ Modelo de Dados
+
+![Diagrama Entidade-Relacionamento do PostgreSQL](docs/banco-de-dados/modelo_er.png)
+
+Script completo, idempotente, com as 9 tabelas, índices, triggers e rotinas de manutenção: [`modelo_completo_postgres.sql`](docs/banco-de-dados/modelo_completo_postgres.sql).
 
 ### 🚀 Pipeline de Entrega (CI/CD)
 
