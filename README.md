@@ -250,7 +250,7 @@ A plataforma adota uma arquitetura de **microsserviços**, com ingestão desacop
 
 Esse desacoplamento garante que uma falha no processamento nunca interrompa a coleta em campo: o dado bruto fica preservado e pode ser reprocessado.
 
-![Diagrama da Arquitetura de Microsserviços do Pulso Urbano](docs/arquitetura/diagrama_arquitetura.png)
+![Diagrama da Arquitetura de Microsserviços do Pulso Urbano](docs/arquitetura.png)
 
 > Diagrama completo, com o racional de cada decisão, está em [Proposta de Arquitetura Final](docs/arquitetura/Proposta_Arquitetura_Final.pdf) e no histórico de decisão em [ADR-001](docs/arquitetura/ADR-001_Arquitetura_Microsservicos_MQTT_RabbitMQ.pdf).
 
