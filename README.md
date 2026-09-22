@@ -37,7 +37,7 @@ A [Tecsus](https://www.tecsus.com.br/) é uma empresa de tecnologia especializad
 
 ### ⚠️ A Dor
 
-Secretarias de Saúde municipais não conseguem antecipar aumentos na demanda por atendimentos respiratórios porque não possuem dados ambientais estruturados e contínuos disponíveis para consulta. Sem um histórico confiável de condições como temperatura, umidade e concentração de PM2.5, torna-se difícil investigar quais condições ambientais podem estar associadas ao aumento da demanda e utilizar essas informações para apoiar ações preventivas.
+Municípios e consórcios intermunicipais não possuem hoje uma rede acessível de monitoramento ambiental contínuo, o que dificulta identificar variações críticas de qualidade do ar e condições climáticas em tempo hábil. Sem um histórico confiável de temperatura, umidade, vento e concentração de poluentes como o PM2.5, gestores públicos ficam sem uma base de dados estruturada para embasar decisões e agir preventivamente diante de eventos ambientais críticos.
 
 ### 🚀 O Desafio
 
@@ -66,7 +66,7 @@ O backlog segue a classificação de itens definida pelo cliente: **User Stories
 |  3  | **US-03** | Negócio | Sem estação cadastrada não existe fonte de dado nenhuma — é a entidade central de todo o pipeline de coleta.                                                  | Como gestor público, quero cadastrar e gerenciar estações meteorológicas georreferenciadas para manter o inventário territorial sob governança municipal.                                                                                                                                                          | EPIC-02 |   ELEM-16   |     RF-01, RF-02     |   5   |        1        |
 |  4  | **US-05** | Negócio | Sem calibração correta, os valores de PM2.5 e temperatura ficam incorretos — inviabiliza a classificação de qualidade do ar prometida na 1ª Entrega.         | Como gestor público, quero parametrizar e calibrar os sensores associados às estações para que as leituras brutas sejam convertidas em grandezas reais.                                                                                                                                                              | EPIC-02 |   ELEM-27   |     RF-01, RF-02     |   5   |        1        |
 |  5  | **US-04** | Negócio | Entrega nomeada na 1ª Entrega ao cliente: garante que uma falha de campo seja percebida pela Secretaria antes que vire lacuna nos dados.                          | Como gestor público, quero monitorar a conectividade e disponibilidade das estações para identificar quedas de sinal e falhas operacionais.                                                                                                                                                                           | EPIC-03 |   ELEM-23   |        RF-03        |   8   |        1        |
-|  6  | **US-06** | Negócio | É o motor do IQAr: converte leitura calibrada em alerta de saúde acionável — a entrega central do MVP apresentada ao cliente.                                  | Como técnico da Defesa Civil, quero configurar regras de alerta e limiares críticos para disparar avisos preventivos em condições ambientais severas.                                                                                                                                                                | EPIC-03 |   ELEM-32   |     RF-02, RF-05     |   8   |        1        |
+|  6  | **US-06** | Negócio | É o motor do IQAr: converte leitura calibrada em alerta ambiental acionável — a entrega central do MVP apresentada ao cliente.                                  | Como técnico da Defesa Civil, quero configurar regras de alerta e limiares críticos para disparar avisos preventivos em condições ambientais severas.                                                                                                                                                                | EPIC-03 |   ELEM-32   |     RF-02, RF-05     |   8   |        1        |
 |  —  | **US-07** | Técnico | Garante que qualquer avaliador, incluindo o cliente, entenda o estado real do projeto sem depender de explicação verbal.                                         | Como membro da equipe Elementares, quero manter a documentação do projeto centralizada, atualizada e vinculada aos tickets do Jira, para garantir que qualquer integrante ou avaliador externo compreenda o estado real do projeto sem depender de explicação verbal.                                                | EPIC-04 |   ELEM-58   |        RNF-02        |  3\*  | 1-3 (contínuo) |
 |  —  | **US-08** | Técnico | Reduz o tempo de setup e evita divergência de ambiente entre máquinas — o custo de não fazer isso aparece como bug em produção depois.                       | Como desenvolvedor da equipe Elementares, quero ter os repositórios organizados com estrutura de pastas padronizada e ambiente de desenvolvimento reproduzível, para garantir que qualquer integrante trabalhe sobre a mesma base técnica, reduzindo divergência de ambiente e tempo de configuração.              | EPIC-04 |   ELEM-59   |        RNF-03        |  3\*  | 1-3 (contínuo) |
 |  —  | **US-09** | Técnico | Garante que uma falha de qualidade seja detectada antes de chegar ao usuário final — sustenta a confiabilidade prometida ao cliente.                             | Como responsável por QA da equipe Elementares, quero definir processos de validação de qualidade e monitorar continuamente a saúde da API, do banco de dados e da esteira de integração, para identificar problemas antes que cheguem ao usuário final e garantir critério objetivo de aprovação das entregas. | EPIC-04 |   ELEM-60   |        RNF-05        |  3\*  | 1-3 (contínuo) |
@@ -96,12 +96,12 @@ As seis histórias de negócio (US-01 a US-06) formam uma cadeia de dependência
 
 Recorte operacional do Product Backlog para esta Sprint: o que é **compromisso** firmado com o cliente, quem executa, e como cada item comprova a Definition of Ready.
 
-**Entregas de valor da Sprint 1 (US-01 a US-06)**
+| Capacidade estimada pela equipe por Sprint                         |                             34 Story Points nas histórias de negócio (consenso de Planning Poker) + 12 pts nominais de suporte técnico                             |
+| ------------------------------------------------------------------ | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
+| **Meta da Sprint**                                           | US-01 a US-06 — fundação da plataforma, monitoramento de disponibilidade e classificação de qualidade do ar (IQAr), conforme a 1ª Entrega apresentada ao cliente |
+| **Previsão da Sprint (extras, sem compromisso de entrega)** |                             Nenhuma — a capacidade de valor da Sprint 1 já está integralmente ocupada pelas seis histórias de negócio                             |
 
-| Capacidade estimada pela equipe por Sprint                         |                                                                                   34 Story Points (consenso de Planning Poker)                                                                                   |
-| ------------------------------------------------------------------ | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
-| **Meta da Sprint**                                           |                      US-01 a US-06 — fundação da plataforma, monitoramento de disponibilidade e classificação de qualidade do ar (IQAr), conforme a 1ª Entrega apresentada ao cliente                      |
-| **Previsão da Sprint (extras, sem compromisso de entrega)** | Nenhuma — a capacidade da Sprint 1 já está integralmente ocupada pelas seis histórias de negócio. US-07 a US-10 rodam em paralelo como suporte contínuo e não entram nesse cálculo de capacidade de valor |
+**Entregas de valor da Sprint 1 (US-01 a US-06)**
 
 | Rank | Prioridade | User Story                                                                                                                                                                                                                                                                                                              | Estimativa | Sprint |
 | :--: | :--------: | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :--------: | :----: |
@@ -111,12 +111,6 @@ Recorte operacional do Product Backlog para esta Sprint: o que é **compromisso*
 |  04  |    Alta    | Como Gestor Público Municipal, quero monitorar a conectividade e disponibilidade das estações, para identificar quedas de sinal e falhas operacionais antes que virem lacuna nos dados.                                                                                                                              |     8     |   1   |
 |  05  |    Alta    | Como Gestor Público Municipal, quero parametrizar e calibrar os sensores associados às estações, para que as leituras brutas sejam convertidas com precisão em grandezas reais.                                                                                                                                    |     5     |   1   |
 |  06  |    Alta    | Como técnico da Defesa Civil, quero configurar regras de alerta e limiares críticos por sensor, para disparar avisos preventivos automáticos quando condições ambientais severas forem detectadas.                                                                                                                 |     8     |   1   |
-
-**Itens técnicos de suporte contínuo (US-07 a US-10)**
-
-| Documentação e Rastreabilidade do Projeto (US-07) | Estruturação de Repositórios (US-08) |    Observabilidade e QA (US-09)    |   Estratégia de Testes (US-10)   |
-| :-------------------------------------------------: | :-------------------------------------: | :--------------------------------: | :--------------------------------: |
-|         3 pts\* — contínuo (Sprints 1-3)         |   3 pts\* — contínuo (Sprints 1-3)   | 3 pts\* — contínuo (Sprints 1-3) | 3 pts\* — contínuo (Sprints 1-3) |
 
 ### 🔍 Itens de Pesquisa e Débito Técnico (Spikes e Bugs)
 
@@ -133,19 +127,19 @@ Itens concretos identificados durante o planejamento técnico, registrados aqui 
 
 ### 🏃 Sprint Backlog — Sprint 2 (Prévia)
 
-As Sprints 2 e 3 ainda não começaram (períodos no [cronograma](#cronograma)), então este recorte é uma **prévia de planejamento**, não um compromisso operacional como o da Sprint 1 — não tem Responsável nem DoR verificado ainda, porque a Sprint Planning de verdade só acontece quando a Sprint 1 fechar.
+As Sprints 2 e 3 ainda não começaram (períodos no [cronograma](#cronograma)), então este recorte é uma **prévia de planejamento**, não um compromisso operacional como o da Sprint 1. O texto completo de cada User Story está no [Backlog do Produto](#backlog) acima.
 
 | Capacidade estimada pela equipe por Sprint                         |                                                                                     A confirmar (Planning Poker da Sprint 2 ainda não realizado)                                                                                     |
 | ------------------------------------------------------------------ | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
 | **Meta da Sprint**                                           | US-11 a US-14 — pipeline de ingestão real de ponta a ponta, dashboards, relatórios e análise estatística, conforme resposta do cliente ao levantamento de requisitos ("recepção de dados de ponta a ponta + alertas e alarmes") |
 | **Previsão da Sprint (extras, sem compromisso de entrega)** |                                                                          Nenhuma definida ainda — depende da velocidade real observada ao final da Sprint 1                                                                          |
 
-| Rank | Prioridade | User Story                                                                                                                                                                                                                                                                                          | Estimativa\*\* | Sprint |
-| :--: | :--------: | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :------------: | :----: |
-|  07  |    Alta    | Como Gestor Público Municipal, quero que os dados enviados pelas estações sejam recebidos, calibrados e avaliados automaticamente de ponta a ponta, disparando alerta quando necessário, para que o monitoramento funcione de forma contínua e confiável, sem depender de simulação manual. |       13       |   2   |
-|  08  |    Alta    | Como Gestor Público Municipal, quero visualizar dashboards com a série histórica de qualidade do ar e o status das estações, para acompanhar tendências e tomar decisões com base em dados consolidados.                                                                                     |       8       |   2   |
-|  09  |    Alta    | Como Gestor Público Municipal, quero gerar relatórios em formato exportável (PDF/CSV) com os dados coletados, para auditar medições ambientais históricas do município.                                                                                                                      |       8       |   2   |
-|  10  |    Alta    | Como Pesquisador, quero aplicar análises estatísticas sobre as séries históricas de qualidade do ar e clima, para identificar padrões e tendências ambientais ao longo do tempo.                                                                                                              |       13       |   2   |
+|  US  | Prioridade | Estimativa\*\* | Sprint |
+| :---: | :--------: | :------------: | :----: |
+| US-11 |    Alta    |       13       |   2   |
+| US-12 |    Alta    |       8       |   2   |
+| US-13 |    Alta    |       8       |   2   |
+| US-14 |    Alta    |       13       |   2   |
 
 > \*\*Estimativas preliminares do PO, a validar em Planning Poker no início da Sprint 2 — ver nota da tabela de Backlog do Produto acima.
 
@@ -165,7 +159,7 @@ As Sprints 2 e 3 ainda não começaram (períodos no [cronograma](#cronograma)),
 * **RF-06 — Datalogger:** módulo embarcado na estação física (Sprint 3) responsável por registrar as leituras brutas dos sensores antes do envio via MQTT.
 * **RF-07 — Estação Meteorológica:** construção física da estação de baixo custo com sensores de temperatura, umidade, PM2.5, vento e pressão, integrada ao datalogger.
 * **RF-08 — Controle de Acesso:** autenticação via JWT com três perfis (Administrador, Gestor Público, Pesquisador) e isolamento territorial — um Gestor Público só acessa dados do seu próprio município.
-* **RF-09 — Relatórios:** exportação em PDF/CSV do histórico de medições e alarmes de um município, para auditoria pela Secretaria de Saúde.
+* **RF-09 — Relatórios:** exportação em PDF/CSV do histórico de medições e alarmes de um município, para auditoria e acompanhamento pela gestão municipal.
 * **RF-10 — Análise Estatística:** aplicação de estatística sobre a série histórica de qualidade do ar e clima, para identificar padrões e tendências ambientais ao longo do tempo.
 
 **Requisitos Não Funcionais (RNF):**
@@ -180,17 +174,17 @@ As Sprints 2 e 3 ainda não começaram (períodos no [cronograma](#cronograma)),
 
 ### 📐 Variáveis Monitoradas
 
-O escopo de sensores do MVP foi definido a partir da dor do cliente: cada variável coletada existe porque ajuda a caracterizar as condições ambientais associadas à demanda por atendimentos respiratórios.
+O escopo de sensores do MVP foi definido a partir da dor do cliente: cada variável coletada existe porque ajuda a caracterizar as condições ambientais e a qualidade do ar do município.
 
-| Variável             | Unidade | Por que está no escopo                                                                                         |
-| --------------------- | :-----: | --------------------------------------------------------------------------------------------------------------- |
-| Temperatura           |   °C   | Variável mais diretamente observável para identificar diferenças térmicas entre regiões (ilhas de calor).  |
-| Umidade Relativa      |    %    | Interfere nas trocas de energia e caracteriza condições de baixa umidade associadas a quadros respiratórios. |
-| PM2.5                 | µg/m³ | Partícula fina, associada a doenças respiratórias por penetrar profundamente no sistema respiratório.       |
-| Velocidade do Vento   |  km/h  | Determina o transporte e a dispersão dos poluentes a partir da fonte.                                          |
-| Direção do Vento    |   °   | Indica de onde vem o poluente e quais áreas tendem a ser afetadas.                                             |
-| Precipitação        |   mm   | Influencia a remoção de material particulado suspenso na atmosfera.                                           |
-| Pressão Atmosférica |   hPa   | Condiciona a estagnação ou dispersão do ar próximo à superfície.                                          |
+| Variável             | Unidade | Por que está no escopo                                                                                                             |
+| --------------------- | :-----: | ----------------------------------------------------------------------------------------------------------------------------------- |
+| Temperatura           |   °C   | Variável mais diretamente observável para identificar diferenças térmicas entre regiões (ilhas de calor).                      |
+| Umidade Relativa      |    %    | Interfere nas trocas de energia da atmosfera e caracteriza condições de baixa umidade, relevantes para a dispersão de poluentes. |
+| PM2.5                 | µg/m³ | Partícula fina em suspensão, um dos principais indicadores de qualidade do ar em áreas urbanas.                                  |
+| Velocidade do Vento   |  km/h  | Determina o transporte e a dispersão dos poluentes a partir da fonte.                                                              |
+| Direção do Vento    |   °   | Indica de onde vem o poluente e quais áreas tendem a ser afetadas.                                                                 |
+| Precipitação        |   mm   | Influencia a remoção de material particulado suspenso na atmosfera.                                                               |
+| Pressão Atmosférica |   hPa   | Condiciona a estagnação ou dispersão do ar próximo à superfície.                                                              |
 
 > **Fora do escopo do MVP:** PM10, O₃, NO₂, CO₂, radiação solar/UV, variáveis de solo e de nuvens. São variáveis válidas em meteorologia, mas não contribuem diretamente para a análise proposta nesta fase.
 
@@ -227,7 +221,7 @@ A plataforma adota uma arquitetura de **microsserviços**, com ingestão desacop
 
 Esse desacoplamento garante que uma falha no processamento nunca interrompa a coleta em campo: o dado bruto fica preservado e pode ser reprocessado.
 
-![Diagrama da Arquitetura de Microsserviços do Pulso Urbano](docs/arquitetura.jpeg)
+![Diagrama da Arquitetura de Microsserviços do Pulso Urbano](docs/arquitetura.png)
 
 > Diagrama completo, com o racional de cada decisão, está em [Proposta de Arquitetura Final](docs/arquitetura/Proposta_Arquitetura_Final.pdf) e no histórico de decisão em [ADR-001](docs/arquitetura/ADR-001_Arquitetura_Microsservicos_MQTT_RabbitMQ.pdf).
 
@@ -308,6 +302,7 @@ As branches `main` e `develop` são protegidas por *ruleset*, exigindo:
 
 A estratégia de garantia de qualidade contempla:
 
+* **Ferramenta:** [Vitest](https://vitest.dev/) — escolhido por reaproveitar a configuração já existente do Vite no projeto, tanto no frontend quanto no backend.
 * **Testes de Unidade:** Validação da lógica de negócio crítica — conversão de leituras (equação afim), avaliação de regras de alerta e validação de dados de entrada.
 * **Testes de Integração:** Validação da comunicação entre a API e o banco de dados em ambiente controlado por containers.
 * **Testes de API:** Validação de contratos HTTP, status codes (200, 201, 400, 401, 403, 409) e payloads.
