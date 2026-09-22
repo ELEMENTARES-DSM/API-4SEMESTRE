@@ -17,13 +17,13 @@
 
 ### 🔗 Links Rápidos
 
-| Recurso | Link |
-| ------- | :--: |
-| 📋 Board do Produto (Jira) | [Acessar Backlog](https://elementares-4sem.atlassian.net/jira/software/projects/SCRUM/boards/1/backlog) |
-| 🖥️ Repositório Backend | [BACKEND-4SEMESTRE](https://github.com/ELEMENTARES-DSM/BACKEND-4SEMESTRE) |
-| 🎨 Repositório Frontend | [FRONTEND-4SEMESTRE](https://github.com/ELEMENTARES-DSM/FRONTEND-4SEMESTRE) |
-| 📄 Documentação e Artefatos da Sprint | [`/docs`](docs/) |
-| 👥 GitHub e LinkedIn do time | [Ver seção Nossa Equipe](#equipe) |
+| Recurso                                 |                                                  Link                                                  |
+| --------------------------------------- | :----------------------------------------------------------------------------------------------------: |
+| 📋 Board do Produto (Jira)              | [Acessar Backlog](https://elementares-4sem.atlassian.net/jira/software/projects/SCRUM/boards/1/backlog) |
+| 🖥️ Repositório Backend               |                [BACKEND-4SEMESTRE](https://github.com/ELEMENTARES-DSM/BACKEND-4SEMESTRE)                |
+| 🎨 Repositório Frontend                |               [FRONTEND-4SEMESTRE](https://github.com/ELEMENTARES-DSM/FRONTEND-4SEMESTRE)               |
+| 📄 Documentação e Artefatos da Sprint |                                           [`/docs`](docs/)                                           |
+| 👥 GitHub e LinkedIn do time            |                                   [Ver seção Nossa Equipe](#equipe)                                   |
 
 ---
 
@@ -59,26 +59,26 @@ Entregar a fundação da plataforma — contas, autenticação, estações e sen
 
 O backlog segue a classificação de itens definida pelo cliente: **User Stories de negócio** (valor direto ao usuário) e **Itens Técnicos / Infraestrutura** (engenharia habilitadora) convivem na mesma numeração sequencial, cada um com seu ticket rastreável no Jira. A coluna **Rank** reflete a ordem de dependência de implementação, não apenas a ordem numérica.
 
-| Rank | US | Tipo | Valor de Negócio | História | Épico | Ticket | Requisitos | Pontos | Sprint |
-| :--: | :--: | :--: | ----------------- | -------- | ----- | :----: | :--------: | :----: | :----: |
-| 1 | **US-01** | Negócio | Sem controle de identidade e papéis, nenhuma outra funcionalidade pode restringir acesso por perfil — é o alicerce de todo o isolamento territorial do produto. | Como administrador, quero gerenciar contas e papéis hierárquicos para controlar o acesso de gestores e pesquisadores na plataforma. | EPIC-01 | ELEM-6 | RF-02, RF-08 | 5 | 1 |
-| 2 | **US-02** | Negócio | Garante que cada usuário só opere dentro do que seu perfil permite; sem isso, o isolamento territorial da US-01 não é aplicado em tempo de uso. | Como usuário cadastrado, quero me autenticar com credenciais corporativas e sessão segura para acessar as áreas e dados restritos ao meu perfil. | EPIC-01 | ELEM-11 | RF-08 | 3 | 1 |
-| 3 | **US-03** | Negócio | Sem estação cadastrada não existe fonte de dado nenhuma — é a entidade central de todo o pipeline de coleta. | Como gestor público, quero cadastrar e gerenciar estações meteorológicas georreferenciadas para manter o inventário territorial sob governança municipal. | EPIC-02 | ELEM-16 | RF-01, RF-02 | 5 | 1 |
-| 4 | **US-05** | Negócio | Sem calibração correta, os valores de PM2.5 e temperatura ficam incorretos — inviabiliza a classificação de qualidade do ar prometida na 1ª Entrega. | Como gestor público, quero parametrizar e calibrar os sensores associados às estações para que as leituras brutas sejam convertidas em grandezas reais. | EPIC-02 | ELEM-27 | RF-01, RF-02 | 5 | 1 |
-| 5 | **US-04** | Negócio | Entrega nomeada na 1ª Entrega ao cliente: garante que uma falha de campo seja percebida pela Secretaria antes que vire lacuna nos dados. | Como gestor público, quero monitorar a conectividade e disponibilidade das estações para identificar quedas de sinal e falhas operacionais. | EPIC-03 | ELEM-23 | RF-03 | 8 | 1 |
-| 6 | **US-06** | Negócio | É o motor do IQAr: converte leitura calibrada em alerta de saúde acionável — a entrega central do MVP apresentada ao cliente. | Como técnico da Defesa Civil, quero configurar regras de alerta e limiares críticos para disparar avisos preventivos em condições ambientais severas. | EPIC-03 | ELEM-32 | RF-02, RF-05 | 8 | 1 |
-| — | **US-07** | Técnico | Garante que qualquer avaliador, incluindo o cliente, entenda o estado real do projeto sem depender de explicação verbal. | Como membro da equipe Elementares, quero manter a documentação do projeto centralizada, atualizada e vinculada aos tickets do Jira, para garantir que qualquer integrante ou avaliador externo compreenda o estado real do projeto sem depender de explicação verbal. | EPIC-04 | ELEM-58 | RNF-02 | 3\* | 1-3 (contínuo) |
-| — | **US-08** | Técnico | Reduz o tempo de setup e evita divergência de ambiente entre máquinas — o custo de não fazer isso aparece como bug em produção depois. | Como desenvolvedor da equipe Elementares, quero ter os repositórios organizados com estrutura de pastas padronizada e ambiente de desenvolvimento reproduzível, para garantir que qualquer integrante trabalhe sobre a mesma base técnica, reduzindo divergência de ambiente e tempo de configuração. | EPIC-04 | ELEM-59 | RNF-03 | 3\* | 1-3 (contínuo) |
-| — | **US-09** | Técnico | Garante que uma falha de qualidade seja detectada antes de chegar ao usuário final — sustenta a confiabilidade prometida ao cliente. | Como responsável por QA da equipe Elementares, quero definir processos de validação de qualidade e monitorar continuamente a saúde da API, do banco de dados e da esteira de integração, para identificar problemas antes que cheguem ao usuário final e garantir critério objetivo de aprovação das entregas. | EPIC-04 | ELEM-60 | RNF-05 | 3\* | 1-3 (contínuo) |
-| — | **US-10** | Técnico | Garante que nenhuma entrega futura quebre o que já foi validado com o cliente nesta Sprint. | Como desenvolvedor da equipe Elementares, quero implementar uma suíte de testes automatizados que cubra a lógica de negócio crítica e a integração entre a API e o banco de dados, para garantir que nenhuma alteração futura quebre funcionalidades já validadas com o cliente em sprints anteriores. | EPIC-04 | ELEM-61 | RNF-03 | 3\* | 1-3 (contínuo) |
-| 7 | **US-11** | Negócio | É a entrega que o cliente pediu explicitamente para a Sprint 2: pipeline real de ponta a ponta, não mais simulado. | Como Gestor Público Municipal, quero que os dados enviados pelas estações sejam recebidos, calibrados e avaliados automaticamente de ponta a ponta, disparando alerta quando necessário, para que o monitoramento funcione de forma contínua e confiável, sem depender de simulação manual. | EPIC-03 | _a criar_ | RF-03, RF-05, RNF-05 | 13\*\* | 2 |
-| 8 | **US-12** | Negócio | Sem visualização histórica, a Secretaria não consegue identificar tendência nenhuma — só o instante presente. | Como Gestor Público Municipal, quero visualizar dashboards com a série histórica de qualidade do ar e o status das estações, para acompanhar tendências e tomar decisões com base em dados consolidados. | EPIC-03 | _a criar_ | RF-04 | 8\*\* | 2 |
-| 9 | **US-13** | Negócio | Exigido explicitamente pelo cliente (RF-09) para auditoria formal das medições. | Como Gestor Público Municipal, quero gerar relatórios em formato exportável (PDF/CSV) com os dados coletados, para auditar medições ambientais históricas do município. | EPIC-03 | _a criar_ | RF-09 | 8\*\* | 2 |
-| 10 | **US-14** | Negócio | Sem análise sobre a série histórica, o dado coletado nas Sprints 1 e 2 fica só arquivado — é o que transforma leitura em informação útil. | Como Pesquisador, quero aplicar análises estatísticas sobre as séries históricas de qualidade do ar e clima, para identificar padrões e tendências ambientais ao longo do tempo. | EPIC-03 | _a criar_ | RF-10 | 13\*\* | 2 |
-| 11 | **US-15** | Negócio | Entrega o acesso sem cadastro ao munícipe — o terceiro perfil de usuário previsto desde a visão de produto. | Como Munícipe, quero consultar um painel público com os índices ambientais do meu município sem precisar de conta, para acompanhar a qualidade do ar do meu dia a dia. | EPIC-03 | _a criar_ | RF-04, RNF-01 | 8\*\* | 3 |
-| 12 | **US-16** | Negócio | Substitui a simulação por operação real de campo — fecha o ciclo iniciado com o simulador da Sprint 1/2. | Como Gestor Público Municipal, quero que os dados sejam recebidos diretamente do datalogger instalado na estação física real, para que a plataforma opere com hardware de campo em vez de dados simulados. | EPIC-03 | _a criar_ | RF-06, RF-07 | 13\*\* | 3 |
-| 13 | **US-17** | Negócio | Garante que o alerta chegue rápido o suficiente para ser útil, não só que ele exista. | Como Técnico da Defesa Civil, quero que os alertas sejam entregues com latência mínima e por múltiplos canais simultaneamente, para garantir resposta rápida em situações climáticas críticas. | EPIC-03 | _a criar_ | RF-05 | 5\*\* | 3 |
-| — | **US-18** | Técnico | Valida que a plataforma aguenta o volume real de acesso quando o Portal Público (US-15) entrar no ar. | Como Squad de Engenharia, quero validar e otimizar a performance da plataforma sob alto volume de acessos simultâneos, para garantir estabilidade quando o Portal Público entrar em operação. | EPIC-04 | _a criar_ | RNF-05 | 8\*\* | 3 |
+| Rank |       US       |   Tipo   | Valor de Negócio                                                                                                                                                  | História                                                                                                                                                                                                                                                                                                                | Épico  |   Ticket   |      Requisitos      | Pontos |     Sprint     |
+| :--: | :-------------: | :------: | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------- | :---------: | :------------------: | :----: | :-------------: |
+|  1  | **US-01** | Negócio | Sem controle de identidade e papéis, nenhuma outra funcionalidade pode restringir acesso por perfil — é o alicerce de todo o isolamento territorial do produto. | Como administrador, quero gerenciar contas e papéis hierárquicos para controlar o acesso de gestores e pesquisadores na plataforma.                                                                                                                                                                                    | EPIC-01 |   ELEM-6   |     RF-02, RF-08     |   5   |        1        |
+|  2  | **US-02** | Negócio | Garante que cada usuário só opere dentro do que seu perfil permite; sem isso, o isolamento territorial da US-01 não é aplicado em tempo de uso.                | Como usuário cadastrado, quero me autenticar com credenciais corporativas e sessão segura para acessar as áreas e dados restritos ao meu perfil.                                                                                                                                                                      | EPIC-01 |   ELEM-11   |        RF-08        |   3   |        1        |
+|  3  | **US-03** | Negócio | Sem estação cadastrada não existe fonte de dado nenhuma — é a entidade central de todo o pipeline de coleta.                                                  | Como gestor público, quero cadastrar e gerenciar estações meteorológicas georreferenciadas para manter o inventário territorial sob governança municipal.                                                                                                                                                          | EPIC-02 |   ELEM-16   |     RF-01, RF-02     |   5   |        1        |
+|  4  | **US-05** | Negócio | Sem calibração correta, os valores de PM2.5 e temperatura ficam incorretos — inviabiliza a classificação de qualidade do ar prometida na 1ª Entrega.         | Como gestor público, quero parametrizar e calibrar os sensores associados às estações para que as leituras brutas sejam convertidas em grandezas reais.                                                                                                                                                              | EPIC-02 |   ELEM-27   |     RF-01, RF-02     |   5   |        1        |
+|  5  | **US-04** | Negócio | Entrega nomeada na 1ª Entrega ao cliente: garante que uma falha de campo seja percebida pela Secretaria antes que vire lacuna nos dados.                          | Como gestor público, quero monitorar a conectividade e disponibilidade das estações para identificar quedas de sinal e falhas operacionais.                                                                                                                                                                           | EPIC-03 |   ELEM-23   |        RF-03        |   8   |        1        |
+|  6  | **US-06** | Negócio | É o motor do IQAr: converte leitura calibrada em alerta de saúde acionável — a entrega central do MVP apresentada ao cliente.                                  | Como técnico da Defesa Civil, quero configurar regras de alerta e limiares críticos para disparar avisos preventivos em condições ambientais severas.                                                                                                                                                                | EPIC-03 |   ELEM-32   |     RF-02, RF-05     |   8   |        1        |
+|  —  | **US-07** | Técnico | Garante que qualquer avaliador, incluindo o cliente, entenda o estado real do projeto sem depender de explicação verbal.                                         | Como membro da equipe Elementares, quero manter a documentação do projeto centralizada, atualizada e vinculada aos tickets do Jira, para garantir que qualquer integrante ou avaliador externo compreenda o estado real do projeto sem depender de explicação verbal.                                                | EPIC-04 |   ELEM-58   |        RNF-02        |  3\*  | 1-3 (contínuo) |
+|  —  | **US-08** | Técnico | Reduz o tempo de setup e evita divergência de ambiente entre máquinas — o custo de não fazer isso aparece como bug em produção depois.                       | Como desenvolvedor da equipe Elementares, quero ter os repositórios organizados com estrutura de pastas padronizada e ambiente de desenvolvimento reproduzível, para garantir que qualquer integrante trabalhe sobre a mesma base técnica, reduzindo divergência de ambiente e tempo de configuração.              | EPIC-04 |   ELEM-59   |        RNF-03        |  3\*  | 1-3 (contínuo) |
+|  —  | **US-09** | Técnico | Garante que uma falha de qualidade seja detectada antes de chegar ao usuário final — sustenta a confiabilidade prometida ao cliente.                             | Como responsável por QA da equipe Elementares, quero definir processos de validação de qualidade e monitorar continuamente a saúde da API, do banco de dados e da esteira de integração, para identificar problemas antes que cheguem ao usuário final e garantir critério objetivo de aprovação das entregas. | EPIC-04 |   ELEM-60   |        RNF-05        |  3\*  | 1-3 (contínuo) |
+|  —  | **US-10** | Técnico | Garante que nenhuma entrega futura quebre o que já foi validado com o cliente nesta Sprint.                                                                       | Como desenvolvedor da equipe Elementares, quero implementar uma suíte de testes automatizados que cubra a lógica de negócio crítica e a integração entre a API e o banco de dados, para garantir que nenhuma alteração futura quebre funcionalidades já validadas com o cliente em sprints anteriores.          | EPIC-04 |   ELEM-61   |        RNF-03        |  3\*  | 1-3 (contínuo) |
+|  7  | **US-11** | Negócio | É a entrega que o cliente pediu explicitamente para a Sprint 2: pipeline real de ponta a ponta, não mais simulado.                                               | Como Gestor Público Municipal, quero que os dados enviados pelas estações sejam recebidos, calibrados e avaliados automaticamente de ponta a ponta, disparando alerta quando necessário, para que o monitoramento funcione de forma contínua e confiável, sem depender de simulação manual.                      | EPIC-03 | _a criar_ | RF-03, RF-05, RNF-05 | 13\*\* |        2        |
+|  8  | **US-12** | Negócio | Sem visualização histórica, a Secretaria não consegue identificar tendência nenhuma — só o instante presente.                                               | Como Gestor Público Municipal, quero visualizar dashboards com a série histórica de qualidade do ar e o status das estações, para acompanhar tendências e tomar decisões com base em dados consolidados.                                                                                                          | EPIC-03 | _a criar_ |        RF-04        | 8\*\* |        2        |
+|  9  | **US-13** | Negócio | Exigido explicitamente pelo cliente (RF-09) para auditoria formal das medições.                                                                                  | Como Gestor Público Municipal, quero gerar relatórios em formato exportável (PDF/CSV) com os dados coletados, para auditar medições ambientais históricas do município.                                                                                                                                           | EPIC-03 | _a criar_ |        RF-09        | 8\*\* |        2        |
+|  10  | **US-14** | Negócio | Sem análise sobre a série histórica, o dado coletado nas Sprints 1 e 2 fica só arquivado — é o que transforma leitura em informação útil.                 | Como Pesquisador, quero aplicar análises estatísticas sobre as séries históricas de qualidade do ar e clima, para identificar padrões e tendências ambientais ao longo do tempo.                                                                                                                                   | EPIC-03 | _a criar_ |        RF-10        | 13\*\* |        2        |
+|  11  | **US-15** | Negócio | Entrega o acesso sem cadastro ao munícipe — o terceiro perfil de usuário previsto desde a visão de produto.                                                    | Como Munícipe, quero consultar um painel público com os índices ambientais do meu município sem precisar de conta, para acompanhar a qualidade do ar do meu dia a dia.                                                                                                                                               | EPIC-03 | _a criar_ |    RF-04, RNF-01    | 8\*\* |        3        |
+|  12  | **US-16** | Negócio | Substitui a simulação por operação real de campo — fecha o ciclo iniciado com o simulador da Sprint 1/2.                                                      | Como Gestor Público Municipal, quero que os dados sejam recebidos diretamente do datalogger instalado na estação física real, para que a plataforma opere com hardware de campo em vez de dados simulados.                                                                                                           | EPIC-03 | _a criar_ |     RF-06, RF-07     | 13\*\* |        3        |
+|  13  | **US-17** | Negócio | Garante que o alerta chegue rápido o suficiente para ser útil, não só que ele exista.                                                                          | Como Técnico da Defesa Civil, quero que os alertas sejam entregues com latência mínima e por múltiplos canais simultaneamente, para garantir resposta rápida em situações climáticas críticas.                                                                                                                  | EPIC-03 | _a criar_ |        RF-05        | 5\*\* |        3        |
+|  —  | **US-18** | Técnico | Valida que a plataforma aguenta o volume real de acesso quando o Portal Público (US-15) entrar no ar.                                                             | Como Squad de Engenharia, quero validar e otimizar a performance da plataforma sob alto volume de acessos simultâneos, para garantir estabilidade quando o Portal Público entrar em operação.                                                                                                                        | EPIC-04 | _a criar_ |        RNF-05        | 8\*\* |        3        |
 
 > **Pontos:** US-01 a US-06 somam 34 Story Points, consenso de Planning Poker (sequência de Fibonacci) — medem valor de negócio. \*Os 3 pontos de US-07 a US-10 são uma estimativa nominal de esforço de engenharia **por sprint** em que houver trabalho ativo (setup inicial na Sprint 1, manutenção e verificação nas Sprints 2 e 3), para fins de organização e apontamento de horas — **não fazem parte** do consenso de Planning Poker das histórias de negócio. \*\*Estimativas de US-11 a US-18 são **preliminares, propostas pelo PO** — ainda não passaram por Planning Poker com o squad completo. Serão revalidadas na Sprint Planning de cada sprint.
 
@@ -98,57 +98,36 @@ Recorte operacional do Product Backlog para esta Sprint: o que é **compromisso*
 
 **Entregas de valor da Sprint 1 (US-01 a US-06)**
 
-| Capacidade estimada pela equipe por Sprint | 34 Story Points (consenso de Planning Poker) |
-| ------------------------------------------- | :--------------------------------------------: |
-| **Meta da Sprint** | US-01 a US-06 — fundação da plataforma, monitoramento de disponibilidade e classificação de qualidade do ar (IQAr), conforme a 1ª Entrega apresentada ao cliente |
+| Capacidade estimada pela equipe por Sprint                         |                                                                                   34 Story Points (consenso de Planning Poker)                                                                                   |
+| ------------------------------------------------------------------ | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
+| **Meta da Sprint**                                           |                      US-01 a US-06 — fundação da plataforma, monitoramento de disponibilidade e classificação de qualidade do ar (IQAr), conforme a 1ª Entrega apresentada ao cliente                      |
 | **Previsão da Sprint (extras, sem compromisso de entrega)** | Nenhuma — a capacidade da Sprint 1 já está integralmente ocupada pelas seis histórias de negócio. US-07 a US-10 rodam em paralelo como suporte contínuo e não entram nesse cálculo de capacidade de valor |
 
-| Rank | Prioridade | User Story | Estimativa | Sprint |
-| :--: | :--------: | ----------- | :--------: | :----: |
-| 01 | Alta | Como Administrador do Sistema (Governança Municipal / Consórcio), quero cadastrar, listar, associar papéis hierárquicos e inativar logicamente contas de usuários no sistema, para garantir que gestores públicos e pesquisadores acessem estritamente os recursos e dados autorizados sob governança municipal. | 5 | 1 |
-| 02 | Alta | Como usuário cadastrado (Administrador, Gestor Público ou Pesquisador), quero me autenticar com credenciais institucionais e manter minha sessão ativa de forma segura, para acessar os painéis de monitoramento e as ferramentas restritas ao meu perfil. | 3 | 1 |
-| 03 | Alta | Como Gestor Público Municipal, quero cadastrar e gerenciar estações meteorológicas georreferenciadas, para manter o inventário territorial sob governança municipal e habilitar a coleta de dados ambientais. | 5 | 1 |
-| 04 | Alta | Como Gestor Público Municipal, quero monitorar a conectividade e disponibilidade das estações, para identificar quedas de sinal e falhas operacionais antes que virem lacuna nos dados. | 8 | 1 |
-| 05 | Alta | Como Gestor Público Municipal, quero parametrizar e calibrar os sensores associados às estações, para que as leituras brutas sejam convertidas com precisão em grandezas reais. | 5 | 1 |
-| 06 | Alta | Como técnico da Defesa Civil, quero configurar regras de alerta e limiares críticos por sensor, para disparar avisos preventivos automáticos quando condições ambientais severas forem detectadas. | 8 | 1 |
+| Rank | Prioridade | User Story                                                                                                                                                                                                                                                                                                              | Estimativa | Sprint |
+| :--: | :--------: | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :--------: | :----: |
+|  01  |    Alta    | Como Administrador do Sistema (Governança Municipal / Consórcio), quero cadastrar, listar, associar papéis hierárquicos e inativar logicamente contas de usuários no sistema, para garantir que gestores públicos e pesquisadores acessem estritamente os recursos e dados autorizados sob governança municipal. |     5     |   1   |
+|  02  |    Alta    | Como usuário cadastrado (Administrador, Gestor Público ou Pesquisador), quero me autenticar com credenciais institucionais e manter minha sessão ativa de forma segura, para acessar os painéis de monitoramento e as ferramentas restritas ao meu perfil.                                                          |     3     |   1   |
+|  03  |    Alta    | Como Gestor Público Municipal, quero cadastrar e gerenciar estações meteorológicas georreferenciadas, para manter o inventário territorial sob governança municipal e habilitar a coleta de dados ambientais.                                                                                                     |     5     |   1   |
+|  04  |    Alta    | Como Gestor Público Municipal, quero monitorar a conectividade e disponibilidade das estações, para identificar quedas de sinal e falhas operacionais antes que virem lacuna nos dados.                                                                                                                              |     8     |   1   |
+|  05  |    Alta    | Como Gestor Público Municipal, quero parametrizar e calibrar os sensores associados às estações, para que as leituras brutas sejam convertidas com precisão em grandezas reais.                                                                                                                                    |     5     |   1   |
+|  06  |    Alta    | Como técnico da Defesa Civil, quero configurar regras de alerta e limiares críticos por sensor, para disparar avisos preventivos automáticos quando condições ambientais severas forem detectadas.                                                                                                                 |     8     |   1   |
 
 **Itens técnicos de suporte contínuo (US-07 a US-10)**
 
-| Documentação e Rastreabilidade do Projeto (US-07) | Estruturação de Repositórios (US-08) | Observabilidade e QA (US-09) | Estratégia de Testes (US-10) |
-| :--: | :--: | :--: | :--: |
-| 3 pts\* — contínuo (Sprints 1-3) | 3 pts\* — contínuo (Sprints 1-3) | 3 pts\* — contínuo (Sprints 1-3) | 3 pts\* — contínuo (Sprints 1-3) |
-
-**Recorte completo de rastreabilidade (todas as 10 USs)**
-
-| US | Compromisso / Previsão | Responsável | Estimativa | Critério de Aceite | DoR Verificado |
-| :--: | :---------------------: | :----------: | :--------: | :-----------------: | :--------------: |
-| US-01 | Compromisso | _(preencher)_ | 5 pts | [PDF](docs/user-stories/US-01_Gestao_de_Contas_e_Perfis.pdf) · [Confluence](https://elementares-4sem.atlassian.net/wiki/x/g4Ch) | ☐ |
-| US-02 | Compromisso | _(preencher)_ | 3 pts | [PDF](docs/user-stories/US-02_Autenticacao_e_Controle_de_Sessao.pdf) · [Confluence](https://elementares-4sem.atlassian.net/wiki/x/NYKh) | ☐ |
-| US-03 | Compromisso | _(preencher)_ | 5 pts | [PDF](docs/user-stories/US-03_Cadastro_de_Estacoes.pdf) · [Confluence](https://elementares-4sem.atlassian.net/wiki/x/egCD) | ☐ |
-| US-04 | Compromisso | _(preencher)_ | 8 pts | [PDF](docs/user-stories/US-04_Monitoramento_de_Disponibilidade.pdf) · [Confluence](https://elementares-4sem.atlassian.net/wiki/x/RIKh) | ☐ |
-| US-05 | Compromisso | _(preencher)_ | 5 pts | [PDF](docs/user-stories/US-05_Parametrizacao_e_Calibracao_de_Sensores.pdf) · [Confluence](https://elementares-4sem.atlassian.net/wiki/x/UYKh) | ☐ |
-| US-06 | Compromisso | _(preencher)_ | 8 pts | [PDF](docs/user-stories/US-06_Regras_e_Limiares_de_Alerta.pdf) · [Confluence](https://elementares-4sem.atlassian.net/wiki/x/XoKh) | ☐ |
-| US-07 | Compromisso | _(preencher)_ | 3 pts\* | [PDF](docs/user-stories/US-07_Documentacao_e_Rastreabilidade.pdf) · [Confluence](https://elementares-4sem.atlassian.net/wiki/x/AYCZAQ) | ☐ |
-| US-08 | Compromisso | _(preencher)_ | 3 pts\* | [PDF](docs/user-stories/US-08_Estruturacao_de_Repositorios.pdf) · [Confluence](https://elementares-4sem.atlassian.net/wiki/x/A4CWAQ) | ☐ |
-| US-09 | Compromisso | _(preencher)_ | 3 pts\* | [PDF](docs/user-stories/US-09_Observabilidade_e_QA.pdf) · [Confluence](https://elementares-4sem.atlassian.net/wiki/x/DICWAQ) | ☐ |
-| US-10 | Compromisso | _(preencher)_ | 3 pts\* | [PDF](docs/user-stories/US-10_Estrategia_de_Testes.pdf) · [Confluence](https://elementares-4sem.atlassian.net/wiki/x/DoCaAQ) | ☐ |
-
-> O **PDF** é a versão condensada em linguagem de negócio (Regra 1.1), pensada para avaliação externa. O **Confluence** é o documento técnico vivo, com Regras de Negócio e Critérios de Aceitação detalhados, atualizado pelo squad no dia a dia.
-
-> As caixas de **DoR Verificado** são marcadas pelo responsável ao mover o card para "Em Andamento" no Jira, conforme o checklist da seção [Critérios de Aceite](#dor-dod) abaixo — refletem o estado real da Sprint, não uma declaração antecipada.
-
-> Este recorte reflete o compromisso da **Sprint 1**. US-07 a US-10 não se encerram aqui: o Sprint Backlog das Sprints 2 e 3 deve repeti-las como item de manutenção/verificação contínua, não como entrega nova.
+| Documentação e Rastreabilidade do Projeto (US-07) | Estruturação de Repositórios (US-08) |    Observabilidade e QA (US-09)    |   Estratégia de Testes (US-10)   |
+| :-------------------------------------------------: | :-------------------------------------: | :--------------------------------: | :--------------------------------: |
+|         3 pts\* — contínuo (Sprints 1-3)         |   3 pts\* — contínuo (Sprints 1-3)   | 3 pts\* — contínuo (Sprints 1-3) | 3 pts\* — contínuo (Sprints 1-3) |
 
 ### 🔍 Itens de Pesquisa e Débito Técnico (Spikes e Bugs)
 
 Itens concretos identificados durante o planejamento técnico, registrados aqui para não ficarem apenas mencionados em texto:
 
-| Código | Tipo | Item | Épico | Ticket |
-| :----: | :--: | ---- | ----- | :----: |
-| SPIKE-01 | Spike | Viabilidade de um simulador de estações IoT, para testar o pipeline de ingestão sem depender de hardware físico. | EPIC-04 | _a criar_ |
-| SPIKE-02 | Spike | Definição do payload de telemetria (grandezas enviadas) e do intervalo de envio das estações. | EPIC-04 | _a criar_ |
-| TECH-DEBT-01 | Item Técnico | Unificação de nomenclatura de schema entre a documentação de arquitetura e as especificações de User Story. | EPIC-04 | _a criar_ |
-| — | Bug | Nenhum bug identificado até o momento — esperado nesta fase, sem código em produção ainda. Quando surgir, será registrado nesta mesma tabela. | — | — |
+|   Código   |     Tipo     | Item                                                                                                                                                | Épico  |   Ticket   |
+| :----------: | :-----------: | --------------------------------------------------------------------------------------------------------------------------------------------------- | ------- | :---------: |
+|   SPIKE-01   |     Spike     | Viabilidade de um simulador de estações IoT, para testar o pipeline de ingestão sem depender de hardware físico.                                | EPIC-04 | _a criar_ |
+|   SPIKE-02   |     Spike     | Definição do payload de telemetria (grandezas enviadas) e do intervalo de envio das estações.                                                   | EPIC-04 | _a criar_ |
+| TECH-DEBT-01 | Item Técnico | Unificação de nomenclatura de schema entre a documentação de arquitetura e as especificações de User Story.                                   | EPIC-04 | _a criar_ |
+|      —      |      Bug      | Nenhum bug identificado até o momento — esperado nesta fase, sem código em produção ainda. Quando surgir, será registrado nesta mesma tabela. | —      |     —     |
 
 > Os itens com ticket "a criar" ainda precisam ser abertos formalmente no Jira antes da próxima revisão — esta tabela documenta a existência deles, mas a rastreabilidade completa depende do ticket real.
 
@@ -156,17 +135,17 @@ Itens concretos identificados durante o planejamento técnico, registrados aqui 
 
 As Sprints 2 e 3 ainda não começaram (períodos no [cronograma](#cronograma)), então este recorte é uma **prévia de planejamento**, não um compromisso operacional como o da Sprint 1 — não tem Responsável nem DoR verificado ainda, porque a Sprint Planning de verdade só acontece quando a Sprint 1 fechar.
 
-| Capacidade estimada pela equipe por Sprint | A confirmar (Planning Poker da Sprint 2 ainda não realizado) |
-| ------------------------------------------- | :--------------------------------------------: |
-| **Meta da Sprint** | US-11 a US-14 — pipeline de ingestão real de ponta a ponta, dashboards, relatórios e análise estatística, conforme resposta do cliente ao levantamento de requisitos ("recepção de dados de ponta a ponta + alertas e alarmes") |
-| **Previsão da Sprint (extras, sem compromisso de entrega)** | Nenhuma definida ainda — depende da velocidade real observada ao final da Sprint 1 |
+| Capacidade estimada pela equipe por Sprint                         |                                                                                     A confirmar (Planning Poker da Sprint 2 ainda não realizado)                                                                                     |
+| ------------------------------------------------------------------ | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
+| **Meta da Sprint**                                           | US-11 a US-14 — pipeline de ingestão real de ponta a ponta, dashboards, relatórios e análise estatística, conforme resposta do cliente ao levantamento de requisitos ("recepção de dados de ponta a ponta + alertas e alarmes") |
+| **Previsão da Sprint (extras, sem compromisso de entrega)** |                                                                          Nenhuma definida ainda — depende da velocidade real observada ao final da Sprint 1                                                                          |
 
-| Rank | Prioridade | User Story | Estimativa\*\* | Sprint |
-| :--: | :--------: | ----------- | :--------: | :----: |
-| 07 | Alta | Como Gestor Público Municipal, quero que os dados enviados pelas estações sejam recebidos, calibrados e avaliados automaticamente de ponta a ponta, disparando alerta quando necessário, para que o monitoramento funcione de forma contínua e confiável, sem depender de simulação manual. | 13 | 2 |
-| 08 | Alta | Como Gestor Público Municipal, quero visualizar dashboards com a série histórica de qualidade do ar e o status das estações, para acompanhar tendências e tomar decisões com base em dados consolidados. | 8 | 2 |
-| 09 | Alta | Como Gestor Público Municipal, quero gerar relatórios em formato exportável (PDF/CSV) com os dados coletados, para auditar medições ambientais históricas do município. | 8 | 2 |
-| 10 | Alta | Como Pesquisador, quero aplicar análises estatísticas sobre as séries históricas de qualidade do ar e clima, para identificar padrões e tendências ambientais ao longo do tempo. | 13 | 2 |
+| Rank | Prioridade | User Story                                                                                                                                                                                                                                                                                          | Estimativa\*\* | Sprint |
+| :--: | :--------: | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :------------: | :----: |
+|  07  |    Alta    | Como Gestor Público Municipal, quero que os dados enviados pelas estações sejam recebidos, calibrados e avaliados automaticamente de ponta a ponta, disparando alerta quando necessário, para que o monitoramento funcione de forma contínua e confiável, sem depender de simulação manual. |       13       |   2   |
+|  08  |    Alta    | Como Gestor Público Municipal, quero visualizar dashboards com a série histórica de qualidade do ar e o status das estações, para acompanhar tendências e tomar decisões com base em dados consolidados.                                                                                     |       8       |   2   |
+|  09  |    Alta    | Como Gestor Público Municipal, quero gerar relatórios em formato exportável (PDF/CSV) com os dados coletados, para auditar medições ambientais históricas do município.                                                                                                                      |       8       |   2   |
+|  10  |    Alta    | Como Pesquisador, quero aplicar análises estatísticas sobre as séries históricas de qualidade do ar e clima, para identificar padrões e tendências ambientais ao longo do tempo.                                                                                                              |       13       |   2   |
 
 > \*\*Estimativas preliminares do PO, a validar em Planning Poker no início da Sprint 2 — ver nota da tabela de Backlog do Produto acima.
 
@@ -203,15 +182,15 @@ As Sprints 2 e 3 ainda não começaram (períodos no [cronograma](#cronograma)),
 
 O escopo de sensores do MVP foi definido a partir da dor do cliente: cada variável coletada existe porque ajuda a caracterizar as condições ambientais associadas à demanda por atendimentos respiratórios.
 
-| Variável | Unidade | Por que está no escopo |
-| -------- | :-----: | ---------------------- |
-| Temperatura | °C | Variável mais diretamente observável para identificar diferenças térmicas entre regiões (ilhas de calor). |
-| Umidade Relativa | % | Interfere nas trocas de energia e caracteriza condições de baixa umidade associadas a quadros respiratórios. |
-| PM2.5 | µg/m³ | Partícula fina, associada a doenças respiratórias por penetrar profundamente no sistema respiratório. |
-| Velocidade do Vento | km/h | Determina o transporte e a dispersão dos poluentes a partir da fonte. |
-| Direção do Vento | ° | Indica de onde vem o poluente e quais áreas tendem a ser afetadas. |
-| Precipitação | mm | Influencia a remoção de material particulado suspenso na atmosfera. |
-| Pressão Atmosférica | hPa | Condiciona a estagnação ou dispersão do ar próximo à superfície. |
+| Variável             | Unidade | Por que está no escopo                                                                                         |
+| --------------------- | :-----: | --------------------------------------------------------------------------------------------------------------- |
+| Temperatura           |   °C   | Variável mais diretamente observável para identificar diferenças térmicas entre regiões (ilhas de calor).  |
+| Umidade Relativa      |    %    | Interfere nas trocas de energia e caracteriza condições de baixa umidade associadas a quadros respiratórios. |
+| PM2.5                 | µg/m³ | Partícula fina, associada a doenças respiratórias por penetrar profundamente no sistema respiratório.       |
+| Velocidade do Vento   |  km/h  | Determina o transporte e a dispersão dos poluentes a partir da fonte.                                          |
+| Direção do Vento    |   °   | Indica de onde vem o poluente e quais áreas tendem a ser afetadas.                                             |
+| Precipitação        |   mm   | Influencia a remoção de material particulado suspenso na atmosfera.                                           |
+| Pressão Atmosférica |   hPa   | Condiciona a estagnação ou dispersão do ar próximo à superfície.                                          |
 
 > **Fora do escopo do MVP:** PM10, O₃, NO₂, CO₂, radiação solar/UV, variáveis de solo e de nuvens. São variáveis válidas em meteorologia, mas não contribuem diretamente para a análise proposta nesta fase.
 
@@ -252,16 +231,16 @@ Esse desacoplamento garante que uma falha no processamento nunca interrompa a co
 
 > Diagrama completo, com o racional de cada decisão, está em [Proposta de Arquitetura Final](docs/arquitetura/Proposta_Arquitetura_Final.pdf) e no histórico de decisão em [ADR-001](docs/arquitetura/ADR-001_Arquitetura_Microsservicos_MQTT_RabbitMQ.pdf).
 
-| Microsserviço | Responsabilidade |
-| ------------- | ---------------- |
-| `auth-service` | Autenticação e emissão de token de sessão. |
-| `gestao-usuarios` | CRUD de contas, papéis e vínculo municipal. |
-| `gestao-estacoes` | CRUD de estações, sensores e regras de alerta. |
-| `ingestao-dados` | Recepção da telemetria via MQTT e escrita no banco temporário. |
-| `servico-validacao` | Limpeza, calibração (Fator/Ganho) e avaliação de regras de alerta. |
-| `analise-dados` | Consultas agregadas para dashboards e relatórios. |
-| `alertas-notificacoes` | Disparo de avisos quando um limiar é violado. |
-| `servico-relatorios` | Geração assíncrona de arquivos de exportação. |
+| Microsserviço           | Responsabilidade                                                       |
+| ------------------------ | ---------------------------------------------------------------------- |
+| `auth-service`         | Autenticação e emissão de token de sessão.                         |
+| `gestao-usuarios`      | CRUD de contas, papéis e vínculo municipal.                          |
+| `gestao-estacoes`      | CRUD de estações, sensores e regras de alerta.                       |
+| `ingestao-dados`       | Recepção da telemetria via MQTT e escrita no banco temporário.      |
+| `servico-validacao`    | Limpeza, calibração (Fator/Ganho) e avaliação de regras de alerta. |
+| `analise-dados`        | Consultas agregadas para dashboards e relatórios.                     |
+| `alertas-notificacoes` | Disparo de avisos quando um limiar é violado.                         |
+| `servico-relatorios`   | Geração assíncrona de arquivos de exportação.                     |
 
 **Stack técnica:**
 
@@ -309,11 +288,11 @@ git commit -m "chore: Ajustada configuracao de dependencias do package.json"
 
 **Nomenclatura de branches:**
 
-| Tipo | Padrão |
-| ---- | ------ |
+| Tipo           | Padrão                                 |
+| -------------- | --------------------------------------- |
 | Funcionalidade | `feat/ELEM-XX-nome-da-funcionalidade` |
-| Correção | `fix/ELEM-XX-descricao-do-ajuste` |
-| Documentação | `docs/ELEM-XX-atualizacao-documento` |
+| Correção     | `fix/ELEM-XX-descricao-do-ajuste`     |
+| Documentação | `docs/ELEM-XX-atualizacao-documento`  |
 
 ### 🛡️ Governança do Repositório
 
@@ -339,11 +318,11 @@ A estratégia de garantia de qualidade contempla:
 
 ## 📅 Cronograma de Entregas <a id="cronograma"></a>
 
-| Sprint | Período | Objetivo Principal | Status |
-| ------ | ------- | ------------------ | ------ |
+| Sprint             | Período      | Objetivo Principal                                                                                                                   | Status          |
+| ------------------ | ------------- | ------------------------------------------------------------------------------------------------------------------------------------ | --------------- |
 | **Sprint 1** | 07/09 a 27/09 | **MVP 1:** Governança de Usuários, Autenticação, Gestão de Estações, Monitoramento de Conectividade e Regras de Alerta. | ⏳ Em andamento |
-| **Sprint 2** | 05/10 a 25/10 | **MVP 2:** Ingestão contínua de telemetria, Dashboards analíticos, Módulo de Relatórios e Análise Estatística. | ⏳ Planejado |
-| **Sprint 3** | 02/11 a 22/11 | **MVP 3:** Portal público de Dados Abertos, Otimizações de performance, Datalogger integrado e Alertas em tempo real. | ⏳ Planejado |
+| **Sprint 2** | 05/10 a 25/10 | **MVP 2:** Ingestão contínua de telemetria, Dashboards analíticos, Módulo de Relatórios e Análise Estatística.          | ⏳ Planejado    |
+| **Sprint 3** | 02/11 a 22/11 | **MVP 3:** Portal público de Dados Abertos, Otimizações de performance, Datalogger integrado e Alertas em tempo real.       | ⏳ Planejado    |
 
 ---
 
@@ -386,27 +365,27 @@ npm run dev
 
 ## 🛠️ Tecnologias <a id="tecnologias"></a>
 
-| Camada | Tecnologias |
-| ------ | ----------- |
-| **Frontend** | React · Vite · TypeScript · Tailwind CSS · DaisyUI |
-| **Backend** | Node.js · TypeScript · Express · biblioteca `pg` |
-| **Banco de Dados** | PostgreSQL |
-| **Mensageria** | MQTT · RabbitMQ |
-| **Infraestrutura** | Docker · Docker Compose · DevContainers |
-| **CI/CD** | GitHub Actions · GitHub Rulesets |
-| **Gestão** | Jira · Confluence |
+| Camada                   | Tecnologias                                            |
+| ------------------------ | ------------------------------------------------------ |
+| **Frontend**       | React · Vite · TypeScript · Tailwind CSS · DaisyUI |
+| **Backend**        | Node.js · TypeScript · Express · biblioteca`pg`   |
+| **Banco de Dados** | PostgreSQL                                             |
+| **Mensageria**     | MQTT · RabbitMQ                                       |
+| **Infraestrutura** | Docker · Docker Compose · DevContainers              |
+| **CI/CD**          | GitHub Actions · GitHub Rulesets                      |
+| **Gestão**        | Jira · Confluence                                     |
 
 ---
 
 ## 🤝 Nossa Equipe <a id="equipe"></a>
 
-| Nome | Função | Redes Sociais |
-| :--- | :--- | :--- |
-| **João Moura** | Scrum Master | <a href="https://github.com/JoaooMoura"><img src="https://img.shields.io/badge/GitHub-181717?style=flat-square&logo=github&logoColor=white" alt="GitHub"></a> <a href="https://www.linkedin.com/in/joaoomoura/"><img src="https://img.shields.io/badge/LinkedIn-0A66C2?style=flat-square&logo=linkedin&logoColor=white" alt="LinkedIn"></a> |
-| **Lucas Inácio** | **Product Owner (PO)** | <a href="https://github.com/Lukitta013"><img src="https://img.shields.io/badge/GitHub-181717?style=flat-square&logo=github&logoColor=white" alt="GitHub"></a> <a href="https://www.linkedin.com/in/luucasinacioo/"><img src="https://img.shields.io/badge/LinkedIn-0A66C2?style=flat-square&logo=linkedin&logoColor=white" alt="LinkedIn"></a> |
-| **João Vitor Siqueira** | Dev Team | <a href="https://github.com/kakashinho"><img src="https://img.shields.io/badge/GitHub-181717?style=flat-square&logo=github&logoColor=white" alt="GitHub"></a> <a href="https://www.linkedin.com/in/joao-vitor-siqueira-a2a2a3227/"><img src="https://img.shields.io/badge/LinkedIn-0A66C2?style=flat-square&logo=linkedin&logoColor=white" alt="LinkedIn"></a> |
-| **Enzo Gabriel de Paula** | Dev Team | <a href="https://github.com/EnzoGabrielCode"><img src="https://img.shields.io/badge/GitHub-181717?style=flat-square&logo=github&logoColor=white" alt="GitHub"></a> <a href="https://www.linkedin.com/in/enzo-gabriel-de-paula-8795a8332/"><img src="https://img.shields.io/badge/LinkedIn-0A66C2?style=flat-square&logo=linkedin&logoColor=white" alt="LinkedIn"></a> |
-| **Ana Graciano** | Dev Team | <a href="https://github.com/Ane-Graciano"><img src="https://img.shields.io/badge/GitHub-181717?style=flat-square&logo=github&logoColor=white" alt="GitHub"></a> <a href="https://www.linkedin.com/in/ana-graciano/"><img src="https://img.shields.io/badge/LinkedIn-0A66C2?style=flat-square&logo=linkedin&logoColor=white" alt="LinkedIn"></a> |
-| **Gustavo Rosa** | Dev Team | <a href="https://github.com/gustasvos"><img src="https://img.shields.io/badge/GitHub-181717?style=flat-square&logo=github&logoColor=white" alt="GitHub"></a> <a href="https://www.linkedin.com/in/gustavo-rosa-46a251180/"><img src="https://img.shields.io/badge/LinkedIn-0A66C2?style=flat-square&logo=linkedin&logoColor=white" alt="LinkedIn"></a> |
-| **Laís Zanardi** | Dev Team | <a href="https://github.com/lais-zanardi"><img src="https://img.shields.io/badge/GitHub-181717?style=flat-square&logo=github&logoColor=white" alt="GitHub"></a> <a href="https://www.linkedin.com/in/lais-zanardi-inocencio/"><img src="https://img.shields.io/badge/LinkedIn-0A66C2?style=flat-square&logo=linkedin&logoColor=white" alt="LinkedIn"></a> |
-| **Pedro Nascimento** | Dev Team | <a href="https://github.com/P3dr0213"><img src="https://img.shields.io/badge/GitHub-181717?style=flat-square&logo=github&logoColor=white" alt="GitHub"></a> <a href="https://www.linkedin.com/in/pedro-nascimento-87a22937a/"><img src="https://img.shields.io/badge/LinkedIn-0A66C2?style=flat-square&logo=linkedin&logoColor=white" alt="LinkedIn"></a> |
+| Nome                            | Função                     | Redes Sociais                                                                                                                 |
+| :------------------------------ | :--------------------------- | :---------------------------------------------------------------------------------------------------------------------------- |
+| **João Moura**           | Scrum Master                 | <a href="https://github.com/JoaooMoura"></a> <a href="https://www.linkedin.com/in/joaoomoura/"></a>                           |
+| **Lucas Inácio**         | **Product Owner (PO)** | <a href="https://github.com/Lukitta013"></a> <a href="https://www.linkedin.com/in/luucasinacioo/"></a>                        |
+| **João Vitor Siqueira**  | Dev Team                     | <a href="https://github.com/kakashinho"></a> <a href="https://www.linkedin.com/in/joao-vitor-siqueira-a2a2a3227/"></a>        |
+| **Enzo Gabriel de Paula** | Dev Team                     | <a href="https://github.com/EnzoGabrielCode"></a> <a href="https://www.linkedin.com/in/enzo-gabriel-de-paula-8795a8332/"></a> |
+| **Ana Graciano**          | Dev Team                     | <a href="https://github.com/Ane-Graciano"></a> <a href="https://www.linkedin.com/in/ana-graciano/"></a>                       |
+| **Gustavo Rosa**          | Dev Team                     | <a href="https://github.com/gustasvos"></a> <a href="https://www.linkedin.com/in/gustavo-rosa-46a251180/"></a>                |
+| **Laís Zanardi**         | Dev Team                     | <a href="https://github.com/lais-zanardi"></a> <a href="https://www.linkedin.com/in/lais-zanardi-inocencio/"></a>             |
+| **Pedro Nascimento**      | Dev Team                     | <a href="https://github.com/P3dr0213"></a> <a href="https://www.linkedin.com/in/pedro-nascimento-87a22937a/"></a>             |
