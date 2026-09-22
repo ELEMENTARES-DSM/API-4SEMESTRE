@@ -37,7 +37,7 @@ A [Tecsus](https://www.tecsus.com.br/) é uma empresa de tecnologia especializad
 
 ### ⚠️ A Dor
 
-Secretarias de Saúde municipais não conseguem antecipar aumentos na demanda por atendimentos respiratórios porque não possuem dados ambientais estruturados e contínuos que permitam analisar sua relação com os atendimentos. Sem um histórico confiável de condições como temperatura, umidade e concentração de PM2.5, torna-se difícil investigar quais condições ambientais podem estar associadas ao aumento da demanda e utilizar essas informações para apoiar ações preventivas.
+Secretarias de Saúde municipais não conseguem antecipar aumentos na demanda por atendimentos respiratórios porque não possuem dados ambientais estruturados e contínuos disponíveis para consulta. Sem um histórico confiável de condições como temperatura, umidade e concentração de PM2.5, torna-se difícil investigar quais condições ambientais podem estar associadas ao aumento da demanda e utilizar essas informações para apoiar ações preventivas.
 
 ### 🚀 O Desafio
 
@@ -45,9 +45,7 @@ Construir uma plataforma capaz de capturar continuamente dados de estações met
 
 ### ✨ A Solução
 
-O **Pulso Urbano** classifica a qualidade do ar coletada em tempo real segundo o **Índice de Qualidade do Ar (IQAr)**, padrão nacional oficial (Lei Federal nº 14.850/2024 e Resolução CONAMA nº 506/2024) que associa cada faixa de concentração de poluentes a efeitos documentados sobre a saúde — com atenção especial a grupos vulneráveis, incluindo pessoas com doenças respiratórias. Quando os níveis atingem uma faixa considerada prejudicial, a plataforma dispara alerta automático para a Secretaria de Saúde, permitindo ação preventiva antes que o quadro se agrave.
-
-Uma rede de estações ambientais de baixo custo, compartilhada entre municípios do consórcio, alimenta essa classificação continuamente — entregando à Secretaria tanto o alerta imediato quanto uma base histórica estruturada para, futuramente, cruzar com seus próprios registros de atendimento e investigar padrões que hoje passam despercebidos.
+O **Pulso Urbano** é uma rede de estações de baixo custo que mede continuamente a qualidade do ar e as condições do clima — como temperatura, umidade, vento e chuva. Os dados ficam disponíveis para o usuário em painéis, relatórios e séries históricas, e a plataforma avisa automaticamente quando algum valor ultrapassa um limite considerado preocupante, ajudando a acompanhar as condições ambientais e tomar decisões com base em informação confiável.
 
 ---
 
@@ -76,7 +74,7 @@ O backlog segue a classificação de itens definida pelo cliente: **User Stories
 | 7 | **US-11** | Negócio | É a entrega que o cliente pediu explicitamente para a Sprint 2: pipeline real de ponta a ponta, não mais simulado. | Como Gestor Público Municipal, quero que os dados enviados pelas estações sejam recebidos, calibrados e avaliados automaticamente de ponta a ponta, disparando alerta quando necessário, para que o monitoramento funcione de forma contínua e confiável, sem depender de simulação manual. | EPIC-03 | _a criar_ | RF-03, RF-05, RNF-05 | 13\*\* | 2 |
 | 8 | **US-12** | Negócio | Sem visualização histórica, a Secretaria não consegue identificar tendência nenhuma — só o instante presente. | Como Gestor Público Municipal, quero visualizar dashboards com a série histórica de qualidade do ar e o status das estações, para acompanhar tendências e tomar decisões com base em dados consolidados. | EPIC-03 | _a criar_ | RF-04 | 8\*\* | 2 |
 | 9 | **US-13** | Negócio | Exigido explicitamente pelo cliente (RF-09) para auditoria formal das medições. | Como Gestor Público Municipal, quero gerar relatórios em formato exportável (PDF/CSV) com os dados coletados, para auditar medições ambientais históricas do município. | EPIC-03 | _a criar_ | RF-09 | 8\*\* | 2 |
-| 10 | **US-14** | Negócio | É o item que conecta o dado ambiental ao problema de saúde pública — o motivo de existir do projeto, segundo a dor original. | Como Pesquisador, quero aplicar análises estatísticas sobre as séries históricas de qualidade do ar, para investigar a relação entre condições ambientais e a demanda por atendimentos respiratórios. | EPIC-03 | _a criar_ | RF-10 | 13\*\* | 2 |
+| 10 | **US-14** | Negócio | Sem análise sobre a série histórica, o dado coletado nas Sprints 1 e 2 fica só arquivado — é o que transforma leitura em informação útil. | Como Pesquisador, quero aplicar análises estatísticas sobre as séries históricas de qualidade do ar e clima, para identificar padrões e tendências ambientais ao longo do tempo. | EPIC-03 | _a criar_ | RF-10 | 13\*\* | 2 |
 | 11 | **US-15** | Negócio | Entrega o acesso sem cadastro ao munícipe — o terceiro perfil de usuário previsto desde a visão de produto. | Como Munícipe, quero consultar um painel público com os índices ambientais do meu município sem precisar de conta, para acompanhar a qualidade do ar do meu dia a dia. | EPIC-03 | _a criar_ | RF-04, RNF-01 | 8\*\* | 3 |
 | 12 | **US-16** | Negócio | Substitui a simulação por operação real de campo — fecha o ciclo iniciado com o simulador da Sprint 1/2. | Como Gestor Público Municipal, quero que os dados sejam recebidos diretamente do datalogger instalado na estação física real, para que a plataforma opere com hardware de campo em vez de dados simulados. | EPIC-03 | _a criar_ | RF-06, RF-07 | 13\*\* | 3 |
 | 13 | **US-17** | Negócio | Garante que o alerta chegue rápido o suficiente para ser útil, não só que ele exista. | Como Técnico da Defesa Civil, quero que os alertas sejam entregues com latência mínima e por múltiplos canais simultaneamente, para garantir resposta rápida em situações climáticas críticas. | EPIC-03 | _a criar_ | RF-05 | 5\*\* | 3 |
@@ -168,7 +166,7 @@ As Sprints 2 e 3 ainda não começaram (períodos no [cronograma](#cronograma)),
 | 07 | Alta | Como Gestor Público Municipal, quero que os dados enviados pelas estações sejam recebidos, calibrados e avaliados automaticamente de ponta a ponta, disparando alerta quando necessário, para que o monitoramento funcione de forma contínua e confiável, sem depender de simulação manual. | 13 | 2 |
 | 08 | Alta | Como Gestor Público Municipal, quero visualizar dashboards com a série histórica de qualidade do ar e o status das estações, para acompanhar tendências e tomar decisões com base em dados consolidados. | 8 | 2 |
 | 09 | Alta | Como Gestor Público Municipal, quero gerar relatórios em formato exportável (PDF/CSV) com os dados coletados, para auditar medições ambientais históricas do município. | 8 | 2 |
-| 10 | Alta | Como Pesquisador, quero aplicar análises estatísticas sobre as séries históricas de qualidade do ar, para investigar a relação entre condições ambientais e a demanda por atendimentos respiratórios. | 13 | 2 |
+| 10 | Alta | Como Pesquisador, quero aplicar análises estatísticas sobre as séries históricas de qualidade do ar e clima, para identificar padrões e tendências ambientais ao longo do tempo. | 13 | 2 |
 
 > \*\*Estimativas preliminares do PO, a validar em Planning Poker no início da Sprint 2 — ver nota da tabela de Backlog do Produto acima.
 
@@ -189,7 +187,7 @@ As Sprints 2 e 3 ainda não começaram (períodos no [cronograma](#cronograma)),
 * **RF-07 — Estação Meteorológica:** construção física da estação de baixo custo com sensores de temperatura, umidade, PM2.5, vento e pressão, integrada ao datalogger.
 * **RF-08 — Controle de Acesso:** autenticação via JWT com três perfis (Administrador, Gestor Público, Pesquisador) e isolamento territorial — um Gestor Público só acessa dados do seu próprio município.
 * **RF-09 — Relatórios:** exportação em PDF/CSV do histórico de medições e alarmes de um município, para auditoria pela Secretaria de Saúde.
-* **RF-10 — Análise Estatística:** correlação entre a série histórica de qualidade do ar e o histórico de atendimentos respiratórios (importado do SIVEP-Gripe/SIH-SUS), para identificar padrões sazonais.
+* **RF-10 — Análise Estatística:** aplicação de estatística sobre a série histórica de qualidade do ar e clima, para identificar padrões e tendências ambientais ao longo do tempo.
 
 **Requisitos Não Funcionais (RNF):**
 
