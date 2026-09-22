@@ -221,9 +221,9 @@ A plataforma adota uma arquitetura de **microsserviços**, com ingestão desacop
 
 Esse desacoplamento garante que uma falha no processamento nunca interrompa a coleta em campo: o dado bruto fica preservado e pode ser reprocessado.
 
-![Diagrama da Arquitetura de Microsserviços do Pulso Urbano](docs/arquitetura.png)
+![Diagrama da Arquitetura de Microsserviços do Pulso Urbano](docs/arquitetura.jpeg)
 
-> Diagrama completo, com o racional de cada decisão, está em [Proposta de Arquitetura Final](docs/arquitetura/Proposta_Arquitetura_Final.pdf) e no histórico de decisão em [ADR-001](docs/arquitetura/ADR-001_Arquitetura_Microsservicos_MQTT_RabbitMQ.pdf).
+> Diagrama completo, com o racional de cada decisão, está em [Proposta de Arquitetura Final](docs/Proposta_Arquitetura_Final.pdf) e no histórico de decisão em [ADR-001](docs/ADR-001_Arquitetura_Microsservicos_MQTT_RabbitMQ.pdf).
 
 | Microsserviço           | Responsabilidade                                                       |
 | ------------------------ | ---------------------------------------------------------------------- |
@@ -246,9 +246,9 @@ Esse desacoplamento garante que uma falha no processamento nunca interrompa a co
 
 ### 🗄️ Modelo de Dados
 
-![Diagrama Entidade-Relacionamento do PostgreSQL](docs/banco-de-dados/modelo_er.png)
+![Diagrama Entidade-Relacionamento do PostgreSQL](docs/modelo_er.png)
 
-Script completo, idempotente, com as 9 tabelas, índices, triggers e rotinas de manutenção: [`modelo_completo_postgres.sql`](docs/banco-de-dados/modelo_completo_postgres.sql).
+Script completo, idempotente, com as 9 tabelas, índices, triggers e rotinas de manutenção: [`modelo_completo_postgres.sql`](docs/modelo_completo_postgres.sql).
 
 ### 🚀 Pipeline de Entrega (CI/CD)
 
