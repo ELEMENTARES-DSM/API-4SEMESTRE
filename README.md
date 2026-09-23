@@ -215,13 +215,17 @@ O escopo de sensores do MVP foi definido a partir da dor do cliente: cada variá
 
 As práticas técnicas da equipe Elementares unem o desenvolvimento de software (Dev) à infraestrutura e qualidade (Ops) com transparência, visando entregas incrementais e rastreáveis.
 
-### 📐 Arquitetura
+## 📐 Arquitetura
 
-A plataforma adota uma arquitetura de **microsserviços**, com ingestão desacoplada em três camadas: as estações publicam telemetria bruta via **MQTT**, o serviço de ingestão grava o payload em um **banco temporário** e publica o evento no **RabbitMQ**, e o serviço de validação consome a fila, aplica a calibração e persiste o dado tratado no PostgreSQL.
+![Arquitetura da plataforma](docs/arquitetura.png)
 
-Esse desacoplamento garante que uma falha no processamento nunca interrompa a coleta em campo: o dado bruto fica preservado e pode ser reprocessado.
+A plataforma adota uma arquitetura de microsserviços organizada em dois fluxos: um fluxo assíncrono de ingestão e tratamento de telemetria e um fluxo síncrono de serviços de domínio expostos via API REST.
 
-![Diagrama da Arquitetura de Microsserviços do Pulso Urbano](docs/arquitetura.jpeg)
+No fluxo de ingestão, as estações IoT publicam a telemetria bruta em um broker MQTT. O serviço de ingestão assina esses tópicos, grava o payload original em um banco temporário (staging) e publica o evento no RabbitMQ. O serviço de validação consome a fila, aplica a calibração de cada estação (fator e ganho), avalia as regras de alerta e persiste o dado tratado no PostgreSQL. Mensagens que falham repetidamente são desviadas para uma Dead Letter Queue, e os eventos de alarme são consumidos pelo serviço de alertas e notificações.
+
+Esse desacoplamento garante que uma falha no processamento nunca interrompa a coleta em campo: o dado bruto permanece preservado no banco temporário e pode ser reprocessado, sendo republicado no RabbitMQ.
+
+Os serviços de domínio (autenticação, gestão de estações, análise de dados, alertas e relatórios) acessam o PostgreSQL e expõem APIs REST consumidas pelo frontend em React, que oferece o dashboard municipal.
 
 > Diagrama completo, com o racional de cada decisão, está em [Proposta de Arquitetura Final](docs/Proposta_Arquitetura_Final.pdf) e no histórico de decisão em [ADR-001](docs/ADR-001_Arquitetura_Microsservicos_MQTT_RabbitMQ.pdf).
 
