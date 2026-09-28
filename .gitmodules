@@ -1,0 +1,8 @@
+[submodule "frontend"]
+	path = frontend
+	url = https://github.com/ELEMENTARES-DSM/FRONTEND-4SEMESTRE.git
+	branch = develop
+[submodule "backend"]
+	path = backend
+	url = https://github.com/ELEMENTARES-DSM/BACKEND-4SEMESTRE.git
+	branch = develop
