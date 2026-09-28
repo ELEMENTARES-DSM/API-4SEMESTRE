@@ -8,6 +8,7 @@
   <a href="#engenharia">Engenharia e DevOps</a> |
   <a href="#qualidade">Testes e Qualidade</a> |
   <a href="#cronograma">Cronograma</a> |
+  <a href="#entregas">Entregas</a> |
   <a href="#manuais">Manuais</a> |
   <a href="#tecnologias">Tecnologias</a> |
   <a href="#equipe">Nossa Equipe</a>
@@ -19,9 +20,12 @@
 
 | Recurso                                 |                                                  Link                                                  |
 | --------------------------------------- | :----------------------------------------------------------------------------------------------------: |
-| 📋 Board do Produto (Jira)              | [Acessar Backlog](https://elementares-4sem.atlassian.net/jira/software/projects/SCRUM/boards/1/backlog) |
+| 📋 Board do Produto (Jira)              | [Acessar Backlog](https://elementares-4sem.atlassian.net/jira/software/projects/ELEM/boards/1/backlog) |
 | 🖥️ Repositório Backend               |                [BACKEND-4SEMESTRE](https://github.com/ELEMENTARES-DSM/BACKEND-4SEMESTRE)                |
 | 🎨 Repositório Frontend                |               [FRONTEND-4SEMESTRE](https://github.com/ELEMENTARES-DSM/FRONTEND-4SEMESTRE)               |
+| 🏗️ Documento de Arquitetura           |                              [`Arquitetura.pdf`](docs/Arquitetura.pdf)                              |
+| 🗄️ Modelo de Dados                    |                          [`Modelo_de_Dados.pdf`](docs/Modelo_de_Dados.pdf)                          |
+| 🎬 Demonstração das Entregas           |                                   [Ver seção Entregas](#entregas)                                   |
 | 📄 Documentação e Artefatos da Sprint |                                           [`/docs`](docs/)                                           |
 | 👥 GitHub e LinkedIn do time            |                                   [Ver seção Nossa Equipe](#equipe)                                   |
 
@@ -88,7 +92,7 @@ O backlog segue a classificação de itens definida pelo cliente: **User Stories
 
 #### Por que estas 10 entregas estão priorizadas agora
 
-As seis histórias de negócio (US-01 a US-06) formam uma cadeia de dependência única, sem ramificação: contas → autenticação → cadastro de estações → calibração de sensores → monitoramento de disponibilidade → regras de alerta. **Nenhuma pode ser adiada isoladamente** sem quebrar a que vem depois, e juntas elas são, literalmente, o texto da 1ª Entrega já apresentada ao cliente. Os quatro itens técnicos (US-07 a US-10) não entregam valor direto ao usuário final, mas são pré-requisito de qualidade para que as seis anteriores sejam entregues de forma rastreável, testada e reproduzível — por isso correm em paralelo desde o início da Sprint, e não appareceram na sequência (`Rank: —`).
+As seis histórias de negócio (US-01 a US-06) formam uma cadeia de dependência única, sem ramificação: contas → autenticação → cadastro de estações → calibração de sensores → monitoramento de disponibilidade → regras de alerta. **Nenhuma pode ser adiada isoladamente** sem quebrar a que vem depois, e juntas elas são, literalmente, o texto da 1ª Entrega já apresentada ao cliente. Os quatro itens técnicos (US-07 a US-10) não entregam valor direto ao usuário final, mas são pré-requisito de qualidade para que as seis anteriores sejam entregues de forma rastreável, testada e reproduzível — por isso correm em paralelo desde o início da Sprint, e não aparecem na sequência (`Rank: —`).
 
 **Por que US-07 a US-10 atravessam as 3 sprints:** diferente das histórias de negócio, que têm um ponto de conclusão claro (a regra foi cadastrada, o alerta dispara), processos de engenharia não "terminam" — documentação, CI, QA e testes precisam ser mantidos e verificados a cada entrega, não só configurados uma vez. Por isso elas aparecem com Sprint `1-3 (contínuo)`: a Sprint 1 cobre a definição e o setup inicial (ferramenta escolhida, processo documentado, pipeline configurado); as Sprints 2 e 3 cobrem a aplicação e a verificação desse processo contra o código novo que entra a cada sprint.
 
@@ -114,16 +118,16 @@ Recorte operacional do Product Backlog para esta Sprint: o que é **compromisso*
 
 ### 🔍 Itens de Pesquisa e Débito Técnico (Spikes e Bugs)
 
-Itens concretos identificados durante o planejamento técnico, registrados aqui para não ficarem apenas mencionados em texto:
+Itens concretos identificados durante o planejamento técnico e a revisão de qualidade, registrados aqui para não ficarem apenas mencionados em texto:
 
 |   Código   |     Tipo     | Item                                                                                                                                                | Épico  |   Ticket   |
 | :----------: | :-----------: | --------------------------------------------------------------------------------------------------------------------------------------------------- | ------- | :---------: |
 |   SPIKE-01   |     Spike     | Viabilidade de um simulador de estações IoT, para testar o pipeline de ingestão sem depender de hardware físico.                                | EPIC-04 | _a criar_ |
 |   SPIKE-02   |     Spike     | Definição do payload de telemetria (grandezas enviadas) e do intervalo de envio das estações.                                                   | EPIC-04 | _a criar_ |
 | TECH-DEBT-01 | Item Técnico | Unificação de nomenclatura de schema entre a documentação de arquitetura e as especificações de User Story.                                   | EPIC-04 | _a criar_ |
-|      —      |      Bug      | Nenhum bug identificado até o momento — esperado nesta fase, sem código em produção ainda. Quando surgir, será registrado nesta mesma tabela. | —      |     —     |
+|   BUGS-S1    |      Bug      | Caça-bugs na `develop` em 26/09: 58 achados (0 críticos, 11 urgentes, 17 perigosos, 14 de risco pequeno e 16 avisos), consolidados em 43 tickets com prioridade definida por severidade. | EPIC-04 | _em abertura_ |
 
-> Os itens com ticket "a criar" ainda precisam ser abertos formalmente no Jira antes da próxima revisão — esta tabela documenta a existência deles, mas a rastreabilidade completa depende do ticket real.
+> Os itens com ticket "a criar" ou "em abertura" ainda precisam ser registrados formalmente no Jira antes da próxima revisão — esta tabela documenta a existência deles, mas a rastreabilidade completa depende do ticket real.
 
 ### 🏃 Sprint Backlog — Sprint 2 (Prévia)
 
@@ -166,7 +170,7 @@ As Sprints 2 e 3 ainda não começaram (períodos no [cronograma](#cronograma)),
 
 * **RNF-01 — Experiência do Usuário (UX):** interface com Dark Mode exibindo badges de severidade (Informativo/Alerta/Crítico) e status de estação de forma visualmente imediata, sem exigir leitura de texto para identificar risco.
 * **RNF-02 — Documentação de APIs:** rotas documentadas com exemplo de requisição e resposta, priorizadas conforme o cliente definiu: manual de instalação, rotas da API, modelo de dados, arquitetura e manual do usuário, nesta ordem.
-* **RNF-03 — Integração Contínua (CI):** esteira no GitHub Actions com validação de tipos TypeScript, lint e suíte de testes, bloqueando merge em caso de falha — branches `main` e `develop` protegidas por *ruleset*.
+* **RNF-03 — Integração Contínua (CI):** esteira no GitHub Actions com validação de tipos TypeScript, lint e suíte de testes, bloqueando merge em caso de falha — branches `main` e `develop` dos repositórios de código protegidas por *ruleset*.
 * **RNF-04 — Deploy Automatizado (CD):** entrega contínua para homologação e produção, acionada após aprovação de Pull Request.
 * **RNF-05 — Robustez e Escalabilidade:** suporte a picos de acesso simultâneo, especialmente no momento em que um alerta crítico é disparado — quando a consulta ao Portal Público tende a aumentar repentinamente. A recepção de dados (ingestão) é a função mais crítica do sistema: uma falha no dashboard é reversível consultando depois, uma falha na ingestão perde a leitura daquele período para sempre.
 
@@ -227,7 +231,7 @@ Esse desacoplamento garante que uma falha no processamento nunca interrompa a co
 
 Os serviços de domínio (autenticação, gestão de estações, análise de dados, alertas e relatórios) acessam o PostgreSQL e expõem APIs REST consumidas pelo frontend em React, que oferece o dashboard municipal.
 
-> Diagrama completo, com o racional de cada decisão, está em [Proposta de Arquitetura Final](docs/Proposta_Arquitetura_Final.pdf) e no histórico de decisão em [ADR-001](docs/ADR-001_Arquitetura_Microsservicos_MQTT_RabbitMQ.pdf).
+> O caminho completo de uma leitura e o racional de cada decisão arquitetural estão no documento [Arquitetura do Sistema](docs/Arquitetura.pdf).
 
 | Microsserviço           | Responsabilidade                                                       |
 | ------------------------ | ---------------------------------------------------------------------- |
@@ -244,7 +248,7 @@ Os serviços de domínio (autenticação, gestão de estações, análise de dad
 
 * **Backend:** Node.js com TypeScript e Express, estruturado em camadas (Controllers, Services, Repositories, Middlewares).
 * **Frontend:** SPA em React (Vite) com TypeScript, estilizado com Tailwind CSS e DaisyUI.
-* **Banco de Dados:** PostgreSQL acessado diretamente via biblioteca cliente `pg`, com integridade referencial estrita, índices analíticos e exclusão lógica (*soft delete*).
+* **Banco de Dados:** PostgreSQL acessado diretamente via biblioteca cliente `pg`, com integridade referencial estrita, índices analíticos e exclusão lógica (*soft delete*). Redis e PostgreSQL compõem o banco temporário (staging) da ingestão.
 * **Mensageria:** MQTT na borda (dispositivos) e RabbitMQ na comunicação entre microsserviços, com Dead Letter Queue para tratamento de falhas.
 * **Segurança:** Autenticação stateless via Token JWT (HMAC-SHA256) e senhas criptografadas com `bcryptjs` (salt rounds 10).
 
@@ -252,7 +256,9 @@ Os serviços de domínio (autenticação, gestão de estações, análise de dad
 
 ![Diagrama Entidade-Relacionamento do PostgreSQL](docs/modelo_er.png)
 
-Script completo, idempotente, com as 9 tabelas, índices, triggers e rotinas de manutenção: [`modelo_completo_postgres.sql`](docs/modelo_completo_postgres.sql).
+O modelo relacional do PostgreSQL tem 9 tabelas, organizadas em quatro blocos: acesso e identidade, domínio operacional, banco temporário (staging) e histórico agregado. O papel de cada tabela, coluna, índice e rotina está explicado no documento [Modelo de Dados](docs/Modelo_de_Dados.pdf).
+
+Script completo, idempotente, com as 9 tabelas, índices, gatilho e rotinas de manutenção: [`modelo_completo_postgres.sql`](docs/modelo_completo_postgres.sql).
 
 ### 🚀 Pipeline de Entrega (CI/CD)
 
@@ -268,7 +274,7 @@ A rastreabilidade entre o código no GitHub e os cartões do Jira é mandatória
 
 **Fluxo de trabalho:** `feature/*` → `develop` → `main`
 
-Os repositórios estão configurados para aceitar **exclusivamente squash merge**, e a mensagem do commit é gerada a partir do **título do Pull Request**. Por isso, o título do PR deve seguir o padrão do squad — é ele que chega na `develop`.
+Os repositórios de código (backend e frontend) estão configurados para aceitar **exclusivamente squash merge**, e a mensagem do commit é gerada a partir do **título do Pull Request**. Por isso, o título do PR deve seguir o padrão do squad — é ele que chega na `develop`.
 
 ```bash
 # Formato do título do PR e do commit:
@@ -294,7 +300,7 @@ git commit -m "chore: Ajustada configuracao de dependencias do package.json"
 
 ### 🛡️ Governança do Repositório
 
-As branches `main` e `develop` são protegidas por *ruleset*, exigindo:
+Nos repositórios **BACKEND-4SEMESTRE** e **FRONTEND-4SEMESTRE**, as branches `main` e `develop` são protegidas por *ruleset*, exigindo:
 
 * Pull Request aprovado por pelo menos um revisor antes do merge;
 * Aprovação nos checks automatizados da esteira de CI;
@@ -306,7 +312,7 @@ As branches `main` e `develop` são protegidas por *ruleset*, exigindo:
 
 A estratégia de garantia de qualidade contempla:
 
-* **Ferramenta:** [Vitest](https://vitest.dev/) — escolhido por reaproveitar a configuração já existente do Vite no projeto, tanto no frontend quanto no backend.
+* **Ferramentas:** [Vitest](https://vitest.dev/) no frontend, reaproveitando a configuração já existente do Vite, e [Jest](https://jestjs.io/) nos microsserviços do backend.
 * **Testes de Unidade:** Validação da lógica de negócio crítica — conversão de leituras (equação afim), avaliação de regras de alerta e validação de dados de entrada.
 * **Testes de Integração:** Validação da comunicação entre a API e o banco de dados em ambiente controlado por containers.
 * **Testes de API:** Validação de contratos HTTP, status codes (200, 201, 400, 401, 403, 409) e payloads.
@@ -325,38 +331,96 @@ A estratégia de garantia de qualidade contempla:
 
 ---
 
+## 🎬 Entregas por Sprint <a id="entregas"></a>
+
+<details>
+<summary><b>Sprint 1</b> — MVP 1: Governança de Usuários, Autenticação, Gestão de Estações, Monitoramento de Conectividade e Regras de Alerta</summary>
+
+<br>
+
+![Demonstração do MVP da Sprint 1](assets/sprint-1/api4dsm-sprint1.gif)
+
+</details>
+
+<details>
+<summary><b>Sprint 2</b> — MVP 2</summary>
+
+<br>
+
+_Em breve._
+
+</details>
+
+<details>
+<summary><b>Sprint 3</b> — MVP 3</summary>
+
+<br>
+
+_Em breve._
+
+</details>
+
+---
+
 ## 💻 Guias e Manuais <a id="manuais"></a>
+
+### 📂 Estrutura deste Repositório
+
+```
+API-4SEMESTRE/
+├── backend/    → submódulo do BACKEND-4SEMESTRE
+├── frontend/   → submódulo do FRONTEND-4SEMESTRE
+├── assets/     → materiais de entrega por sprint (demonstrações)
+├── docs/       → documentação do produto (arquitetura e manuais)
+└── README.md
+```
+
+> Os submódulos apontam para um commit específico de cada repositório. O desenvolvimento acontece diretamente no **BACKEND-4SEMESTRE** e no **FRONTEND-4SEMESTRE**; os ponteiros deste repositório são atualizados ao final de cada sprint.
+
+### 📄 Documentos
+
+| Documento              | Link                                    | Situação       |
+| ---------------------- | --------------------------------------- | -------------- |
+| Arquitetura do Sistema | [`Arquitetura.pdf`](docs/Arquitetura.pdf) | ✅ Publicado    |
+| Modelo de Dados        | [`Modelo_de_Dados.pdf`](docs/Modelo_de_Dados.pdf) | ✅ Publicado    |
+| Script do Banco        | [`modelo_completo_postgres.sql`](docs/modelo_completo_postgres.sql) | ✅ Publicado    |
+| Manual de Instalação   | —                                       | 🔄 Em validação |
+| Manual do Usuário      | —                                       | ⏳ A elaborar   |
 
 ### Pré-requisitos
 
-* Node.js (v18 ou superior)
+* Git
 * Docker e Docker Compose
-* Git instalado e configurado
+* Node.js 22 ou superior e npm
 
-### Execução Local (Setup Rápido)
+### Execução Local (Resumo)
 
 ```bash
-# 1. Clonar o repositório
-git clone https://github.com/ELEMENTARES-DSM/BACKEND-4SEMESTRE.git
+# 1. Clonar o repositório com os submódulos
+git clone --recurse-submodules https://github.com/ELEMENTARES-DSM/API-4SEMESTRE.git
+cd API-4SEMESTRE
 
-# 2. Acessar a pasta
-cd BACKEND-4SEMESTRE
-
-# 3. Configurar variáveis de ambiente
+# 2. Backend: configurar variáveis (o .env.example vem vazio; preencha antes de subir)
+cd backend
 cp .env.example .env
 
-# 4. Subir os serviços de infraestrutura (PostgreSQL, MQTT Broker e RabbitMQ)
+# 3. Subir os containers (PostgreSQL, Redis, RabbitMQ e microsserviços)
 docker compose up -d
 
-# 5. Instalar dependências
+# 4. Migrations, por serviço e nesta ordem
+for svc in gestao-usuarios gestao-estacoes alertas-notificacoes; do
+  (cd services/$svc && npm ci && npm run migrate -- up)
+done
+
+# 5. Frontend (deixe VITE_API_URL vazio no .env para usar o proxy do Vite)
+cd ../frontend
+cp .env.example .env
 npm install
-
-# 6. Executar as migrações do banco de dados
-npm run migrate
-
-# 7. Iniciar em modo de desenvolvimento
 npm run dev
+# Aplicação em http://localhost:5173
 ```
+
+> O passo a passo completo, com as variáveis de ambiente e a solução de problemas comuns, estará no **Manual de Instalação**, atualmente em validação.
 
 > O projeto também disponibiliza configuração de **DevContainer**, permitindo abrir o ambiente já padronizado diretamente no VS Code, sem configuração manual.
 
@@ -367,9 +431,10 @@ npm run dev
 | Camada                   | Tecnologias                                            |
 | ------------------------ | ------------------------------------------------------ |
 | **Frontend**       | React · Vite · TypeScript · Tailwind CSS · DaisyUI |
-| **Backend**        | Node.js · TypeScript · Express · biblioteca`pg`   |
-| **Banco de Dados** | PostgreSQL                                             |
+| **Backend**        | Node.js · TypeScript · Express · biblioteca `pg`   |
+| **Banco de Dados** | PostgreSQL · Redis (staging)                           |
 | **Mensageria**     | MQTT · RabbitMQ                                       |
+| **Testes**         | Vitest (frontend) · Jest (backend)                     |
 | **Infraestrutura** | Docker · Docker Compose · DevContainers              |
 | **CI/CD**          | GitHub Actions · GitHub Rulesets                      |
 | **Gestão**        | Jira · Confluence                                     |
