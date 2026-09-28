@@ -258,8 +258,6 @@ Os serviços de domínio (autenticação, gestão de estações, análise de dad
 
 O modelo relacional do PostgreSQL tem 9 tabelas, organizadas em quatro blocos: acesso e identidade, domínio operacional, banco temporário (staging) e histórico agregado. O papel de cada tabela, coluna, índice e rotina está explicado no documento [Modelo de Dados](docs/Modelo_de_Dados.pdf).
 
-Script completo, idempotente, com as 9 tabelas, índices, gatilho e rotinas de manutenção: [`modelo_completo_postgres.sql`](docs/modelo_completo_postgres.sql).
-
 ### 🚀 Pipeline de Entrega (CI/CD)
 
 1. **Planejamento:** PO e Dev Team refinam requisitos no Confluence e organizam tarefas no Jira.
@@ -383,7 +381,6 @@ API-4SEMESTRE/
 | ---------------------- | --------------------------------------- | -------------- |
 | Arquitetura do Sistema | [`Arquitetura.pdf`](docs/Arquitetura.pdf) | ✅ Publicado    |
 | Modelo de Dados        | [`Modelo_de_Dados.pdf`](docs/Modelo_de_Dados.pdf) | ✅ Publicado    |
-| Script do Banco        | [`modelo_completo_postgres.sql`](docs/modelo_completo_postgres.sql) | ✅ Publicado    |
 | Manual de Instalação   | —                                       | 🔄 Em validação |
 | Manual do Usuário      | —                                       | ⏳ A elaborar   |
 
