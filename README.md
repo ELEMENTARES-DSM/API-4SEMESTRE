@@ -14,7 +14,7 @@
   <a href="#equipe">Nossa Equipe</a>
 </p>
 
-> **Fase Atual:** Sprint 1 — Fundação, Governança e Ativos IoT 🚀
+> **Fase Atual:** Sprint 2 — Recepção de dados de ponta a ponta + alertas e alarmes 🚀
 
 ### 🔗 Links Rápidos
 
@@ -75,16 +75,27 @@ O backlog segue a classificação de itens definida pelo cliente: **User Stories
 |  —  | **US-08** | Técnico | Reduz o tempo de setup e evita divergência de ambiente entre máquinas — o custo de não fazer isso aparece como bug em produção depois.                       | Como desenvolvedor da equipe Elementares, quero ter os repositórios organizados com estrutura de pastas padronizada e ambiente de desenvolvimento reproduzível, para garantir que qualquer integrante trabalhe sobre a mesma base técnica, reduzindo divergência de ambiente e tempo de configuração.              | EPIC-04 |   ELEM-59   |        RNF-03        |  3\*  | 1-3 (contínuo) |
 |  —  | **US-09** | Técnico | Garante que uma falha de qualidade seja detectada antes de chegar ao usuário final — sustenta a confiabilidade prometida ao cliente.                             | Como responsável por QA da equipe Elementares, quero definir processos de validação de qualidade e monitorar continuamente a saúde da API, do banco de dados e da esteira de integração, para identificar problemas antes que cheguem ao usuário final e garantir critério objetivo de aprovação das entregas. | EPIC-04 |   ELEM-60   |        RNF-05        |  3\*  | 1-3 (contínuo) |
 |  —  | **US-10** | Técnico | Garante que nenhuma entrega futura quebre o que já foi validado com o cliente nesta Sprint.                                                                       | Como desenvolvedor da equipe Elementares, quero implementar uma suíte de testes automatizados que cubra a lógica de negócio crítica e a integração entre a API e o banco de dados, para garantir que nenhuma alteração futura quebre funcionalidades já validadas com o cliente em sprints anteriores.          | EPIC-04 |   ELEM-61   |        RNF-03        |  3\*  | 1-3 (contínuo) |
-|  7  | **US-11** | Negócio | É a entrega que o cliente pediu explicitamente para a Sprint 2: pipeline real de ponta a ponta, não mais simulado.                                               | Como Gestor Público Municipal, quero que os dados enviados pelas estações sejam recebidos, calibrados e avaliados automaticamente de ponta a ponta, disparando alerta quando necessário, para que o monitoramento funcione de forma contínua e confiável, sem depender de simulação manual.                      | EPIC-03 | _a criar_ | RF-03, RF-05, RNF-05 | 13\*\* |        2        |
-|  8  | **US-12** | Negócio | Sem visualização histórica, a Secretaria não consegue identificar tendência nenhuma — só o instante presente.                                               | Como Gestor Público Municipal, quero visualizar dashboards com a série histórica de qualidade do ar e o status das estações, para acompanhar tendências e tomar decisões com base em dados consolidados.                                                                                                          | EPIC-03 | _a criar_ |        RF-04        | 8\*\* |        2        |
-|  9  | **US-13** | Negócio | Exigido explicitamente pelo cliente (RF-09) para auditoria formal das medições.                                                                                  | Como Gestor Público Municipal, quero gerar relatórios em formato exportável (PDF/CSV) com os dados coletados, para auditar medições ambientais históricas do município.                                                                                                                                           | EPIC-03 | _a criar_ |        RF-09        | 8\*\* |        2        |
-|  10  | **US-14** | Negócio | Sem análise sobre a série histórica, o dado coletado nas Sprints 1 e 2 fica só arquivado — é o que transforma leitura em informação útil.                 | Como Pesquisador, quero aplicar análises estatísticas sobre as séries históricas de qualidade do ar e clima, para identificar padrões e tendências ambientais ao longo do tempo.                                                                                                                                   | EPIC-03 | _a criar_ |        RF-10        | 13\*\* |        2        |
-|  11  | **US-15** | Negócio | Entrega o acesso sem cadastro ao munícipe — o terceiro perfil de usuário previsto desde a visão de produto.                                                    | Como Munícipe, quero consultar um painel público com os índices ambientais do meu município sem precisar de conta, para acompanhar a qualidade do ar do meu dia a dia.                                                                                                                                               | EPIC-03 | _a criar_ |    RF-04, RNF-01    | 8\*\* |        3        |
-|  12  | **US-16** | Negócio | Substitui a simulação por operação real de campo — fecha o ciclo iniciado com o simulador da Sprint 1/2.                                                      | Como Gestor Público Municipal, quero que os dados sejam recebidos diretamente do datalogger instalado na estação física real, para que a plataforma opere com hardware de campo em vez de dados simulados.                                                                                                           | EPIC-03 | _a criar_ |     RF-06, RF-07     | 13\*\* |        3        |
-|  13  | **US-17** | Negócio | Garante que o alerta chegue rápido o suficiente para ser útil, não só que ele exista.                                                                          | Como Técnico da Defesa Civil, quero que os alertas sejam entregues com latência mínima e por múltiplos canais simultaneamente, para garantir resposta rápida em situações climáticas críticas.                                                                                                                  | EPIC-03 | _a criar_ |        RF-05        | 5\*\* |        3        |
-|  —  | **US-18** | Técnico | Valida que a plataforma aguenta o volume real de acesso quando o Portal Público (US-15) entrar no ar.                                                             | Como Squad de Engenharia, quero validar e otimizar a performance da plataforma sob alto volume de acessos simultâneos, para garantir estabilidade quando o Portal Público entrar em operação.                                                                                                                        | EPIC-04 | _a criar_ |        RNF-05        | 8\*\* |        3        |
+|  7  | **US-11** | Negócio | Função mais crítica apontada pelo cliente: se a ingestão cai, a leitura do período se perde para sempre. | Receber, via MQTT, as leituras publicadas pelas estações, sem alterar o conteúdo recebido. | EPIC-03 | ELEM-73 | RF-03 | a estimar | 2 |
+|  8  | **US-12** | Negócio | Impede que payload malformado, estação desconhecida ou inativa entre no fluxo. | Validar o payload e a situação da estação antes de seguir no fluxo. | EPIC-03 | ELEM-74 | RF-03 | a estimar | 2 |
+|  9  | **US-13** | Negócio | Evita leitura repetida quando o broker reentrega a mensagem (QoS 1). | Ignorar mensagens duplicadas (mesma estação e mesmo timestamp). | EPIC-03 | ELEM-75 | RF-03 | a estimar | 2 |
+|  10  | **US-14** | Negócio | Guarda a leitura bruta antes de qualquer processamento e mantém a estação "Ativa" no painel da US-04. | Gravar a mensagem no staging e atualizar o último sinal da estação. | EPIC-03 | ELEM-76 | RF-03 | a estimar | 2 |
+|  11  | **US-15** | Negócio | Entrega a leitura ao serviço de validação sem perder mensagem se o RabbitMQ cair. | Publicar o evento em `telemetria.bruta` (a própria US cria exchange, fila e DLQ). | EPIC-03 | ELEM-77 | RF-03 | a estimar | 2 |
+|  12  | **US-16** | Técnico | Sem a estação física (só na Sprint 3), é a única forma de gerar dados para testar o fluxo e a carga. | Simulador de estações, em container, com taxa de erro configurável. | EPIC-04 | ELEM-78 | RF-03 | a estimar | 2 |
+|  13  | **US-17** | Negócio | Gera a série histórica calibrada que alimenta alertas, dashboards e relatórios. | Calibrar a leitura e gravar em `medidas`. | EPIC-03 | ELEM-79 | RF-03 | a estimar | 2 |
+|  14  | **US-18** | Negócio | Evita medida associada ao sensor errado. | Tratar leitura de sensor inexistente (vai para a DLQ) ou inativo (ignorada, com log e contador). | EPIC-03 | ELEM-80 | RF-03 | a estimar | 2 |
+|  15  | **US-19** | Negócio | Impede que valor fisicamente impossível entre em dashboards, relatórios e alarmes. | Marcar como inválida a medida com valor fisicamente impossível. | EPIC-03 | ELEM-81 | RF-03 | a estimar | 2 |
+|  16  | **US-20** | Negócio | Cumpre o pedido do cliente de que nenhuma leitura se perca, mesmo com falha do banco. | Tratar falha de gravação e reenviar eventos da DLQ (rota restrita ao administrador). | EPIC-03 | ELEM-82 | RF-03 | a estimar | 2 |
+|  17-20  | **US-21 a US-24** | Negócio | Segunda metade da expectativa do cliente para a Sprint 2: "alertas e alarmes". | Alertas e alarmes sobre dado em fluxo (antiga US-11B) e teste de fluxo contínuo ponta a ponta. **Textos a escrever.** | EPIC-03 | _a criar_ | RF-05, RNF-05 | a estimar | 2 |
+|  —  | **US-25** | Técnico | Garante que as entregas da Sprint 2 não quebrem o que já foi validado com o cliente. | Como desenvolvedor da equipe Elementares, quero uma suíte de testes unitários e de integração no backend, para garantir que nenhuma alteração quebre funcionalidades já validadas. | EPIC-04 | ELEM-116 | RNF-03 | a estimar | 2 |
+|  21  | **US-26** | Negócio | Sem visualização histórica, a Secretaria não consegue identificar tendência nenhuma — só o instante presente.                                               | Como Gestor Público Municipal, quero visualizar dashboards com a série histórica de qualidade do ar e o status das estações, para acompanhar tendências e tomar decisões com base em dados consolidados.                                                                                                          | EPIC-03 | _a criar_ |        RF-04        | 8\*\* |        2        |
+|  22  | **US-27** | Negócio | Exigido explicitamente pelo cliente (RF-09) para auditoria formal das medições.                                                                                  | Como Gestor Público Municipal, quero gerar relatórios em formato exportável (PDF/CSV) com os dados coletados, para auditar medições ambientais históricas do município.                                                                                                                                           | EPIC-03 | _a criar_ |        RF-09        | 8\*\* |        2        |
+|  23  | **US-28** | Negócio | Sem análise sobre a série histórica, o dado coletado nas Sprints 1 e 2 fica só arquivado — é o que transforma leitura em informação útil.                 | Como Pesquisador, quero aplicar análises estatísticas sobre as séries históricas de qualidade do ar e clima, para identificar padrões e tendências ambientais ao longo do tempo.                                                                                                                                   | EPIC-03 | _a criar_ |        RF-10        | 13\*\* |        2        |
+|  24  | **US-29** | Negócio | Entrega o acesso sem cadastro ao munícipe — o terceiro perfil de usuário previsto desde a visão de produto.                                                    | Como Munícipe, quero consultar um painel público com os índices ambientais do meu município sem precisar de conta, para acompanhar a qualidade do ar do meu dia a dia.                                                                                                                                               | EPIC-03 | _a criar_ |    RF-04, RNF-01    | 8\*\* |        3        |
+|  25  | **US-30** | Negócio | Substitui a simulação por operação real de campo — fecha o ciclo iniciado com o simulador da Sprint 1/2.                                                      | Como Gestor Público Municipal, quero que os dados sejam recebidos diretamente do datalogger instalado na estação física real, para que a plataforma opere com hardware de campo em vez de dados simulados.                                                                                                           | EPIC-03 | _a criar_ |     RF-06, RF-07     | 13\*\* |        3        |
+|  26  | **US-31** | Negócio | Garante que o alerta chegue rápido o suficiente para ser útil, não só que ele exista.                                                                          | Como Técnico da Defesa Civil, quero que os alertas sejam entregues com latência mínima e por múltiplos canais simultaneamente, para garantir resposta rápida em situações climáticas críticas.                                                                                                                  | EPIC-03 | _a criar_ |        RF-05        | 5\*\* |        3        |
+|  —  | **US-32** | Técnico | Valida que a plataforma aguenta o volume real de acesso quando o Portal Público (US-29) entrar no ar.                                                             | Como Squad de Engenharia, quero validar e otimizar a performance da plataforma sob alto volume de acessos simultâneos, para garantir estabilidade quando o Portal Público entrar em operação.                                                                                                                        | EPIC-04 | _a criar_ |        RNF-05        | 8\*\* |        3        |
 
-> **Pontos:** US-01 a US-06 somam 34 Story Points, consenso de Planning Poker (sequência de Fibonacci) — medem valor de negócio. \*Os 3 pontos de US-07 a US-10 são uma estimativa nominal de esforço de engenharia **por sprint** em que houver trabalho ativo (setup inicial na Sprint 1, manutenção e verificação nas Sprints 2 e 3), para fins de organização e apontamento de horas — **não fazem parte** do consenso de Planning Poker das histórias de negócio. \*\*Estimativas de US-11 a US-18 são **preliminares, propostas pelo PO** — ainda não passaram por Planning Poker com o squad completo. Serão revalidadas na Sprint Planning de cada sprint.
+> **Pontos:** US-01 a US-06 somam 34 Story Points, consenso de Planning Poker (sequência de Fibonacci) — medem valor de negócio. \*Os 3 pontos de US-07 a US-10 são uma estimativa nominal de esforço de engenharia **por sprint** em que houver trabalho ativo (setup inicial na Sprint 1, manutenção e verificação nas Sprints 2 e 3), para fins de organização e apontamento de horas — **não fazem parte** do consenso de Planning Poker das histórias de negócio. \*\*Estimativas de US-26 a US-32 são **preliminares, propostas pelo PO** — ainda não passaram por Planning Poker com o squad completo. Serão revalidadas na Sprint Planning de cada sprint. As US-11 a US-25 ainda estão **a estimar** em Planning Poker: a US-11 antiga (13 pontos) foi dividida em US-11 a US-24, e as estimativas preliminares antigas deixaram de valer. Numeração atual: US-11 a US-16 (ingestão), US-17 a US-20 (validação), US-21 a US-24 (alertas e fluxo contínuo), US-25 (testes) e US-26 a US-32 (antigas US-12 a US-18).
 
 **Épicos:** `EPIC-01` Gestão de Acessos e Perfis de Usuários · `EPIC-02` Inventário Territorial de Estações e Sensores · `EPIC-03` Monitoramento Operacional e Gestão de Alertas · `EPIC-04` Engenharia de Plataforma, DevOps e Qualidade (Técnico).
 
@@ -129,23 +140,41 @@ Itens concretos identificados durante o planejamento técnico e a revisão de qu
 
 > Os itens com ticket "a criar" ou "em abertura" ainda precisam ser registrados formalmente no Jira antes da próxima revisão — esta tabela documenta a existência deles, mas a rastreabilidade completa depende do ticket real.
 
-### 🏃 Sprint Backlog — Sprint 2 (Prévia)
+### 🏃 Sprint Backlog — Sprint 2
 
-As Sprints 2 e 3 ainda não começaram (períodos no [cronograma](#cronograma)), então este recorte é uma **prévia de planejamento**, não um compromisso operacional como o da Sprint 1. O texto completo de cada User Story está no [Backlog do Produto](#backlog) acima.
+A Sprint 2 (05/10 a 25/10) está em andamento. O compromisso com o cliente é a entrega definida por ele no levantamento de requisitos: **recepção de dados de ponta a ponta + alertas e alarmes**. O texto completo de cada User Story está nos PDFs da pasta [`/docs`](docs/) e no [Backlog do Produto](#backlog) acima.
 
-| Capacidade estimada pela equipe por Sprint                         |                                                                                     A confirmar (Planning Poker da Sprint 2 ainda não realizado)                                                                                     |
-| ------------------------------------------------------------------ | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
-| **Meta da Sprint**                                           | US-11 a US-14 — pipeline de ingestão real de ponta a ponta, dashboards, relatórios e análise estatística, conforme resposta do cliente ao levantamento de requisitos ("recepção de dados de ponta a ponta + alertas e alarmes") |
-| **Previsão da Sprint (extras, sem compromisso de entrega)** |                                                                          Nenhuma definida ainda — depende da velocidade real observada ao final da Sprint 1                                                                          |
+| Capacidade estimada pela equipe por Sprint                         |                                                       A confirmar (Planning Poker da Sprint 2 ainda não realizado)                                                       |
+| ------------------------------------------------------------------ | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
+| **Meta da Sprint**                                           | US-11 a US-25 — recepção de dados de ponta a ponta (ingestão, validação, calibração e gravação) + alertas e alarmes, conforme resposta do cliente ao levantamento de requisitos |
+| **Previsão da Sprint (extras, sem compromisso de entrega)** | US-26 a US-28 (dashboards, relatórios e análise estatística), somente se a capacidade permitir                                                                        |
 
-|  US  | Prioridade | Estimativa\*\* | Sprint |
-| :---: | :--------: | :------------: | :----: |
-| US-11 |    Alta    |       13       |   2   |
-| US-12 |    Alta    |       8       |   2   |
-| US-13 |    Alta    |       8       |   2   |
-| US-14 |    Alta    |       13       |   2   |
+| Rank | Prioridade | US | Ticket | Objetivo | Estimativa |
+| :--: | :--------: | :-: | :----: | -------- | :--------: |
+|  07  |    Alta    | US-11 | ELEM-73 | Receber leituras das estações via MQTT | a estimar |
+|  08  |    Alta    | US-12 | ELEM-74 | Validar payload e estação ativa | a estimar |
+|  09  |    Alta    | US-13 | ELEM-75 | Ignorar leituras duplicadas | a estimar |
+|  10  |    Alta    | US-14 | ELEM-76 | Gravar no staging e atualizar o último sinal | a estimar |
+|  11  |    Alta    | US-15 | ELEM-77 | Publicar em `telemetria.bruta` | a estimar |
+|  12  |    Alta    | US-16 | ELEM-78 | Simulador de estações | a estimar |
+|  13  |    Alta    | US-17 | ELEM-79 | Calibrar e gravar em `medidas` | a estimar |
+|  14  |   Média    | US-18 | ELEM-80 | Tratar leituras de sensor inexistente ou inativo | a estimar |
+|  15  |   Média    | US-19 | ELEM-81 | Marcar como inválido o valor fisicamente impossível | a estimar |
+|  16  |    Alta    | US-20 | ELEM-82 | Tratar falha de gravação e reenviar eventos da DLQ | a estimar |
+| 17-20 |    Alta    | US-21 a US-24 | _a criar_ | Alertas e alarmes sobre dado em fluxo e teste de fluxo contínuo ponta a ponta | a estimar |
+|  —  |  A definir | US-25 | ELEM-116 | Implementação de testes unitários no backend | a estimar |
 
-> \*\*Estimativas preliminares do PO, a validar em Planning Poker no início da Sprint 2 — ver nota da tabela de Backlog do Produto acima.
+**Spikes da Sprint 2:**
+
+|   Código   |     Tipo     | Item | Épico | Ticket |
+| :--------: | :----------: | ---- | ----- | :----: |
+|  SPIKE-04  |    Spike     | Estudar MQTT, base da recepção de dados das estações (US-11). | EPIC-04 | ELEM-87 |
+|  SPIKE-05  |    Spike     | Estudar como simular o envio de dados das estações de forma fiel (US-16). | EPIC-04 | ELEM-88 |
+
+**Comum a todas as US da Sprint 2 (DoR):** testes automatizados da lógica de negócio rodando no CI, sem `--passWithNoTests`; rotas novas ou alteradas documentadas no OpenAPI, com exemplo de requisição e resposta; isolamento territorial testado com dois gestores de municípios diferentes (SJC e SP), quando aplicável; migrations novas seguindo `docs/migrations.md`; manual de instalação atualizado se a US trouxer serviço, variável de ambiente ou passo novo.
+
+> **DoR Verificado:** data e responsável serão registrados por US após a Planning Poker. Estimativas e responsáveis ainda não definidos.
+
 
 ---
 
@@ -316,6 +345,7 @@ A estratégia de garantia de qualidade contempla:
 * **Testes de API:** Validação de contratos HTTP, status codes (200, 201, 400, 401, 403, 409) e payloads.
 * **Rastreabilidade de Testes:** Cada User Story possui uma tarefa de teste consolidada no Jira contendo o checklist de casos executados.
 * **Execução Automatizada:** A suíte é executada a cada Pull Request e bloqueia o merge em caso de falha.
+* **Backend (US-25, Sprint 2):** testes unitários da lógica de negócio sem acessar banco, fila ou rede; testes de integração das rotas, no caso de sucesso e em cada erro previsto, com PostgreSQL real em container (só RabbitMQ, Redis e MQTT podem ser simulados); cada teste parte de um banco limpo; isolamento por município testado; cobertura mínima de 70% sobre a lógica de negócio, reportada no pipeline e verificada no PR.
 
 ---
 
@@ -323,8 +353,8 @@ A estratégia de garantia de qualidade contempla:
 
 | Sprint             | Período      | Objetivo Principal                                                                                                                   | Status          |
 | ------------------ | ------------- | ------------------------------------------------------------------------------------------------------------------------------------ | --------------- |
-| **Sprint 1** | 07/09 a 27/09 | **MVP 1:** Governança de Usuários, Autenticação, Gestão de Estações, Monitoramento de Conectividade e Regras de Alerta. | ⏳ Em andamento |
-| **Sprint 2** | 05/10 a 25/10 | **MVP 2:** Ingestão contínua de telemetria, Dashboards analíticos, Módulo de Relatórios e Análise Estatística.          | ⏳ Planejado    |
+| **Sprint 1** | 07/09 a 27/09 | **MVP 1:** Governança de Usuários, Autenticação, Gestão de Estações, Monitoramento de Conectividade e Regras de Alerta. | ✅ Encerrada |
+| **Sprint 2** | 05/10 a 25/10 | **MVP 2:** Recepção de dados de ponta a ponta (ingestão, validação, calibração e gravação) + alertas e alarmes.          | ⏳ Em andamento    |
 | **Sprint 3** | 02/11 a 22/11 | **MVP 3:** Portal público de Dados Abertos, Otimizações de performance, Datalogger integrado e Alertas em tempo real.       | ⏳ Planejado    |
 
 ---
