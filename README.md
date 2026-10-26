@@ -428,12 +428,12 @@ A estratégia de garantia de qualidade contempla:
 
 </details>
 
-<details>
-<summary><b>Sprint 2</b> — MVP 2</summary>
+<details open>
+<summary><b>Sprint 2</b> — MVP 2: Recepção de dados de ponta a ponta (ingestão, validação, calibração e gravação) + alertas e alarmes</summary>
 
 <br>
 
-_Em breve._
+![Demonstração do MVP da Sprint 2](assets/sprint-2/mvp-sprint-2.gif)
 
 </details>
 
