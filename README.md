@@ -3,7 +3,7 @@
 <h2 align="center"> ELEMENTARES </h2>
 
 <p align="center">
-**🏠 Início** · [Backlog](docs/backlog.md) · [Sprint 1](docs/sprints/sprint-1.md) · [Sprint 2](docs/sprints/sprint-2.md) · [Sprint 3](docs/sprints/sprint-3.md) · [Requisitos](docs/requisitos.md) · [Arquitetura](docs/arquitetura.md) · [Processo](docs/processo.md) · [Qualidade](docs/qualidade.md) · [Instalação](docs/instalacao.md)
+<b>🏠 Início</b> · <a href="docs/backlog.md">Backlog</a> · <a href="docs/sprints/sprint-1.md">Sprint 1</a> · <a href="docs/sprints/sprint-2.md">Sprint 2</a> · <a href="docs/sprints/sprint-3.md">Sprint 3</a> · <a href="docs/requisitos.md">Requisitos</a> · <a href="docs/arquitetura.md">Arquitetura</a> · <a href="docs/processo.md">Processo</a> · <a href="docs/qualidade.md">Qualidade</a> · <a href="docs/instalacao.md">Instalação</a>
 </p>
 
 <p align="center">
@@ -253,5 +253,5 @@ Preencha os dois `.env` antes de subir. O passo a passo completo, com as migrati
 
 ---
 
-<p align="center">[Backlog →](docs/backlog.md)</p>
+<p align="center"><a href="docs/backlog.md">Backlog →</a></p>
 

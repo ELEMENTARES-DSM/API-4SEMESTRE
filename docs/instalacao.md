@@ -1,5 +1,5 @@
 <p align="center">
-[🏠 Início](../README.md) · [Backlog](backlog.md) · [Sprint 1](sprints/sprint-1.md) · [Sprint 2](sprints/sprint-2.md) · [Sprint 3](sprints/sprint-3.md) · [Requisitos](requisitos.md) · [Arquitetura](arquitetura.md) · [Processo](processo.md) · [Qualidade](qualidade.md) · **Instalação**
+<a href="../README.md">🏠 Início</a> · <a href="backlog.md">Backlog</a> · <a href="sprints/sprint-1.md">Sprint 1</a> · <a href="sprints/sprint-2.md">Sprint 2</a> · <a href="sprints/sprint-3.md">Sprint 3</a> · <a href="requisitos.md">Requisitos</a> · <a href="arquitetura.md">Arquitetura</a> · <a href="processo.md">Processo</a> · <a href="qualidade.md">Qualidade</a> · <b>Instalação</b>
 </p>
 
 # 💻 Instalação e Execução Local
@@ -56,4 +56,4 @@ npm run dev
 
 ---
 
-<p align="center">[← Qualidade](qualidade.md)</p>
+<p align="center"><a href="qualidade.md">← Qualidade</a></p>

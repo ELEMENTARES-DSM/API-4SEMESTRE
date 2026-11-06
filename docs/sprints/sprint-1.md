@@ -1,5 +1,5 @@
 <p align="center">
-[🏠 Início](../../README.md) · [Backlog](../backlog.md) · **Sprint 1** · [Sprint 2](sprint-2.md) · [Sprint 3](sprint-3.md) · [Requisitos](../requisitos.md) · [Arquitetura](../arquitetura.md) · [Processo](../processo.md) · [Qualidade](../qualidade.md) · [Instalação](../instalacao.md)
+<a href="../../README.md">🏠 Início</a> · <a href="../backlog.md">Backlog</a> · <b>Sprint 1</b> · <a href="sprint-2.md">Sprint 2</a> · <a href="sprint-3.md">Sprint 3</a> · <a href="../requisitos.md">Requisitos</a> · <a href="../arquitetura.md">Arquitetura</a> · <a href="../processo.md">Processo</a> · <a href="../qualidade.md">Qualidade</a> · <a href="../instalacao.md">Instalação</a>
 </p>
 
 # 🏃 Sprint 1 · 07/09 a 27/09 ✅
@@ -37,4 +37,4 @@
 
 ---
 
-<p align="center">[← Backlog](../backlog.md) | [Sprint 2 →](sprint-2.md)</p>
+<p align="center"><a href="../backlog.md">← Backlog</a> | <a href="sprint-2.md">Sprint 2 →</a></p>

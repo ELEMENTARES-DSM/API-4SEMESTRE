@@ -1,5 +1,5 @@
 <p align="center">
-[🏠 Início](../../README.md) · [Backlog](../backlog.md) · [Sprint 1](sprint-1.md) · **Sprint 2** · [Sprint 3](sprint-3.md) · [Requisitos](../requisitos.md) · [Arquitetura](../arquitetura.md) · [Processo](../processo.md) · [Qualidade](../qualidade.md) · [Instalação](../instalacao.md)
+<a href="../../README.md">🏠 Início</a> · <a href="../backlog.md">Backlog</a> · <a href="sprint-1.md">Sprint 1</a> · <b>Sprint 2</b> · <a href="sprint-3.md">Sprint 3</a> · <a href="../requisitos.md">Requisitos</a> · <a href="../arquitetura.md">Arquitetura</a> · <a href="../processo.md">Processo</a> · <a href="../qualidade.md">Qualidade</a> · <a href="../instalacao.md">Instalação</a>
 </p>
 
 # 🏃 Sprint 2 · 05/10 a 25/10 ✅
@@ -46,4 +46,4 @@ O compromisso com o cliente foi a entrega definida por ele no levantamento de re
 
 ---
 
-<p align="center">[← Sprint 1](sprint-1.md) | [Sprint 3 →](sprint-3.md)</p>
+<p align="center"><a href="sprint-1.md">← Sprint 1</a> | <a href="sprint-3.md">Sprint 3 →</a></p>

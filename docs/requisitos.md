@@ -1,5 +1,5 @@
 <p align="center">
-[🏠 Início](../README.md) · [Backlog](backlog.md) · [Sprint 1](sprints/sprint-1.md) · [Sprint 2](sprints/sprint-2.md) · [Sprint 3](sprints/sprint-3.md) · **Requisitos** · [Arquitetura](arquitetura.md) · [Processo](processo.md) · [Qualidade](qualidade.md) · [Instalação](instalacao.md)
+<a href="../README.md">🏠 Início</a> · <a href="backlog.md">Backlog</a> · <a href="sprints/sprint-1.md">Sprint 1</a> · <a href="sprints/sprint-2.md">Sprint 2</a> · <a href="sprints/sprint-3.md">Sprint 3</a> · <b>Requisitos</b> · <a href="arquitetura.md">Arquitetura</a> · <a href="processo.md">Processo</a> · <a href="qualidade.md">Qualidade</a> · <a href="instalacao.md">Instalação</a>
 </p>
 
 # 📋 Requisitos do Sistema
@@ -74,4 +74,4 @@ O escopo de sensores do MVP foi definido a partir da dor do cliente: cada variá
 
 ---
 
-<p align="center">[← Sprint 3](sprints/sprint-3.md) | [Arquitetura →](arquitetura.md)</p>
+<p align="center"><a href="sprints/sprint-3.md">← Sprint 3</a> | <a href="arquitetura.md">Arquitetura →</a></p>

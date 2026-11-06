@@ -1,5 +1,5 @@
 <p align="center">
-[🏠 Início](../../README.md) · [Backlog](../backlog.md) · [Sprint 1](sprint-1.md) · [Sprint 2](sprint-2.md) · **Sprint 3** · [Requisitos](../requisitos.md) · [Arquitetura](../arquitetura.md) · [Processo](../processo.md) · [Qualidade](../qualidade.md) · [Instalação](../instalacao.md)
+<a href="../../README.md">🏠 Início</a> · <a href="../backlog.md">Backlog</a> · <a href="sprint-1.md">Sprint 1</a> · <a href="sprint-2.md">Sprint 2</a> · <b>Sprint 3</b> · <a href="../requisitos.md">Requisitos</a> · <a href="../arquitetura.md">Arquitetura</a> · <a href="../processo.md">Processo</a> · <a href="../qualidade.md">Qualidade</a> · <a href="../instalacao.md">Instalação</a>
 </p>
 
 # 🏃 Sprint 3 · 02/11 a 22/11 🔄
@@ -54,4 +54,4 @@ _Em breve (task 41.04)._
 
 ---
 
-<p align="center">[← Sprint 2](sprint-2.md) | [Requisitos →](../requisitos.md)</p>
+<p align="center"><a href="sprint-2.md">← Sprint 2</a> | <a href="../requisitos.md">Requisitos →</a></p>

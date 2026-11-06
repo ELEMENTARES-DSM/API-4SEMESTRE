@@ -1,5 +1,5 @@
 <p align="center">
-[🏠 Início](../README.md) · **Backlog** · [Sprint 1](sprints/sprint-1.md) · [Sprint 2](sprints/sprint-2.md) · [Sprint 3](sprints/sprint-3.md) · [Requisitos](requisitos.md) · [Arquitetura](arquitetura.md) · [Processo](processo.md) · [Qualidade](qualidade.md) · [Instalação](instalacao.md)
+<a href="../README.md">🏠 Início</a> · <b>Backlog</b> · <a href="sprints/sprint-1.md">Sprint 1</a> · <a href="sprints/sprint-2.md">Sprint 2</a> · <a href="sprints/sprint-3.md">Sprint 3</a> · <a href="requisitos.md">Requisitos</a> · <a href="arquitetura.md">Arquitetura</a> · <a href="processo.md">Processo</a> · <a href="qualidade.md">Qualidade</a> · <a href="instalacao.md">Instalação</a>
 </p>
 
 # 📋 Backlog do Produto
@@ -193,4 +193,4 @@ Itens de engenharia habilitadora (EPIC-04). Começam numa sprint e continuam nas
 
 ---
 
-<p align="center">[← 🏠 Início](../README.md) | [Sprint 1 →](sprints/sprint-1.md)</p>
+<p align="center"><a href="../README.md">← 🏠 Início</a> | <a href="sprints/sprint-1.md">Sprint 1 →</a></p>
