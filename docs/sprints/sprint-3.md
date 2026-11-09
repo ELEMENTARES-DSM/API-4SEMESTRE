@@ -8,27 +8,27 @@
 
 A meta é **entregar a estação física funcionando e a plataforma aberta ao público**: a estação lê os sensores a cada 5 minutos, cada leitura é guardada primeiro no banco temporário (Valkey) e chega ao painel sem se perder, os alarmes disparam, e o munícipe se cadastra e consulta os dados pela API pública, com período e cota por perfil.
 
-| Capacidade estimada pela equipe | A definir |
+| Capacidade estimada pela equipe | 92 pontos de negócio |
 | --- | :--: |
 | **Meta da Sprint** | US-26 a US-31, US-34 a US-42 e a continuação da US-25, US-32 e US-33 |
 | **Previsão (extras, sem compromisso)** | Calibração automática da estação (tasks Extra da US-30) |
 
 | Ordem | Prioridade | US | Ticket | Objetivo | Estimativa |
 | :--: | :--: | :--: | :--: | --- | :--: |
-| 1 | Baixa | US-26 | ELEM-154 | Estação envia as leituras dos sensores | a definir |
-| 2 | Baixa | US-27 | ELEM-155 | Estação guarda as leituras quando a rede cai | a definir |
-| 3 | Baixa | US-28 | ELEM-156 | Leitura antiga não gera alarme | a definir |
-| 4 | Baixa | US-29 | ELEM-157 | Acesso de cada estação ao broker | a definir |
-| 5 | Baixa | US-30 | ELEM-158 | Instalar, calibrar e aceitar a estação | a definir |
-| 6 | Baixa | US-31 | ELEM-159 | Consultar medições e exportar em CSV | a definir |
-| 7 | Baixa | US-35 | ELEM-182 | Dashboards da qualidade do ar e das estações | a definir |
-| 8 | Baixa | US-36 | ELEM-183 | Fluxo completo do frontend | a definir |
-| 9 | Baixa | US-37 | ELEM-184 | Fluxo completo do backend | a definir |
-| 10 | Baixa | US-38 | ELEM-185 | Entregáveis de implantação na Prefeitura | a definir |
-| 11 | Baixa | US-39 | ELEM-261 | Cadastrar qualquer grandeza | a definir |
-| 12 | Baixa | US-40 | ELEM-207 | Valkey como banco temporário (staging) da recepção | a definir |
-| 13 | Baixa | US-41 | ELEM-262 | Entrega do MVP 3 | a definir |
-| 14 | Baixa | US-42 | ELEM-263 | API pública com cadastro, perfis e cotas | a definir |
+| 1 | Baixa | US-26 | ELEM-154 | Estação envia as leituras dos sensores | 5 |
+| 2 | Baixa | US-27 | ELEM-155 | Estação guarda as leituras quando a rede cai | 5 |
+| 3 | Baixa | US-28 | ELEM-156 | Leitura antiga não gera alarme | 5 |
+| 4 | Baixa | US-29 | ELEM-157 | Acesso de cada estação ao broker | 5 |
+| 5 | Baixa | US-30 | ELEM-158 | Instalar, calibrar e aceitar a estação | 8 |
+| 6 | Baixa | US-31 | ELEM-159 | Consultar medições e exportar em CSV | 5 |
+| 7 | Baixa | US-35 | ELEM-182 | Dashboards da qualidade do ar e das estações | 8 |
+| 8 | Baixa | US-36 | ELEM-183 | Fluxo completo do frontend | 8 |
+| 9 | Baixa | US-37 | ELEM-184 | Fluxo completo do backend | 8 |
+| 10 | Baixa | US-38 | ELEM-185 | Entregáveis de implantação na Prefeitura | 8 |
+| 11 | Baixa | US-39 | ELEM-261 | Cadastrar qualquer grandeza | 8 |
+| 12 | Baixa | US-40 | ELEM-207 | Valkey como banco temporário (staging) da recepção | 8 |
+| 13 | Baixa | US-41 | ELEM-262 | Entrega do MVP 3 | 3 |
+| 14 | Baixa | US-42 | ELEM-263 | API pública com cadastro, perfis e cotas | 8 |
 
 **Plataforma, DevOps e Qualidade nesta sprint:**
 
@@ -36,10 +36,12 @@ A meta é **entregar a estação física funcionando e a plataforma aberta ao p�
 | :--: | :--: | :--: | :--: | --- | :--: |
 | 1 | Alta | US-07 | ELEM-58 | Documentação e rastreabilidade | 3\* |
 | 2 | Alta | US-09 | ELEM-60 | Observabilidade e processos de QA | 3\* |
-| 3 | Média | US-25 | ELEM-116 | Testes unitários no backend | — |
-| 4 | Média | US-32 | ELEM-130 | Processo de deploy automático | — |
-| 5 | Média | US-33 | ELEM-125 | Monitoramento da infraestrutura e do fluxo de dados | — |
-| 6 | Baixa | US-34 | ELEM-181 | Integração contínua (CI) | a definir |
+| 3 | Média | US-25 | ELEM-116 | Testes unitários no backend | 3 |
+| 4 | Média | US-32 | ELEM-130 | Processo de deploy automático | 3 |
+| 5 | Média | US-33 | ELEM-125 | Monitoramento da infraestrutura e do fluxo de dados | 3 |
+| 6 | Baixa | US-34 | ELEM-181 | Integração contínua (CI) | 3 |
+
+Estimativa nominal de engenharia, como a do README para US-07 a US-10. Não entra na conta de velocidade.
 
 **Ordem de execução:** o número da US segue a prioridade; a ordem em que as tasks são feitas está nos vínculos "é bloqueada por" do Jira. Os dois caminhos que não podem atrasar:
 
