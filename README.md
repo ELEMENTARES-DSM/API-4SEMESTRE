@@ -133,18 +133,18 @@ As sprints vêm em ordem de prioridade: a Sprint 1 antes da 2, e a 2 antes da 3.
 | :--: | --- | :--: | :--: | :--: |
 | US-26 | Estação envia as leituras dos sensores | Baixa | Pronto (DoR ok) | [ELEM-154](https://elementares-4sem.atlassian.net/browse/ELEM-154) |
 | US-27 | Estação guarda as leituras quando a rede cai | Baixa | Pronto (DoR ok) | [ELEM-155](https://elementares-4sem.atlassian.net/browse/ELEM-155) |
-| US-28 | Leitura antiga não gera alarme | Baixa | Validação PO | [ELEM-156](https://elementares-4sem.atlassian.net/browse/ELEM-156) |
+| US-28 | Leitura antiga não gera alarme | Baixa | Pronto (DoR ok)| [ELEM-156](https://elementares-4sem.atlassian.net/browse/ELEM-156) |
 | US-29 | Acesso de cada estação ao broker | Baixa | Pronto (DoR ok) | [ELEM-157](https://elementares-4sem.atlassian.net/browse/ELEM-157) |
 | US-30 | Instalar, calibrar e aceitar a estação | Baixa | Pronto (DoR ok) | [ELEM-158](https://elementares-4sem.atlassian.net/browse/ELEM-158) |
-| US-31 | Consultar medições e exportar em CSV | Baixa | Validação PO | [ELEM-159](https://elementares-4sem.atlassian.net/browse/ELEM-159) |
+| US-31 | Consultar medições e exportar em CSV | Baixa | Pronto (DoR ok) | [ELEM-159](https://elementares-4sem.atlassian.net/browse/ELEM-159) |
 | US-35 | Dashboards da qualidade do ar e das estações | Baixa | Pronto (DoR ok) | [ELEM-182](https://elementares-4sem.atlassian.net/browse/ELEM-182) |
 | US-36 | Fluxo completo do frontend | Baixa | Pronto (DoR ok) | [ELEM-183](https://elementares-4sem.atlassian.net/browse/ELEM-183) |
 | US-37 | Fluxo completo do backend | Baixa | Pronto (DoR ok) | [ELEM-184](https://elementares-4sem.atlassian.net/browse/ELEM-184) |
 | US-38 | Entregáveis de implantação na Prefeitura | Baixa | Pronto (DoR ok) | [ELEM-185](https://elementares-4sem.atlassian.net/browse/ELEM-185) |
-| US-39 | Cadastrar qualquer grandeza | Baixa | A fazer | [ELEM-261](https://elementares-4sem.atlassian.net/browse/ELEM-261) |
+| US-39 | Cadastrar qualquer grandeza | Baixa | Pronto (DoR ok) | [ELEM-261](https://elementares-4sem.atlassian.net/browse/ELEM-261) |
 | US-40 | Valkey como banco temporário (staging) da recepção | Baixa | Pronto (DoR ok) | [ELEM-207](https://elementares-4sem.atlassian.net/browse/ELEM-207) |
-| US-41 | Entrega do MVP 3 | Baixa | A fazer | [ELEM-262](https://elementares-4sem.atlassian.net/browse/ELEM-262) |
-| US-42 | API pública com cadastro, perfis e cotas | Baixa | A fazer | [ELEM-263](https://elementares-4sem.atlassian.net/browse/ELEM-263) |
+| US-41 | Entrega do MVP 3 | Baixa | Pronto (DoR ok)| [ELEM-262](https://elementares-4sem.atlassian.net/browse/ELEM-262) |
+| US-42 | API pública com cadastro, perfis e cotas | Baixa | Pronto (DoR ok)| [ELEM-263](https://elementares-4sem.atlassian.net/browse/ELEM-263) |
 
 </details>
 
