@@ -90,79 +90,78 @@ Cada estação publica as leituras por MQTT. O serviço de ingestão grava a men
 
 ## 📌 Backlog <a id="backlog"></a>
 
-As sprints vêm em ordem de prioridade: a Sprint 1 antes da 2, e a 2 antes da 3. Dentro de cada sprint, o número da US segue a prioridade. Os itens de plataforma, DevOps e qualidade (EPIC-04) atravessam as sprints e ficam numa tabela própria. A fonte da prioridade é o campo Prioridade do Jira.
+As sprints vêm em ordem de prioridade: a Sprint 1 antes da 2, e a 2 antes da 3. Dentro de cada sprint, o número da US segue a prioridade. Os itens de plataforma, DevOps e qualidade (EPIC-04) atravessam as sprints e ficam numa tabela própria. A fonte da prioridade é o campo Prioridade do Jira. **Estimativa:** pontos na sequência de Fibonacci. Na Sprint 1 é o consenso do Planning Poker; nas Sprints 2 e 3 é uma estimativa preliminar por dificuldade relativa (máximo 8), ainda sem Planning Poker. \*As US-07 a US-10 têm 3 pontos nominais por sprint ativa, fora do Planning Poker. A US-27 (estação guarda as leituras) foi excluída do escopo e o número não foi reaproveitado.
 
 <details>
 <summary><b>Sprint 1 · 07/09 a 27/09 · fundação da plataforma (1ª Entrega)</b></summary>
 
-| US | História | Prioridade | Status | Jira |
-| :--: | --- | :--: | :--: | :--: |
-| US-01 | Gestão administrativa de contas e perfis | Alta | ✅ Finalizado | [ELEM-6](https://elementares-4sem.atlassian.net/browse/ELEM-6) |
-| US-02 | Autenticação e controle de sessão | Alta | ✅ Finalizado | [ELEM-11](https://elementares-4sem.atlassian.net/browse/ELEM-11) |
-| US-03 | Cadastro e gestão de estações | Alta | ✅ Finalizado | [ELEM-16](https://elementares-4sem.atlassian.net/browse/ELEM-16) |
-| US-04 | Monitoramento de disponibilidade das estações | Alta | ✅ Finalizado | [ELEM-23](https://elementares-4sem.atlassian.net/browse/ELEM-23) |
-| US-05 | Parametrização e calibração de sensores | Alta | ✅ Finalizado | [ELEM-27](https://elementares-4sem.atlassian.net/browse/ELEM-27) |
-| US-06 | Regras e limiares de alerta | Alta | ✅ Finalizado | [ELEM-32](https://elementares-4sem.atlassian.net/browse/ELEM-32) |
+| US | História | Prioridade | Estimativa | Status | Jira |
+| :--: | --- | :--: | :--: | :--: | :--: |
+| US-01 | Gestão administrativa de contas e perfis | Média | 5 | ✅ Finalizado | [ELEM-6](https://elementares-4sem.atlassian.net/browse/ELEM-6) |
+| US-02 | Autenticação e controle de sessão | Média | 3 | ✅ Finalizado | [ELEM-11](https://elementares-4sem.atlassian.net/browse/ELEM-11) |
+| US-03 | Cadastro e gestão de estações | Média | 5 | ✅ Finalizado | [ELEM-16](https://elementares-4sem.atlassian.net/browse/ELEM-16) |
+| US-04 | Monitoramento de disponibilidade das estações | Média | 8 | ✅ Finalizado | [ELEM-23](https://elementares-4sem.atlassian.net/browse/ELEM-23) |
+| US-05 | Parametrização e calibração de sensores | Média | 5 | ✅ Finalizado | [ELEM-27](https://elementares-4sem.atlassian.net/browse/ELEM-27) |
+| US-06 | Regras e limiares de alerta | Média | 8 | ✅ Finalizado | [ELEM-32](https://elementares-4sem.atlassian.net/browse/ELEM-32) |
 
 </details>
 
 <details>
 <summary><b>Sprint 2 · 05/10 a 25/10 · recepção de dados de ponta a ponta, alertas e alarmes</b></summary>
 
-| US | História | Prioridade | Status | Jira |
-| :--: | --- | :--: | :--: | :--: |
-| US-11 | Receber leituras das estações via MQTT | Média | ✅ Finalizado | [ELEM-73](https://elementares-4sem.atlassian.net/browse/ELEM-73) |
-| US-12 | Validar payload e estação ativa | Média | ✅ Finalizado | [ELEM-74](https://elementares-4sem.atlassian.net/browse/ELEM-74) |
-| US-13 | Ignorar leituras duplicadas | Média | ✅ Finalizado | [ELEM-75](https://elementares-4sem.atlassian.net/browse/ELEM-75) |
-| US-14 | Gravar no staging e atualizar o último sinal | Média | ✅ Finalizado | [ELEM-76](https://elementares-4sem.atlassian.net/browse/ELEM-76) |
-| US-15 | Publicar em `telemetria.bruta` | Média | ✅ Finalizado | [ELEM-77](https://elementares-4sem.atlassian.net/browse/ELEM-77) |
-| US-17 | Calibrar e gravar em `medidas` | Média | ✅ Finalizado | [ELEM-79](https://elementares-4sem.atlassian.net/browse/ELEM-79) |
-| US-18 | Tratar leituras de sensor inexistente ou inativo | Média | ✅ Finalizado | [ELEM-80](https://elementares-4sem.atlassian.net/browse/ELEM-80) |
-| US-19 | Marcar como inválido o valor fisicamente impossível | Média | ✅ Finalizado | [ELEM-81](https://elementares-4sem.atlassian.net/browse/ELEM-81) |
-| US-20 | Tratar falha de gravação e reenviar eventos da DLQ | Média | ✅ Finalizado | [ELEM-82](https://elementares-4sem.atlassian.net/browse/ELEM-82) |
-| US-22 | Avaliar regras de alerta e registrar alarme | Média | ✅ Finalizado | [ELEM-137](https://elementares-4sem.atlassian.net/browse/ELEM-137) |
-| US-23 | Avisar gestores sobre alarme disparado | Média | ✅ Finalizado | [ELEM-138](https://elementares-4sem.atlassian.net/browse/ELEM-138) |
-| US-24 | Tela de alarmes e indicador | Média | ✅ Finalizado | [ELEM-139](https://elementares-4sem.atlassian.net/browse/ELEM-139) |
+| US | História | Prioridade | Estimativa | Status | Jira |
+| :--: | --- | :--: | :--: | :--: | :--: |
+| US-11 | Receber leituras das estações via MQTT | Média | 5 | ✅ Finalizado | [ELEM-73](https://elementares-4sem.atlassian.net/browse/ELEM-73) |
+| US-12 | Validar payload e estação ativa | Média | 3 | ✅ Finalizado | [ELEM-74](https://elementares-4sem.atlassian.net/browse/ELEM-74) |
+| US-13 | Ignorar leituras duplicadas | Média | 2 | ✅ Finalizado | [ELEM-75](https://elementares-4sem.atlassian.net/browse/ELEM-75) |
+| US-14 | Gravar no staging e atualizar o último sinal | Média | 3 | ✅ Finalizado | [ELEM-76](https://elementares-4sem.atlassian.net/browse/ELEM-76) |
+| US-15 | Publicar em `telemetria.bruta` | Média | 5 | ✅ Finalizado | [ELEM-77](https://elementares-4sem.atlassian.net/browse/ELEM-77) |
+| US-17 | Calibrar e gravar em `medidas` | Média | 5 | ✅ Finalizado | [ELEM-79](https://elementares-4sem.atlassian.net/browse/ELEM-79) |
+| US-18 | Tratar leituras de sensor inexistente ou inativo | Média | 3 | ✅ Finalizado | [ELEM-80](https://elementares-4sem.atlassian.net/browse/ELEM-80) |
+| US-19 | Marcar como inválido o valor fisicamente impossível | Média | 2 | ✅ Finalizado | [ELEM-81](https://elementares-4sem.atlassian.net/browse/ELEM-81) |
+| US-20 | Tratar falha de gravação e reenviar eventos da DLQ | Média | 5 | ✅ Finalizado | [ELEM-82](https://elementares-4sem.atlassian.net/browse/ELEM-82) |
+| US-22 | Avaliar regras de alerta e registrar alarme | Média | 8 | ✅ Finalizado | [ELEM-137](https://elementares-4sem.atlassian.net/browse/ELEM-137) |
+| US-23 | Avisar gestores sobre alarme disparado | Média | 5 | ✅ Finalizado | [ELEM-138](https://elementares-4sem.atlassian.net/browse/ELEM-138) |
+| US-24 | Tela de alarmes e indicador | Média | 5 | ✅ Finalizado | [ELEM-139](https://elementares-4sem.atlassian.net/browse/ELEM-139) |
 
 </details>
 
 <details open>
 <summary><b>Sprint 3 · 02/11 a 22/11 · estação física, API pública e entrega final</b></summary>
 
-| US | História | Prioridade | Status | Jira |
-| :--: | --- | :--: | :--: | :--: |
-| US-26 | Estação envia as leituras dos sensores | Baixa | Pronto (DoR ok) | [ELEM-154](https://elementares-4sem.atlassian.net/browse/ELEM-154) |
-| US-27 | Estação guarda as leituras quando a rede cai | Baixa | Pronto (DoR ok) | [ELEM-155](https://elementares-4sem.atlassian.net/browse/ELEM-155) |
-| US-28 | Leitura antiga não gera alarme | Baixa | Pronto (DoR ok)| [ELEM-156](https://elementares-4sem.atlassian.net/browse/ELEM-156) |
-| US-29 | Acesso de cada estação ao broker | Baixa | Pronto (DoR ok) | [ELEM-157](https://elementares-4sem.atlassian.net/browse/ELEM-157) |
-| US-30 | Instalar, calibrar e aceitar a estação | Baixa | Pronto (DoR ok) | [ELEM-158](https://elementares-4sem.atlassian.net/browse/ELEM-158) |
-| US-31 | Consultar medições e exportar em CSV | Baixa | Pronto (DoR ok) | [ELEM-159](https://elementares-4sem.atlassian.net/browse/ELEM-159) |
-| US-35 | Dashboards da qualidade do ar e das estações | Baixa | Pronto (DoR ok) | [ELEM-182](https://elementares-4sem.atlassian.net/browse/ELEM-182) |
-| US-36 | Fluxo completo do frontend | Baixa | Pronto (DoR ok) | [ELEM-183](https://elementares-4sem.atlassian.net/browse/ELEM-183) |
-| US-37 | Fluxo completo do backend | Baixa | Pronto (DoR ok) | [ELEM-184](https://elementares-4sem.atlassian.net/browse/ELEM-184) |
-| US-38 | Entregáveis de implantação na Prefeitura | Baixa | Pronto (DoR ok) | [ELEM-185](https://elementares-4sem.atlassian.net/browse/ELEM-185) |
-| US-39 | Cadastrar qualquer grandeza | Baixa | Pronto (DoR ok) | [ELEM-261](https://elementares-4sem.atlassian.net/browse/ELEM-261) |
-| US-40 | Valkey como banco temporário (staging) da recepção | Baixa | Pronto (DoR ok) | [ELEM-207](https://elementares-4sem.atlassian.net/browse/ELEM-207) |
-| US-41 | Entrega do MVP 3 | Baixa | Pronto (DoR ok)| [ELEM-262](https://elementares-4sem.atlassian.net/browse/ELEM-262) |
-| US-42 | API pública com cadastro, perfis e cotas | Baixa | Pronto (DoR ok)| [ELEM-263](https://elementares-4sem.atlassian.net/browse/ELEM-263) |
+| US | História | Prioridade | Estimativa | Status | Jira |
+| :--: | --- | :--: | :--: | :--: | :--: |
+| US-26 | Estação envia as leituras dos sensores | Baixa | 8 | Pronto (DoR ok) | [ELEM-154](https://elementares-4sem.atlassian.net/browse/ELEM-154) |
+| US-28 | Leitura antiga não gera alarme | Baixa | 3 | Pronto (DoR ok)| [ELEM-156](https://elementares-4sem.atlassian.net/browse/ELEM-156) |
+| US-29 | Conexão das estações ao broker pelo MAC | Baixa | 3 | Pronto (DoR ok) | [ELEM-157](https://elementares-4sem.atlassian.net/browse/ELEM-157) |
+| US-30 | Instalar, calibrar e aceitar a estação | Baixa | 5 | Pronto (DoR ok) | [ELEM-158](https://elementares-4sem.atlassian.net/browse/ELEM-158) |
+| US-31 | Consultar medições e exportar em CSV | Baixa | 5 | Pronto (DoR ok) | [ELEM-159](https://elementares-4sem.atlassian.net/browse/ELEM-159) |
+| US-35 | Dashboards da qualidade do ar e das estações | Baixa | 8 | Pronto (DoR ok) | [ELEM-182](https://elementares-4sem.atlassian.net/browse/ELEM-182) |
+| US-36 | Fluxo completo do frontend | Baixa | 8 | Pronto (DoR ok) | [ELEM-183](https://elementares-4sem.atlassian.net/browse/ELEM-183) |
+| US-37 | Fluxo completo do backend | Baixa | 5 | Pronto (DoR ok) | [ELEM-184](https://elementares-4sem.atlassian.net/browse/ELEM-184) |
+| US-38 | Entregáveis de implantação na Prefeitura | Baixa | 8 | Pronto (DoR ok) | [ELEM-185](https://elementares-4sem.atlassian.net/browse/ELEM-185) |
+| US-39 | Cadastrar qualquer grandeza | Baixa | 3 | Pronto (DoR ok) | [ELEM-261](https://elementares-4sem.atlassian.net/browse/ELEM-261) |
+| US-40 | Valkey como banco temporário (staging) da recepção | Baixa | 8 | Pronto (DoR ok) | [ELEM-207](https://elementares-4sem.atlassian.net/browse/ELEM-207) |
+| US-41 | Entrega do MVP 3 | Baixa | 3 | Pronto (DoR ok)| [ELEM-262](https://elementares-4sem.atlassian.net/browse/ELEM-262) |
+| US-42 | API pública com cadastro, perfis e cotas | Baixa | 8 | Pronto (DoR ok)| [ELEM-263](https://elementares-4sem.atlassian.net/browse/ELEM-263) |
 
 </details>
 
 <details>
 <summary><b>Plataforma, DevOps e Qualidade · itens contínuos</b></summary>
 
-| US | História | Prioridade | Status | Jira |
-| :--: | --- | :--: | :--: | :--: |
-| US-07 | Documentação e rastreabilidade | Alta | 🔄 Em andamento | [ELEM-58](https://elementares-4sem.atlassian.net/browse/ELEM-58) |
-| US-08 | Repositórios e arquitetura de código | Alta | ✅ Finalizado | [ELEM-59](https://elementares-4sem.atlassian.net/browse/ELEM-59) |
-| US-09 | Observabilidade e processos de QA | Alta | 🔄 Em andamento | [ELEM-60](https://elementares-4sem.atlassian.net/browse/ELEM-60) |
-| US-10 | Testes de integração e cobertura mínima | Alta | ✅ Finalizado | [ELEM-61](https://elementares-4sem.atlassian.net/browse/ELEM-61) |
-| US-16 | Simulador de estações | Média | ✅ Finalizado | [ELEM-78](https://elementares-4sem.atlassian.net/browse/ELEM-78) |
-| US-21 | Teste contínuo da ingestão | Média | ✅ Finalizado | [ELEM-136](https://elementares-4sem.atlassian.net/browse/ELEM-136) |
-| US-25 | Testes unitários no backend | Média | 🔄 Em andamento | [ELEM-116](https://elementares-4sem.atlassian.net/browse/ELEM-116) |
-| US-32 | Processo de deploy automático | Média | 🔄 Em andamento | [ELEM-130](https://elementares-4sem.atlassian.net/browse/ELEM-130) |
-| US-33 | Monitoramento da infraestrutura e do fluxo de dados | Média | 🔄 Em andamento | [ELEM-125](https://elementares-4sem.atlassian.net/browse/ELEM-125) |
-| US-34 | Integração contínua (CI) | Baixa | Pronto (DoR ok) | [ELEM-181](https://elementares-4sem.atlassian.net/browse/ELEM-181) |
+| US | História | Prioridade | Estimativa | Status | Jira |
+| :--: | --- | :--: | :--: | :--: | :--: |
+| US-07 | Documentação e rastreabilidade | Média | 3\* | 🔄 Em andamento | [ELEM-58](https://elementares-4sem.atlassian.net/browse/ELEM-58) |
+| US-08 | Repositórios e arquitetura de código | Média | 3\* | ✅ Finalizado | [ELEM-59](https://elementares-4sem.atlassian.net/browse/ELEM-59) |
+| US-09 | Observabilidade e processos de QA | Média | 3\* | 🔄 Em andamento | [ELEM-60](https://elementares-4sem.atlassian.net/browse/ELEM-60) |
+| US-10 | Testes de integração e cobertura mínima | Média | 3\* | ✅ Finalizado | [ELEM-61](https://elementares-4sem.atlassian.net/browse/ELEM-61) |
+| US-16 | Simulador de estações | Média | 5 | ✅ Finalizado | [ELEM-78](https://elementares-4sem.atlassian.net/browse/ELEM-78) |
+| US-21 | Teste contínuo da ingestão | Média | 3 | ✅ Finalizado | [ELEM-136](https://elementares-4sem.atlassian.net/browse/ELEM-136) |
+| US-25 | Testes unitários no backend | Média | 8 | 🔄 Em andamento | [ELEM-116](https://elementares-4sem.atlassian.net/browse/ELEM-116) |
+| US-32 | Processo de deploy automático | Média | 5 | 🔄 Em andamento | [ELEM-130](https://elementares-4sem.atlassian.net/browse/ELEM-130) |
+| US-33 | Monitoramento da infraestrutura e do fluxo de dados | Média | 5 | 🔄 Em andamento | [ELEM-125](https://elementares-4sem.atlassian.net/browse/ELEM-125) |
+| US-34 | Integração contínua (CI) | Baixa | 5 | Pronto (DoR ok) | [ELEM-181](https://elementares-4sem.atlassian.net/browse/ELEM-181) |
 
 </details>
 
@@ -254,4 +253,3 @@ Preencha os dois `.env` antes de subir. O passo a passo completo, com as migrati
 ---
 
 <p align="center"><a href="docs/backlog.md">Backlog →</a></p>
-
