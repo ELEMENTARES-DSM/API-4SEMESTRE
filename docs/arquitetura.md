@@ -1,5 +1,5 @@
 <p align="center">
-<a href="../README.md">🏠 Início</a> · <a href="backlog.md">Backlog</a> · <a href="sprints/sprint-1.md">Sprint 1</a> · <a href="sprints/sprint-2.md">Sprint 2</a> · <a href="sprints/sprint-3.md">Sprint 3</a> · <a href="requisitos.md">Requisitos</a> · <b>Arquitetura</b> · <a href="processo.md">Processo</a> · <a href="qualidade.md">Qualidade</a> · <a href="instalacao.md">Instalação</a>
+<a href="../README.md">🏠 Início</a> · <a href="backlog.md">Backlog</a> · <a href="sprints/sprint-1.md">Sprint 1</a> · <a href="sprints/sprint-2.md">Sprint 2</a> · <a href="sprints/sprint-3.md">Sprint 3</a> · <a href="requisitos.md">Requisitos</a> · <b>Arquitetura</b> · <a href="eventos.md">Eventos</a> · <a href="processo.md">Processo</a> · <a href="qualidade.md">Qualidade</a> · <a href="instalacao.md">Instalação</a>
 </p>
 
 # 📐 Arquitetura
@@ -32,7 +32,7 @@ Os serviços de domínio (autenticação, gestão de usuários e estações, an�
 * **Backend:** Node.js com TypeScript e Express, estruturado em camadas (Controllers, Services, Repositories, Middlewares).
 * **Frontend:** SPA em React (Vite) com TypeScript, estilizado com Tailwind CSS e DaisyUI.
 * **Banco de Dados:** PostgreSQL acessado diretamente via biblioteca cliente `pg`, com integridade referencial estrita, índices analíticos e exclusão lógica (*soft delete*); guarda o dado tratado, sem expurgo. **Valkey** (open source, licença BSD, no lugar do Redis) é o banco temporário (staging) da ingestão e guarda os tokens revogados e as cotas da API pública.
-* **Mensageria:** MQTT na borda (dispositivos) e RabbitMQ na comunicação entre microsserviços, com Dead Letter Queue para tratamento de falhas.
+* **Mensageria:** MQTT na borda (dispositivos) e RabbitMQ na comunicação entre microsserviços, com Dead Letter Queue para tratamento de falhas (detalhes em [Eventos do Backend](eventos.md)).
 * **Segurança:** Autenticação stateless via Token JWT (HMAC-SHA256) e senhas criptografadas com `bcryptjs` (salt rounds 10).
 
 ### 🖥️ Implantação na Prefeitura
@@ -58,4 +58,4 @@ O modelo relacional do PostgreSQL está organizado em quatro blocos: acesso e id
 
 ---
 
-<p align="center"><a href="requisitos.md">← Requisitos</a> | <a href="processo.md">Processo →</a></p>
+<p align="center"><a href="requisitos.md">← Requisitos</a> | <a href="eventos.md">Eventos →</a></p>

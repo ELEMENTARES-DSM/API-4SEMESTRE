@@ -1,0 +1,137 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1170 610" role="img" aria-labelledby="titulo descricao">
+  <title id="titulo">Topologia das filas do RabbitMQ</title>
+  <desc id="descricao">Duas raias. Raia 1: ingestao-dados publica no exchange telemetria.bruta, que entrega à fila validacao.telemetria, consumida pelo servico-validacao. Recusas vão pelo validacao.dlx para validacao.dlq. Raia 2: servico-validacao publica no exchange alarme.disparado, que entrega à fila notificacao.alarmes, consumida pelo alertas-notificacoes. Falhas finais vão pelo notificacao.dlx para notificacao.dlq.</desc>
+  <defs>
+    <filter id="sombra" x="-8%" y="-8%" width="116%" height="124%">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#0f172a" flood-opacity="0.06"/>
+    </filter>
+    <marker id="seta" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 1 L 10 5 L 0 9 z" fill="#0b6878"/>
+    </marker>
+    <marker id="seta-erro" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 1 L 10 5 L 0 9 z" fill="#b42318"/>
+    </marker>
+  </defs>
+
+  <rect width="1170" height="610" rx="14" fill="#f4f6f8"/>
+
+  <!-- Cabeçalho e Legenda -->
+  <g font-family="Segoe UI, -apple-system, BlinkMacSystemFont, Arial, sans-serif">
+    <text x="30" y="44" font-size="22" font-weight="700" fill="#0f172a">Filas e exchanges no RabbitMQ</text>
+    <text x="30" y="68" font-size="14" fill="#556472">Retângulo: serviço ou fila quorum. Pílula: exchange fanout (copia a mensagem). Tracejado vermelho: rota de recusa (DLX/DLQ).</text>
+  </g>
+
+  <!-- ==================== RAIA 1: TELEMETRIA BRUTA ==================== -->
+  <rect x="30" y="92" width="1110" height="236" rx="14" fill="#ffffff" stroke="#d8dfe5" stroke-width="1.5"/>
+  <rect x="50" y="106" width="210" height="22" rx="11" fill="#e3f0f2"/>
+  <text x="155" y="121" font-family="Segoe UI, Arial, sans-serif" font-size="11" font-weight="700" letter-spacing="0.4" fill="#0b6878" text-anchor="middle">1 · PIPELINE DE TELEMETRIA</text>
+
+  <g font-family="Segoe UI, -apple-system, BlinkMacSystemFont, Arial, sans-serif" text-anchor="middle" filter="url(#sombra)">
+    <!-- Publicador -->
+    <rect x="50" y="142" width="205" height="66" rx="10" fill="#ffffff" stroke="#0b6878" stroke-width="2"/>
+    <text x="152.5" y="170" font-size="15.5" font-weight="700" fill="#0f172a">ingestao-dados</text>
+    <text x="152.5" y="192" font-size="12" font-weight="600" fill="#0b6878">serviço · publica</text>
+
+    <!-- Exchange (Pílula real) -->
+    <rect x="325" y="142" width="210" height="66" rx="33" fill="#e3f0f2" stroke="#0b6878" stroke-width="2"/>
+    <text x="430" y="170" font-size="15" font-weight="700" fill="#0b6878">telemetria.bruta</text>
+    <text x="430" y="192" font-size="12" fill="#475569">exchange · fanout · durável</text>
+
+    <!-- Fila Quorum -->
+    <rect x="605" y="142" width="225" height="66" rx="10" fill="#f8fafc" stroke="#0b6878" stroke-width="2"/>
+    <text x="717.5" y="170" font-size="15" font-weight="700" fill="#0f172a">validacao.telemetria</text>
+    <text x="717.5" y="192" font-size="12" fill="#475569">fila quorum · 3 entregas</text>
+
+    <!-- Consumidor -->
+    <rect x="900" y="142" width="215" height="66" rx="10" fill="#ffffff" stroke="#0b6878" stroke-width="2"/>
+    <text x="1007.5" y="170" font-size="15.5" font-weight="700" fill="#0f172a">servico-validacao</text>
+    <text x="1007.5" y="192" font-size="12" font-weight="600" fill="#0b6878">serviço · consome</text>
+  </g>
+
+  <g stroke="#0b6878" stroke-width="2.2" fill="none" marker-end="url(#seta)">
+    <line x1="256" y1="175" x2="320" y2="175"/>
+    <line x1="536" y1="175" x2="600" y2="175"/>
+    <line x1="831" y1="175" x2="895" y2="175"/>
+  </g>
+
+  <!-- Recusa 1: validacao.dlx -> validacao.dlq -->
+  <g font-family="Segoe UI, -apple-system, BlinkMacSystemFont, Arial, sans-serif">
+    <rect x="50" y="254" width="500" height="52" rx="10" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1"/>
+    <text x="68" y="276" font-size="12" font-weight="700" fill="#475569">Rota de dead-letter da validação</text>
+    <text x="68" y="294" font-size="12" fill="#556472">Acionada ao rejeitar mensagem sem reenfileirar ou após esgotar 3 tentativas.</text>
+  </g>
+
+  <g font-family="Segoe UI, -apple-system, BlinkMacSystemFont, Arial, sans-serif" text-anchor="middle" filter="url(#sombra)">
+    <!-- DLX Pílula -->
+    <rect x="612" y="248" width="210" height="62" rx="31" fill="#fdecea" stroke="#b42318" stroke-width="2" stroke-dasharray="6 4"/>
+    <text x="717" y="275" font-size="14.5" font-weight="700" fill="#b42318">validacao.dlx</text>
+    <text x="717" y="295" font-size="12" fill="#556472">exchange · fanout</text>
+
+    <!-- DLQ Fila -->
+    <rect x="900" y="248" width="215" height="62" rx="10" fill="#fdecea" stroke="#b42318" stroke-width="2" stroke-dasharray="6 4"/>
+    <text x="1007.5" y="275" font-size="14.5" font-weight="700" fill="#b42318">validacao.dlq</text>
+    <text x="1007.5" y="295" font-size="12" fill="#556472">sensor inexistente · malformado</text>
+  </g>
+
+  <g stroke="#b42318" stroke-width="2" fill="none" stroke-dasharray="5 4">
+    <line x1="717" y1="208" x2="717" y2="243" marker-end="url(#seta-erro)"/>
+    <line x1="823" y1="279" x2="895" y2="279" marker-end="url(#seta-erro)"/>
+  </g>
+
+  <!-- ==================== RAIA 2: ALARMES DISPARADOS ==================== -->
+  <rect x="30" y="348" width="1110" height="236" rx="14" fill="#ffffff" stroke="#d8dfe5" stroke-width="1.5"/>
+  <rect x="50" y="362" width="210" height="22" rx="11" fill="#e3f0f2"/>
+  <text x="155" y="377" font-family="Segoe UI, Arial, sans-serif" font-size="11" font-weight="700" letter-spacing="0.4" fill="#0b6878" text-anchor="middle">2 · PIPELINE DE ALARMES</text>
+
+  <g font-family="Segoe UI, -apple-system, BlinkMacSystemFont, Arial, sans-serif" text-anchor="middle" filter="url(#sombra)">
+    <!-- Publicador -->
+    <rect x="50" y="398" width="205" height="66" rx="10" fill="#ffffff" stroke="#0b6878" stroke-width="2"/>
+    <text x="152.5" y="426" font-size="15.5" font-weight="700" fill="#0f172a">servico-validacao</text>
+    <text x="152.5" y="448" font-size="12" font-weight="600" fill="#0b6878">serviço · publica</text>
+
+    <!-- Exchange (Pílula real) -->
+    <rect x="325" y="398" width="210" height="66" rx="33" fill="#e3f0f2" stroke="#0b6878" stroke-width="2"/>
+    <text x="430" y="426" font-size="15" font-weight="700" fill="#0b6878">alarme.disparado</text>
+    <text x="430" y="448" font-size="12" fill="#475569">exchange · fanout · durável</text>
+
+    <!-- Fila Quorum -->
+    <rect x="605" y="398" width="225" height="66" rx="10" fill="#f8fafc" stroke="#0b6878" stroke-width="2"/>
+    <text x="717.5" y="426" font-size="15" font-weight="700" fill="#0f172a">notificacao.alarmes</text>
+    <text x="717.5" y="448" font-size="12" fill="#475569">fila quorum · 3 entregas</text>
+
+    <!-- Consumidor -->
+    <rect x="900" y="398" width="215" height="66" rx="10" fill="#ffffff" stroke="#0b6878" stroke-width="2"/>
+    <text x="1007.5" y="426" font-size="15.5" font-weight="700" fill="#0f172a">alertas-notificacoes</text>
+    <text x="1007.5" y="448" font-size="12" font-weight="600" fill="#0b6878">serviço · consome</text>
+  </g>
+
+  <g stroke="#0b6878" stroke-width="2.2" fill="none" marker-end="url(#seta)">
+    <line x1="256" y1="431" x2="320" y2="431"/>
+    <line x1="536" y1="431" x2="600" y2="431"/>
+    <line x1="831" y1="431" x2="895" y2="431"/>
+  </g>
+
+  <!-- Recusa 2: notificacao.dlx -> notificacao.dlq -->
+  <g font-family="Segoe UI, -apple-system, BlinkMacSystemFont, Arial, sans-serif">
+    <rect x="50" y="510" width="500" height="52" rx="10" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1"/>
+    <text x="68" y="532" font-size="12" font-weight="700" fill="#475569">Declaração espelhada da topologia</text>
+    <text x="68" y="550" font-size="12" fill="#556472">O publicador também declara exchange e fila para nenhum alarme se perder no boot.</text>
+  </g>
+
+  <g font-family="Segoe UI, -apple-system, BlinkMacSystemFont, Arial, sans-serif" text-anchor="middle" filter="url(#sombra)">
+    <!-- DLX Pílula -->
+    <rect x="612" y="504" width="210" height="62" rx="31" fill="#fdecea" stroke="#b42318" stroke-width="2" stroke-dasharray="6 4"/>
+    <text x="717" y="531" font-size="14.5" font-weight="700" fill="#b42318">notificacao.dlx</text>
+    <text x="717" y="551" font-size="12" fill="#556472">exchange · fanout</text>
+
+    <!-- DLQ Fila -->
+    <rect x="900" y="504" width="215" height="62" rx="10" fill="#fdecea" stroke="#b42318" stroke-width="2" stroke-dasharray="6 4"/>
+    <text x="1007.5" y="531" font-size="14.5" font-weight="700" fill="#b42318">notificacao.dlq</text>
+    <text x="1007.5" y="551" font-size="12" fill="#556472">3 entregas · alarme malformado</text>
+  </g>
+
+  <g stroke="#b42318" stroke-width="2" fill="none" stroke-dasharray="5 4">
+    <line x1="717" y1="464" x2="717" y2="499" marker-end="url(#seta-erro)"/>
+    <line x1="823" y1="535" x2="895" y2="535" marker-end="url(#seta-erro)"/>
+  </g>
+</svg>

@@ -1,0 +1,141 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1170 420" role="img" aria-labelledby="titulo descricao">
+  <title id="titulo">Fluxo dos eventos do backend</title>
+  <desc id="descricao">A estação envia por MQTT, o Mosquitto entrega à ingestao-dados, que publica telemetria.bruta. O servico-validacao grava medidas e publica alarme.disparado. O alertas-notificacoes avisa o gestor. Recusas vão para validacao.dlq; falhas finais de aviso vão para notificacao.dlq.</desc>
+  <defs>
+    <filter id="sombra" x="-8%" y="-8%" width="116%" height="124%">
+      <feDropShadow dx="0" dy="2" stdDeviation="3.5" flood-color="#0f172a" flood-opacity="0.07"/>
+    </filter>
+    <marker id="seta" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 1 L 10 5 L 0 9 z" fill="#0b6878"/>
+    </marker>
+    <marker id="seta-erro" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 1 L 10 5 L 0 9 z" fill="#b42318"/>
+    </marker>
+  </defs>
+
+  <rect width="1170" height="420" rx="14" fill="#f4f6f8"/>
+
+  <!-- Cabeçalho e Legenda -->
+  <g font-family="Segoe UI, -apple-system, BlinkMacSystemFont, Arial, sans-serif">
+    <text x="30" y="44" font-size="22" font-weight="700" fill="#0f172a">Como uma leitura vira alarme</text>
+    <text x="30" y="68" font-size="14" fill="#556472">Jornada da medição desde a estação até o alerta ao gestor, incluindo as filas de recusa (DLQ).</text>
+
+    <!-- Legenda canto superior direito -->
+    <rect x="780" y="26" width="166" height="28" rx="14" fill="#e3f0f2" stroke="#0b6878" stroke-width="1.2"/>
+    <line x1="796" y1="40" x2="818" y2="40" stroke="#0b6878" stroke-width="2.2" marker-end="url(#seta)"/>
+    <text x="828" y="44" font-size="12" font-weight="700" fill="#0b6878">Caminho normal</text>
+
+    <rect x="958" y="26" width="182" height="28" rx="14" fill="#fdecea" stroke="#b42318" stroke-width="1.2" stroke-dasharray="4 3"/>
+    <line x1="974" y1="40" x2="996" y2="40" stroke="#b42318" stroke-width="2" stroke-dasharray="4 3" marker-end="url(#seta-erro)"/>
+    <text x="1006" y="44" font-size="12" font-weight="700" fill="#b42318">Recusa / falha (DLQ)</text>
+  </g>
+
+  <!-- Caminho normal: 5 etapas -->
+  <!-- Etapa 1: Estação -->
+  <g font-family="Segoe UI, -apple-system, BlinkMacSystemFont, Arial, sans-serif" filter="url(#sombra)">
+    <rect x="25" y="96" width="190" height="132" rx="12" fill="#ffffff" stroke="#0b6878" stroke-width="2"/>
+    <circle cx="48" cy="118" r="11" fill="#0b6878"/>
+    <text x="48" y="122" font-size="12" font-weight="700" fill="#ffffff" text-anchor="middle">1</text>
+    <rect x="132" y="107" width="68" height="20" rx="10" fill="#eef2f6"/>
+    <text x="166" y="121" font-size="10.5" font-weight="700" fill="#475569" text-anchor="middle">ORIGEM</text>
+    <text x="120" y="154" font-size="16" font-weight="700" fill="#0f172a" text-anchor="middle">Estação</text>
+    <text x="120" y="175" font-size="13" fill="#556472" text-anchor="middle">placa ou simulador</text>
+    <rect x="41" y="190" width="158" height="26" rx="8" fill="#e3f0f2"/>
+    <text x="120" y="207" font-size="12.5" font-weight="700" fill="#0b6878" text-anchor="middle">envia JSON por MQTT</text>
+  </g>
+
+  <!-- Etapa 2: Mosquitto -->
+  <g font-family="Segoe UI, -apple-system, BlinkMacSystemFont, Arial, sans-serif" filter="url(#sombra)">
+    <rect x="258" y="96" width="190" height="132" rx="12" fill="#ffffff" stroke="#0b6878" stroke-width="2"/>
+    <circle cx="281" cy="118" r="11" fill="#0b6878"/>
+    <text x="281" y="122" font-size="12" font-weight="700" fill="#ffffff" text-anchor="middle">2</text>
+    <rect x="345" y="107" width="88" height="20" rx="10" fill="#e8effc"/>
+    <text x="389" y="121" font-size="10.5" font-weight="700" fill="#1d55c4" text-anchor="middle">BROKER MQTT</text>
+    <text x="353" y="154" font-size="16" font-weight="700" fill="#0f172a" text-anchor="middle">Mosquitto</text>
+    <text x="353" y="175" font-size="13" fill="#556472" text-anchor="middle">recebe tópico MQTT</text>
+    <rect x="274" y="190" width="158" height="26" rx="8" fill="#e3f0f2"/>
+    <text x="353" y="207" font-size="12.5" font-weight="700" fill="#0b6878" text-anchor="middle">entrega à ingestão</text>
+  </g>
+
+  <!-- Etapa 3: ingestao-dados -->
+  <g font-family="Segoe UI, -apple-system, BlinkMacSystemFont, Arial, sans-serif" filter="url(#sombra)">
+    <rect x="490" y="96" width="190" height="132" rx="12" fill="#ffffff" stroke="#0b6878" stroke-width="2"/>
+    <circle cx="513" cy="118" r="11" fill="#0b6878"/>
+    <text x="513" y="122" font-size="12" font-weight="700" fill="#ffffff" text-anchor="middle">3</text>
+    <rect x="595" y="107" width="70" height="20" rx="10" fill="#e3f0f2"/>
+    <text x="630" y="121" font-size="10.5" font-weight="700" fill="#0b6878" text-anchor="middle">SERVIÇO</text>
+    <text x="585" y="154" font-size="16" font-weight="700" fill="#0f172a" text-anchor="middle">ingestao-dados</text>
+    <text x="585" y="175" font-size="13" fill="#556472" text-anchor="middle">confere e grava staging</text>
+    <rect x="502" y="190" width="166" height="26" rx="8" fill="#e3f0f2"/>
+    <text x="585" y="207" font-size="12" font-weight="700" fill="#0b6878" text-anchor="middle">publica telemetria.bruta</text>
+  </g>
+
+  <!-- Etapa 4: servico-validacao -->
+  <g font-family="Segoe UI, -apple-system, BlinkMacSystemFont, Arial, sans-serif" filter="url(#sombra)">
+    <rect x="722" y="96" width="190" height="132" rx="12" fill="#ffffff" stroke="#0b6878" stroke-width="2"/>
+    <circle cx="745" cy="118" r="11" fill="#0b6878"/>
+    <text x="745" y="122" font-size="12" font-weight="700" fill="#ffffff" text-anchor="middle">4</text>
+    <rect x="827" y="107" width="70" height="20" rx="10" fill="#e3f0f2"/>
+    <text x="862" y="121" font-size="10.5" font-weight="700" fill="#0b6878" text-anchor="middle">SERVIÇO</text>
+    <text x="817" y="154" font-size="16" font-weight="700" fill="#0f172a" text-anchor="middle">servico-validacao</text>
+    <text x="817" y="175" font-size="13" fill="#556472" text-anchor="middle">valida e grava medidas</text>
+    <rect x="730" y="190" width="174" height="26" rx="8" fill="#e3f0f2"/>
+    <text x="817" y="207" font-size="12" font-weight="700" fill="#0b6878" text-anchor="middle">publica alarme.disparado</text>
+  </g>
+
+  <!-- Etapa 5: alertas-notificacoes -->
+  <g font-family="Segoe UI, -apple-system, BlinkMacSystemFont, Arial, sans-serif" filter="url(#sombra)">
+    <rect x="955" y="96" width="190" height="132" rx="12" fill="#ffffff" stroke="#0b6878" stroke-width="2"/>
+    <circle cx="978" cy="118" r="11" fill="#0b6878"/>
+    <text x="978" y="122" font-size="12" font-weight="700" fill="#ffffff" text-anchor="middle">5</text>
+    <rect x="1060" y="107" width="70" height="20" rx="10" fill="#e3f0f2"/>
+    <text x="1095" y="121" font-size="10.5" font-weight="700" fill="#0b6878" text-anchor="middle">SERVIÇO</text>
+    <text x="1050" y="154" font-size="16" font-weight="700" fill="#0f172a" text-anchor="middle">alertas-notificacoes</text>
+    <text x="1050" y="175" font-size="13" fill="#556472" text-anchor="middle">registra o aviso</text>
+    <rect x="971" y="190" width="158" height="26" rx="8" fill="#e3f0f2"/>
+    <text x="1050" y="207" font-size="12.5" font-weight="700" fill="#0b6878" text-anchor="middle">e-mail ao gestor</text>
+  </g>
+
+  <!-- Setas horizontais do caminho normal -->
+  <g stroke="#0b6878" stroke-width="2.2" fill="none" marker-end="url(#seta)">
+    <line x1="217" y1="162" x2="254" y2="162"/>
+    <line x1="450" y1="162" x2="486" y2="162"/>
+    <line x1="682" y1="162" x2="718" y2="162"/>
+    <line x1="914" y1="162" x2="951" y2="162"/>
+  </g>
+
+  <!-- Quadro informativo à esquerda da linha inferior (garantias do fluxo) -->
+  <g font-family="Segoe UI, -apple-system, BlinkMacSystemFont, Arial, sans-serif" filter="url(#sombra)">
+    <rect x="25" y="272" width="655" height="120" rx="12" fill="#ffffff" stroke="#d8dfe5" stroke-width="1.5"/>
+    <text x="48" y="300" font-size="14" font-weight="700" fill="#0f172a">Garantias de entrega e resiliência</text>
+    <circle cx="54" cy="324" r="3.5" fill="#0b6878"/>
+    <text x="66" y="328" font-size="13" fill="#475569"><tspan font-weight="700" fill="#0f172a">Nada se perde:</tspan> exchanges duráveis, filas <tspan font-family="Consolas, monospace" font-size="12" fill="#0b6878">quorum</tspan> e mensagens gravadas em disco (<tspan font-family="Consolas, monospace" font-size="12" fill="#0b6878">persistent: true</tspan>).</text>
+    <circle cx="54" cy="349" r="3.5" fill="#0b6878"/>
+    <text x="66" y="353" font-size="13" fill="#475569"><tspan font-weight="700" fill="#0f172a">Banco fora do ar:</tspan> o consumidor pausa a leitura até o PostgreSQL voltar, sem gastar o limite de 3 entregas.</text>
+    <circle cx="54" cy="374" r="3.5" fill="#b42318"/>
+    <text x="66" y="378" font-size="13" fill="#475569"><tspan font-weight="700" fill="#0f172a">Diagnóstico rápido:</tspan> mensagens em <tspan font-family="Consolas, monospace" font-size="12" fill="#b42318">validacao.dlq</tspan> guardam o campo <tspan font-family="Consolas, monospace" font-size="12" fill="#0f172a">motivo</tspan> e o horário <tspan font-family="Consolas, monospace" font-size="12" fill="#0f172a">recusado_em</tspan>.</text>
+  </g>
+
+  <!-- Recusas (DLQs) -->
+  <g font-family="Segoe UI, -apple-system, BlinkMacSystemFont, Arial, sans-serif" text-anchor="middle" filter="url(#sombra)">
+    <rect x="722" y="272" width="190" height="120" rx="12" fill="#fdecea" stroke="#b42318" stroke-width="2" stroke-dasharray="6 4"/>
+    <rect x="774" y="283" width="86" height="18" rx="9" fill="#f9d2ce"/>
+    <text x="817" y="296" font-size="10" font-weight="700" fill="#b42318">DEAD-LETTER</text>
+    <text x="817" y="320" font-size="15.5" font-weight="700" fill="#b42318">validacao.dlq</text>
+    <text x="817" y="346" font-size="13" fill="#475569">• sensor inexistente</text>
+    <text x="817" y="368" font-size="13" fill="#475569">• evento malformado</text>
+
+    <rect x="955" y="272" width="190" height="120" rx="12" fill="#fdecea" stroke="#b42318" stroke-width="2" stroke-dasharray="6 4"/>
+    <rect x="1007" y="283" width="86" height="18" rx="9" fill="#f9d2ce"/>
+    <text x="1050" y="296" font-size="10" font-weight="700" fill="#b42318">DEAD-LETTER</text>
+    <text x="1050" y="320" font-size="15.5" font-weight="700" fill="#b42318">notificacao.dlq</text>
+    <text x="1050" y="346" font-size="13" fill="#475569">• 3 entregas sem sucesso</text>
+    <text x="1050" y="368" font-size="13" fill="#475569">• alarme malformado</text>
+  </g>
+
+  <!-- Setas verticais de recusa -->
+  <g stroke="#b42318" stroke-width="2" fill="none" stroke-dasharray="5 4" marker-end="url(#seta-erro)">
+    <line x1="817" y1="228" x2="817" y2="268"/>
+    <line x1="1050" y1="228" x2="1050" y2="268"/>
+  </g>
+</svg>

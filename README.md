@@ -3,7 +3,7 @@
 <h2 align="center"> ELEMENTARES </h2>
 
 <p align="center">
-<b>🏠 Início</b> · <a href="docs/backlog.md">Backlog</a> · <a href="docs/sprints/sprint-1.md">Sprint 1</a> · <a href="docs/sprints/sprint-2.md">Sprint 2</a> · <a href="docs/sprints/sprint-3.md">Sprint 3</a> · <a href="docs/requisitos.md">Requisitos</a> · <a href="docs/arquitetura.md">Arquitetura</a> · <a href="docs/processo.md">Processo</a> · <a href="docs/qualidade.md">Qualidade</a> · <a href="docs/instalacao.md">Instalação</a>
+<b>🏠 Início</b> · <a href="docs/backlog.md">Backlog</a> · <a href="docs/sprints/sprint-1.md">Sprint 1</a> · <a href="docs/sprints/sprint-2.md">Sprint 2</a> · <a href="docs/sprints/sprint-3.md">Sprint 3</a> · <a href="docs/requisitos.md">Requisitos</a> · <a href="docs/arquitetura.md">Arquitetura</a> · <a href="docs/eventos.md">Eventos</a> · <a href="docs/processo.md">Processo</a> · <a href="docs/qualidade.md">Qualidade</a> · <a href="docs/instalacao.md">Instalação</a>
 </p>
 
 <p align="center">
@@ -57,7 +57,7 @@ O **Pulso Urbano** é uma rede de estações de baixo custo que mede continuamen
 
 ![Arquitetura da plataforma](docs/arquitetura.png)
 
-Cada estação publica as leituras por MQTT. O serviço de ingestão grava a mensagem bruta no banco temporário (Valkey) e a envia pelo RabbitMQ ao serviço de validação, que aplica as regras, calibra e grava o dado tratado no PostgreSQL, onde nada é apagado. Detalhes em [Arquitetura](docs/arquitetura.md).
+Cada estação publica as leituras por MQTT. O serviço de ingestão grava a mensagem bruta no banco temporário (Valkey) e a envia pelo RabbitMQ ao serviço de validação, que aplica as regras, calibra e grava o dado tratado no PostgreSQL, onde nada é apagado. Detalhes em [Arquitetura](docs/arquitetura.md) e [Eventos do Backend](docs/eventos.md).
 
 ---
 
@@ -193,6 +193,7 @@ O texto completo de cada história, o valor de negócio, os requisitos e as esti
 | [Sprint 1](docs/sprints/sprint-1.md) · [Sprint 2](docs/sprints/sprint-2.md) · [Sprint 3](docs/sprints/sprint-3.md) | Meta, sprint backlog e demonstração de cada sprint |
 | [Requisitos](docs/requisitos.md) | Requisitos funcionais e não funcionais e variáveis monitoradas |
 | [Arquitetura](docs/arquitetura.md) | Microsserviços, stack, implantação na Prefeitura e modelo de dados |
+| [Eventos do Backend](docs/eventos.md) | Fluxo de mensageria, topologia das filas no RabbitMQ, contratos de `telemetria.bruta` e `alarme.disparado` e tratamento de DLQ |
 | [Processo](docs/processo.md) | DoR, DoD, CI/CD, branches, commits e governança do repositório |
 | [Qualidade](docs/qualidade.md) | Estratégia de testes |
 | [Instalação](docs/instalacao.md) | Pré-requisitos e execução local |

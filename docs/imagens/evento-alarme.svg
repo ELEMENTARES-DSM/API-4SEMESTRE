@@ -1,0 +1,193 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1170 594" role="img" aria-labelledby="titulo descricao">
+  <title id="titulo">Evento alarme.disparado</title>
+  <desc id="descricao">Uma regra foi violada: identificadores, município, valor medido, operador, limite, severidade e carimbos de tempo.</desc>
+  <defs>
+    <filter id="sombra" x="-8%" y="-8%" width="116%" height="124%">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#0f172a" flood-opacity="0.07"/>
+    </filter>
+  </defs>
+  <rect width="1170" height="594" rx="14" fill="#f4f6f8"/>
+  <g font-family="Segoe UI, -apple-system, BlinkMacSystemFont, Arial, sans-serif">
+    <text x="30" y="44" font-size="22" font-weight="700" fill="#0f172a">Evento alarme.disparado</text>
+    <text x="30" y="68" font-size="14" fill="#556472">Uma regra foi violada: identificadores, município, valor medido, operador, limite, severidade e carimbos de tempo.</text>
+    <rect x="824" y="26" width="316" height="28" rx="14" fill="#e3f0f2" stroke="#0b6878" stroke-width="1.2"/>
+    <text x="982" y="44" font-size="12" font-weight="700" fill="#0b6878" text-anchor="middle">servico-validacao → alertas-notificacoes</text>
+  </g>
+  <clipPath id="clip-envelope-alarme">
+    <rect x="30" y="88" width="1110" height="464" rx="14"/>
+  </clipPath>
+  <rect x="30" y="88" width="1110" height="464" rx="14" fill="#ffffff" stroke="#0b6878" stroke-width="2"/>
+  <rect x="30" y="88" width="1110" height="68" fill="#f8fafc" clip-path="url(#clip-envelope-alarme)"/>
+  <line x1="30" y1="156" x2="1140" y2="156" stroke="#e2e8f0" stroke-width="1.5"/>
+  <text x="52" y="111" font-family="Segoe UI, -apple-system, BlinkMacSystemFont, Arial, sans-serif" font-size="11.5" font-weight="700" letter-spacing="0.5" fill="#556472">CABEÇALHO DO RABBITMQ (PROPRIEDADES DA MENSAGEM)</text>
+  <rect x="52" y="120" width="211" height="26" rx="13" fill="#e3f0f2" stroke="#0b6878" stroke-width="1"/>
+  <text x="157.5" y="137" font-family="Consolas, Menlo, Monaco, monospace" font-size="12" fill="#0b6878" text-anchor="middle"><tspan font-weight="400" fill="#3b6b75">exchange:</tspan> <tspan font-weight="700">alarme.disparado</tspan></text>
+  <rect x="275" y="120" width="111" height="26" rx="13" fill="#e3f0f2" stroke="#0b6878" stroke-width="1"/>
+  <text x="330.5" y="137" font-family="Consolas, Menlo, Monaco, monospace" font-size="12" fill="#0b6878" text-anchor="middle"><tspan font-weight="400" fill="#3b6b75">tipo:</tspan> <tspan font-weight="700">fanout</tspan></text>
+  <rect x="398" y="120" width="125" height="26" rx="13" fill="#e3f0f2" stroke="#0b6878" stroke-width="1"/>
+  <text x="460.5" y="137" font-family="Consolas, Menlo, Monaco, monospace" font-size="12" fill="#0b6878" text-anchor="middle"><tspan font-weight="400" fill="#3b6b75">routingKey:</tspan> <tspan font-weight="700">""</tspan></text>
+  <rect x="535" y="120" width="168" height="26" rx="13" fill="#e3f0f2" stroke="#0b6878" stroke-width="1"/>
+  <text x="619" y="137" font-family="Consolas, Menlo, Monaco, monospace" font-size="12" fill="#0b6878" text-anchor="middle"><tspan font-weight="400" fill="#3b6b75">messageId:</tspan> <tspan font-weight="700">alarme_id</tspan></text>
+  <rect x="715" y="120" width="140" height="26" rx="13" fill="#e3f0f2" stroke="#0b6878" stroke-width="1"/>
+  <text x="785" y="137" font-family="Consolas, Menlo, Monaco, monospace" font-size="12" fill="#0b6878" text-anchor="middle"><tspan font-weight="400" fill="#3b6b75">persistent:</tspan> <tspan font-weight="700">true</tspan></text>
+  <rect x="867" y="120" width="204" height="26" rx="13" fill="#e3f0f2" stroke="#0b6878" stroke-width="1"/>
+  <text x="969" y="137" font-family="Consolas, Menlo, Monaco, monospace" font-size="12" fill="#0b6878" text-anchor="middle"><tspan font-weight="400" fill="#3b6b75">fila:</tspan> <tspan font-weight="700">notificacao.alarmes</tspan></text>
+  <text x="52" y="180" font-family="Segoe UI, -apple-system, BlinkMacSystemFont, Arial, sans-serif" font-size="11.5" font-weight="700" letter-spacing="0.5" fill="#556472">CORPO DO EVENTO (12 CAMPOS OBRIGATÓRIOS EM JSON UTF-8)</text>
+  <g filter="url(#sombra)">
+    <clipPath id="clip-52-194">
+      <rect x="52" y="194" width="254" height="102" rx="10"/>
+    </clipPath>
+    <rect x="52" y="194" width="254" height="102" rx="10" fill="#ffffff" stroke="#d8dfe5" stroke-width="1.5"/>
+    <rect x="52" y="194" width="6" height="102" fill="#0b6878" clip-path="url(#clip-52-194)"/>
+    <text x="70" y="219" font-family="Segoe UI, -apple-system, BlinkMacSystemFont, Arial, sans-serif" font-size="15" font-weight="700" fill="#0f172a">alarme_id</text>
+    <rect x="240" y="204" width="52" height="21" rx="10.5" fill="#e3f0f2" stroke="#b8dce2" stroke-width="1"/>
+    <text x="266" y="218.5" font-family="Segoe UI, -apple-system, BlinkMacSystemFont, Arial, sans-serif" font-size="11.5" font-weight="600" fill="#0b6878" text-anchor="middle">UUID</text>
+    <text x="70" y="243" font-family="Segoe UI, -apple-system, BlinkMacSystemFont, Arial, sans-serif" font-size="12" fill="#556472">Id do alarme (também é o messageId)</text>
+    <rect x="70" y="262" width="222" height="24" rx="6" fill="#f4f6f9" stroke="#e2e8f0" stroke-width="1"/>
+    <text x="78" y="278" font-family="Consolas, Menlo, Monaco, monospace" font-size="12" fill="#334155">"7d2e9f10-3b4a-4c5d-…"</text>
+  </g>
+  <g filter="url(#sombra)">
+    <clipPath id="clip-322-194">
+      <rect x="322" y="194" width="254" height="102" rx="10"/>
+    </clipPath>
+    <rect x="322" y="194" width="254" height="102" rx="10" fill="#ffffff" stroke="#d8dfe5" stroke-width="1.5"/>
+    <rect x="322" y="194" width="6" height="102" fill="#0b6878" clip-path="url(#clip-322-194)"/>
+    <text x="340" y="219" font-family="Segoe UI, -apple-system, BlinkMacSystemFont, Arial, sans-serif" font-size="15" font-weight="700" fill="#0f172a">regra_id</text>
+    <rect x="510" y="204" width="52" height="21" rx="10.5" fill="#e3f0f2" stroke="#b8dce2" stroke-width="1"/>
+    <text x="536" y="218.5" font-family="Segoe UI, -apple-system, BlinkMacSystemFont, Arial, sans-serif" font-size="11.5" font-weight="600" fill="#0b6878" text-anchor="middle">UUID</text>
+    <text x="340" y="243" font-family="Segoe UI, -apple-system, BlinkMacSystemFont, Arial, sans-serif" font-size="12" fill="#556472">Regra de alerta que foi violada</text>
+    <rect x="340" y="262" width="222" height="24" rx="6" fill="#f4f6f9" stroke="#e2e8f0" stroke-width="1"/>
+    <text x="348" y="278" font-family="Consolas, Menlo, Monaco, monospace" font-size="12" fill="#334155">"a1b2c3d4-e5f6-4789-…"</text>
+  </g>
+  <g filter="url(#sombra)">
+    <clipPath id="clip-592-194">
+      <rect x="592" y="194" width="254" height="102" rx="10"/>
+    </clipPath>
+    <rect x="592" y="194" width="254" height="102" rx="10" fill="#ffffff" stroke="#d8dfe5" stroke-width="1.5"/>
+    <rect x="592" y="194" width="6" height="102" fill="#0b6878" clip-path="url(#clip-592-194)"/>
+    <text x="610" y="219" font-family="Segoe UI, -apple-system, BlinkMacSystemFont, Arial, sans-serif" font-size="15" font-weight="700" fill="#0f172a">medida_id</text>
+    <rect x="780" y="204" width="52" height="21" rx="10.5" fill="#e3f0f2" stroke="#b8dce2" stroke-width="1"/>
+    <text x="806" y="218.5" font-family="Segoe UI, -apple-system, BlinkMacSystemFont, Arial, sans-serif" font-size="11.5" font-weight="600" fill="#0b6878" text-anchor="middle">UUID</text>
+    <text x="610" y="243" font-family="Segoe UI, -apple-system, BlinkMacSystemFont, Arial, sans-serif" font-size="12" fill="#556472">Medida validada que disparou</text>
+    <rect x="610" y="262" width="222" height="24" rx="6" fill="#f4f6f9" stroke="#e2e8f0" stroke-width="1"/>
+    <text x="618" y="278" font-family="Consolas, Menlo, Monaco, monospace" font-size="12" fill="#334155">"5c6d7e8f-9012-4345-…"</text>
+  </g>
+  <g filter="url(#sombra)">
+    <clipPath id="clip-862-194">
+      <rect x="862" y="194" width="254" height="102" rx="10"/>
+    </clipPath>
+    <rect x="862" y="194" width="254" height="102" rx="10" fill="#ffffff" stroke="#d8dfe5" stroke-width="1.5"/>
+    <rect x="862" y="194" width="6" height="102" fill="#0b6878" clip-path="url(#clip-862-194)"/>
+    <text x="880" y="219" font-family="Segoe UI, -apple-system, BlinkMacSystemFont, Arial, sans-serif" font-size="15" font-weight="700" fill="#0f172a">sensor_id</text>
+    <rect x="1050" y="204" width="52" height="21" rx="10.5" fill="#e3f0f2" stroke="#b8dce2" stroke-width="1"/>
+    <text x="1076" y="218.5" font-family="Segoe UI, -apple-system, BlinkMacSystemFont, Arial, sans-serif" font-size="11.5" font-weight="600" fill="#0b6878" text-anchor="middle">UUID</text>
+    <text x="880" y="243" font-family="Segoe UI, -apple-system, BlinkMacSystemFont, Arial, sans-serif" font-size="12" fill="#556472">Sensor que originou a medida</text>
+    <rect x="880" y="262" width="222" height="24" rx="6" fill="#f4f6f9" stroke="#e2e8f0" stroke-width="1"/>
+    <text x="888" y="278" font-family="Consolas, Menlo, Monaco, monospace" font-size="12" fill="#334155">"2e3f4a5b-6c7d-4e8f-…"</text>
+  </g>
+  <g filter="url(#sombra)">
+    <clipPath id="clip-52-310">
+      <rect x="52" y="310" width="254" height="102" rx="10"/>
+    </clipPath>
+    <rect x="52" y="310" width="254" height="102" rx="10" fill="#ffffff" stroke="#d8dfe5" stroke-width="1.5"/>
+    <rect x="52" y="310" width="6" height="102" fill="#0b6878" clip-path="url(#clip-52-310)"/>
+    <text x="70" y="335" font-family="Segoe UI, -apple-system, BlinkMacSystemFont, Arial, sans-serif" font-size="15" font-weight="700" fill="#0f172a">estacao_id</text>
+    <rect x="240" y="320" width="52" height="21" rx="10.5" fill="#e3f0f2" stroke="#b8dce2" stroke-width="1"/>
+    <text x="266" y="334.5" font-family="Segoe UI, -apple-system, BlinkMacSystemFont, Arial, sans-serif" font-size="11.5" font-weight="600" fill="#0b6878" text-anchor="middle">UUID</text>
+    <text x="70" y="359" font-family="Segoe UI, -apple-system, BlinkMacSystemFont, Arial, sans-serif" font-size="12" fill="#556472">Estação onde está o sensor</text>
+    <rect x="70" y="378" width="222" height="24" rx="6" fill="#f4f6f9" stroke="#e2e8f0" stroke-width="1"/>
+    <text x="78" y="394" font-family="Consolas, Menlo, Monaco, monospace" font-size="12" fill="#334155">"0b7e4d2a-1c3f-4a5b-…"</text>
+  </g>
+  <g filter="url(#sombra)">
+    <clipPath id="clip-322-310">
+      <rect x="322" y="310" width="254" height="102" rx="10"/>
+    </clipPath>
+    <rect x="322" y="310" width="254" height="102" rx="10" fill="#ffffff" stroke="#d8dfe5" stroke-width="1.5"/>
+    <rect x="322" y="310" width="6" height="102" fill="#475569" clip-path="url(#clip-322-310)"/>
+    <text x="340" y="335" font-family="Segoe UI, -apple-system, BlinkMacSystemFont, Arial, sans-serif" font-size="15" font-weight="700" fill="#0f172a">municipio</text>
+    <rect x="508" y="320" width="54" height="21" rx="10.5" fill="#eef2f6" stroke="#cbd5e1" stroke-width="1"/>
+    <text x="535" y="334.5" font-family="Segoe UI, -apple-system, BlinkMacSystemFont, Arial, sans-serif" font-size="11.5" font-weight="600" fill="#475569" text-anchor="middle">texto</text>
+    <text x="340" y="359" font-family="Segoe UI, -apple-system, BlinkMacSystemFont, Arial, sans-serif" font-size="12" fill="#556472">Município da estação monitorada</text>
+    <rect x="340" y="378" width="222" height="24" rx="6" fill="#f4f6f9" stroke="#e2e8f0" stroke-width="1"/>
+    <text x="348" y="394" font-family="Consolas, Menlo, Monaco, monospace" font-size="12" fill="#334155">"São José dos Campos"</text>
+  </g>
+  <g filter="url(#sombra)">
+    <clipPath id="clip-592-310">
+      <rect x="592" y="310" width="254" height="102" rx="10"/>
+    </clipPath>
+    <rect x="592" y="310" width="254" height="102" rx="10" fill="#ffffff" stroke="#d8dfe5" stroke-width="1.5"/>
+    <rect x="592" y="310" width="6" height="102" fill="#8a5a00" clip-path="url(#clip-592-310)"/>
+    <text x="610" y="335" font-family="Segoe UI, -apple-system, BlinkMacSystemFont, Arial, sans-serif" font-size="15" font-weight="700" fill="#0f172a">valor</text>
+    <rect x="723.6" y="320" width="108.39999999999999" height="21" rx="10.5" fill="#fbf1de" stroke="#eed6a7" stroke-width="1"/>
+    <text x="777.8000000000001" y="334.5" font-family="Segoe UI, -apple-system, BlinkMacSystemFont, Arial, sans-serif" font-size="11.5" font-weight="600" fill="#8a5a00" text-anchor="middle">texto decimal</text>
+    <text x="610" y="359" font-family="Segoe UI, -apple-system, BlinkMacSystemFont, Arial, sans-serif" font-size="12" fill="#556472">Valor medido (texto exato)</text>
+    <rect x="610" y="378" width="222" height="24" rx="6" fill="#f4f6f9" stroke="#e2e8f0" stroke-width="1"/>
+    <text x="618" y="394" font-family="Consolas, Menlo, Monaco, monospace" font-size="12" fill="#334155">"52.3"</text>
+  </g>
+  <g filter="url(#sombra)">
+    <clipPath id="clip-862-310">
+      <rect x="862" y="310" width="254" height="102" rx="10"/>
+    </clipPath>
+    <rect x="862" y="310" width="254" height="102" rx="10" fill="#ffffff" stroke="#d8dfe5" stroke-width="1.5"/>
+    <rect x="862" y="310" width="6" height="102" fill="#b42318" clip-path="url(#clip-862-310)"/>
+    <text x="880" y="335" font-family="Segoe UI, -apple-system, BlinkMacSystemFont, Arial, sans-serif" font-size="15" font-weight="700" fill="#0f172a">operador</text>
+    <rect x="1041.2" y="320" width="60.8" height="21" rx="10.5" fill="#fdecea" stroke="#f7c4c0" stroke-width="1"/>
+    <text x="1071.6000000000001" y="334.5" font-family="Segoe UI, -apple-system, BlinkMacSystemFont, Arial, sans-serif" font-size="11.5" font-weight="600" fill="#b42318" text-anchor="middle">opções</text>
+    <text x="880" y="359" font-family="Segoe UI, -apple-system, BlinkMacSystemFont, Arial, sans-serif" font-size="12" fill="#556472">Operador: &gt;  &gt;=  &lt;  &lt;=  =</text>
+    <rect x="880" y="378" width="222" height="24" rx="6" fill="#f4f6f9" stroke="#e2e8f0" stroke-width="1"/>
+    <text x="888" y="394" font-family="Consolas, Menlo, Monaco, monospace" font-size="12" fill="#334155">"&gt;="</text>
+  </g>
+  <g filter="url(#sombra)">
+    <clipPath id="clip-52-426">
+      <rect x="52" y="426" width="254" height="102" rx="10"/>
+    </clipPath>
+    <rect x="52" y="426" width="254" height="102" rx="10" fill="#ffffff" stroke="#d8dfe5" stroke-width="1.5"/>
+    <rect x="52" y="426" width="6" height="102" fill="#8a5a00" clip-path="url(#clip-52-426)"/>
+    <text x="70" y="451" font-family="Segoe UI, -apple-system, BlinkMacSystemFont, Arial, sans-serif" font-size="15" font-weight="700" fill="#0f172a">limite</text>
+    <rect x="183.60000000000002" y="436" width="108.39999999999999" height="21" rx="10.5" fill="#fbf1de" stroke="#eed6a7" stroke-width="1"/>
+    <text x="237.8" y="450.5" font-family="Segoe UI, -apple-system, BlinkMacSystemFont, Arial, sans-serif" font-size="11.5" font-weight="600" fill="#8a5a00" text-anchor="middle">texto decimal</text>
+    <text x="70" y="475" font-family="Segoe UI, -apple-system, BlinkMacSystemFont, Arial, sans-serif" font-size="12" fill="#556472">Limite da regra (texto exato)</text>
+    <rect x="70" y="494" width="222" height="24" rx="6" fill="#f4f6f9" stroke="#e2e8f0" stroke-width="1"/>
+    <text x="78" y="510" font-family="Consolas, Menlo, Monaco, monospace" font-size="12" fill="#334155">"50.00"</text>
+  </g>
+  <g filter="url(#sombra)">
+    <clipPath id="clip-322-426">
+      <rect x="322" y="426" width="254" height="102" rx="10"/>
+    </clipPath>
+    <rect x="322" y="426" width="254" height="102" rx="10" fill="#ffffff" stroke="#d8dfe5" stroke-width="1.5"/>
+    <rect x="322" y="426" width="6" height="102" fill="#b42318" clip-path="url(#clip-322-426)"/>
+    <text x="340" y="451" font-family="Segoe UI, -apple-system, BlinkMacSystemFont, Arial, sans-serif" font-size="15" font-weight="700" fill="#0f172a">severidade</text>
+    <rect x="501.2" y="436" width="60.8" height="21" rx="10.5" fill="#fdecea" stroke="#f7c4c0" stroke-width="1"/>
+    <text x="531.6" y="450.5" font-family="Segoe UI, -apple-system, BlinkMacSystemFont, Arial, sans-serif" font-size="11.5" font-weight="600" fill="#b42318" text-anchor="middle">opções</text>
+    <text x="340" y="475" font-family="Segoe UI, -apple-system, BlinkMacSystemFont, Arial, sans-serif" font-size="12" fill="#556472">ATENCAO · ALERTA · CRITICO</text>
+    <rect x="340" y="494" width="222" height="24" rx="6" fill="#f4f6f9" stroke="#e2e8f0" stroke-width="1"/>
+    <text x="348" y="510" font-family="Consolas, Menlo, Monaco, monospace" font-size="12" fill="#334155">"CRITICO"</text>
+  </g>
+  <g filter="url(#sombra)">
+    <clipPath id="clip-592-426">
+      <rect x="592" y="426" width="254" height="102" rx="10"/>
+    </clipPath>
+    <rect x="592" y="426" width="254" height="102" rx="10" fill="#ffffff" stroke="#d8dfe5" stroke-width="1.5"/>
+    <rect x="592" y="426" width="6" height="102" fill="#5b3fa3" clip-path="url(#clip-592-426)"/>
+    <text x="610" y="451" font-family="Segoe UI, -apple-system, BlinkMacSystemFont, Arial, sans-serif" font-size="15" font-weight="700" fill="#0f172a">lido_em</text>
+    <rect x="723.6" y="436" width="108.39999999999999" height="21" rx="10.5" fill="#efe9fb" stroke="#d5c5f7" stroke-width="1"/>
+    <text x="777.8000000000001" y="450.5" font-family="Segoe UI, -apple-system, BlinkMacSystemFont, Arial, sans-serif" font-size="11.5" font-weight="600" fill="#5b3fa3" text-anchor="middle">data ISO 8601</text>
+    <text x="610" y="475" font-family="Segoe UI, -apple-system, BlinkMacSystemFont, Arial, sans-serif" font-size="12" fill="#556472">Momento da leitura na estação</text>
+    <rect x="610" y="494" width="222" height="24" rx="6" fill="#f4f6f9" stroke="#e2e8f0" stroke-width="1"/>
+    <text x="618" y="510" font-family="Consolas, Menlo, Monaco, monospace" font-size="12" fill="#334155">"2025-11-20T14:00:00.000Z"</text>
+  </g>
+  <g filter="url(#sombra)">
+    <clipPath id="clip-862-426">
+      <rect x="862" y="426" width="254" height="102" rx="10"/>
+    </clipPath>
+    <rect x="862" y="426" width="254" height="102" rx="10" fill="#ffffff" stroke="#d8dfe5" stroke-width="1.5"/>
+    <rect x="862" y="426" width="6" height="102" fill="#5b3fa3" clip-path="url(#clip-862-426)"/>
+    <text x="880" y="451" font-family="Segoe UI, -apple-system, BlinkMacSystemFont, Arial, sans-serif" font-size="15" font-weight="700" fill="#0f172a">criado_em</text>
+    <rect x="993.6" y="436" width="108.39999999999999" height="21" rx="10.5" fill="#efe9fb" stroke="#d5c5f7" stroke-width="1"/>
+    <text x="1047.8" y="450.5" font-family="Segoe UI, -apple-system, BlinkMacSystemFont, Arial, sans-serif" font-size="11.5" font-weight="600" fill="#5b3fa3" text-anchor="middle">data ISO 8601</text>
+    <text x="880" y="475" font-family="Segoe UI, -apple-system, BlinkMacSystemFont, Arial, sans-serif" font-size="12" fill="#556472">Momento de criação do alarme</text>
+    <rect x="880" y="494" width="222" height="24" rx="6" fill="#f4f6f9" stroke="#e2e8f0" stroke-width="1"/>
+    <text x="888" y="510" font-family="Consolas, Menlo, Monaco, monospace" font-size="12" fill="#334155">"2025-11-20T14:00:01.250Z"</text>
+  </g>
+  <text x="34" y="574" font-family="Segoe UI, -apple-system, BlinkMacSystemFont, Arial, sans-serif" font-size="13" fill="#556472">Valores decimais trafegam como <tspan font-weight="700" fill="#8a5a00">texto exato</tspan> para preservar precisão. Datas em <tspan font-weight="700" fill="#5b3fa3">ISO 8601 com fuso</tspan> (UTC).</text>
+</svg>
