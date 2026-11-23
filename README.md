@@ -3,7 +3,7 @@
 <h2 align="center"> ELEMENTARES </h2>
 
 <p align="center">
-<b>🏠 Início</b> · <a href="docs/backlog.md">Backlog</a> · <a href="docs/sprints/sprint-1.md">Sprint 1</a> · <a href="docs/sprints/sprint-2.md">Sprint 2</a> · <a href="docs/sprints/sprint-3.md">Sprint 3</a> · <a href="docs/requisitos.md">Requisitos</a> · <a href="docs/arquitetura.md">Arquitetura</a> · <a href="docs/eventos.md">Eventos</a> · <a href="docs/processo.md">Processo</a> · <a href="docs/qualidade.md">Qualidade</a> · <a href="docs/instalacao.md">Instalação</a>
+<b>🏠 Início</b> · <a href="docs/backlog.md">Backlog</a> · <a href="docs/sprints/sprint-1.md">Sprint 1</a> · <a href="docs/sprints/sprint-2.md">Sprint 2</a> · <a href="docs/sprints/sprint-3.md">Sprint 3</a> · <a href="docs/requisitos.md">Requisitos</a> · <a href="docs/arquitetura.md">Arquitetura</a> · <a href="docs/eventos.md">Eventos</a> · <a href="docs/processo.md">Processo</a> · <a href="docs/qualidade.md">Qualidade</a> · <a href="docs/instalacao.md">Instalação</a> · <a href="docs/Manual_do_Usuario_Pulso_Urbano.pdf">Manual do Usuário</a>
 </p>
 
 <p align="center">
@@ -18,7 +18,7 @@
 
 > **Tema:** Smart Cities 🏙️
 >
-> **Fase Atual:** Sprint 3 — Estação física, API pública e entrega final 🚀
+> **Fase Atual:** Sprint 3 — Estação física, API pública e entrega final ✅ Finalizada
 
 ### 🔗 Links Rápidos
 
@@ -29,6 +29,7 @@
 | 🎨 Repositório Frontend | [FRONTEND-4SEMESTRE](https://github.com/ELEMENTARES-DSM/FRONTEND-4SEMESTRE) |
 | 🏗️ Documento de Arquitetura | [`Arquitetura.pdf`](docs/Arquitetura.pdf) |
 | 🗄️ Modelo de Dados | [`Modelo_de_Dados.pdf`](docs/Modelo_de_Dados.pdf) |
+| 📘 Manual do Usuário | [`Manual_do_Usuario_Pulso_Urbano.pdf`](docs/Manual_do_Usuario_Pulso_Urbano.pdf) |
 | 🎬 Sprints e demonstrações | [Ver seção Sprints](#sprints) |
 | 📄 Documentação | [Ver seção Documentação](#documentacao) |
 | 👥 GitHub e LinkedIn do time | [Ver seção Nossa Equipe](#equipe) |
@@ -64,10 +65,10 @@ Cada estação publica as leituras por MQTT. O serviço de ingestão grava a men
 ## 📅 Sprints <a id="sprints"></a>
 
 | Sprint | Período | Objetivo | Status |
-| --- | --- | --- | --- |
+| --- | --- | --- | :--: |
 | [**Sprint 1**](docs/sprints/sprint-1.md) | 07/09 a 27/09 | **MVP 1:** Governança de Usuários, Autenticação, Gestão de Estações, Monitoramento de Conectividade e Regras de Alerta. | ✅ Encerrada |
 | [**Sprint 2**](docs/sprints/sprint-2.md) | 05/10 a 25/10 | **MVP 2:** Recepção de dados de ponta a ponta (ingestão, validação, calibração e gravação) + alertas e alarmes. | ✅ Encerrada |
-| [**Sprint 3**](docs/sprints/sprint-3.md) | 02/11 a 22/11 | **MVP 3:** Estação física funcionando, leituras guardadas primeiro no banco temporário (Valkey), painel e API pública com cadastro, período e cota por perfil, e entrega final na Prefeitura. | 🚧 Em andamento |
+| [**Sprint 3**](docs/sprints/sprint-3.md) | 02/11 a 22/11 | **MVP 3:** Estação física funcionando, leituras guardadas primeiro no banco temporário (Valkey), painel e API pública com cadastro, período e cota por perfil, e entrega final na Prefeitura. | ✅ Encerrada |
 
 <details>
 <summary><b>Demonstrações</b></summary>
@@ -90,13 +91,15 @@ Cada estação publica as leituras por MQTT. O serviço de ingestão grava a men
 
 ## 📌 Backlog <a id="backlog"></a>
 
-As sprints vêm em ordem de prioridade: a Sprint 1 antes da 2, e a 2 antes da 3. Dentro de cada sprint, o número da US segue a prioridade. Os itens de plataforma, DevOps e qualidade (EPIC-04) atravessam as sprints e ficam numa tabela própria. A fonte da prioridade é o campo Prioridade do Jira. **Estimativa:** pontos na sequência de Fibonacci. Na Sprint 1 é o consenso do Planning Poker; nas Sprints 2 e 3 é uma estimativa preliminar por dificuldade relativa (máximo 8), ainda sem Planning Poker. \*As US-07 a US-10 têm 3 pontos nominais por sprint ativa, fora do Planning Poker. A US-27 (estação guarda as leituras) foi excluída do escopo e o número não foi reaproveitado.
+As sprints vêm em ordem de prioridade: a Sprint 1 antes da 2, e a 2 antes da 3. Dentro de cada sprint, o número da US segue a prioridade. Os itens de plataforma, DevOps e qualidade (EPIC-04) atravessam as sprints e ficam numa tabela própria. A fonte da prioridade é o campo Prioridade do Jira.
+
+**Estimativa:** pontos na sequência de Fibonacci. Na Sprint 1 é o consenso do Planning Poker; nas Sprints 2 e 3 é uma estimativa preliminar por dificuldade relativa (máximo 8), ainda sem Planning Poker. \*As US-07 a US-10 têm 3 pontos nominais por sprint ativa, fora do Planning Poker. A US-27 (estação guarda as leituras) foi excluída do escopo e o número não foi reaproveitado.
 
 <details>
 <summary><b>Sprint 1 · 07/09 a 27/09 · fundação da plataforma (1ª Entrega)</b></summary>
 
 | US | História | Prioridade | Estimativa | Status | Jira |
-| :--: | --- | :--: | :--: | :--: | :--: |
+| :-: | --- | :-: | :-: | :-: | :-: |
 | US-01 | Gestão administrativa de contas e perfis | Média | 5 | ✅ Finalizado | [ELEM-6](https://elementares-4sem.atlassian.net/browse/ELEM-6) |
 | US-02 | Autenticação e controle de sessão | Média | 3 | ✅ Finalizado | [ELEM-11](https://elementares-4sem.atlassian.net/browse/ELEM-11) |
 | US-03 | Cadastro e gestão de estações | Média | 5 | ✅ Finalizado | [ELEM-16](https://elementares-4sem.atlassian.net/browse/ELEM-16) |
@@ -110,7 +113,7 @@ As sprints vêm em ordem de prioridade: a Sprint 1 antes da 2, e a 2 antes da 3.
 <summary><b>Sprint 2 · 05/10 a 25/10 · recepção de dados de ponta a ponta, alertas e alarmes</b></summary>
 
 | US | História | Prioridade | Estimativa | Status | Jira |
-| :--: | --- | :--: | :--: | :--: | :--: |
+| :-: | --- | :-: | :-: | :-: | :-: |
 | US-11 | Receber leituras das estações via MQTT | Média | 5 | ✅ Finalizado | [ELEM-73](https://elementares-4sem.atlassian.net/browse/ELEM-73) |
 | US-12 | Validar payload e estação ativa | Média | 3 | ✅ Finalizado | [ELEM-74](https://elementares-4sem.atlassian.net/browse/ELEM-74) |
 | US-13 | Ignorar leituras duplicadas | Média | 2 | ✅ Finalizado | [ELEM-75](https://elementares-4sem.atlassian.net/browse/ELEM-75) |
@@ -130,20 +133,20 @@ As sprints vêm em ordem de prioridade: a Sprint 1 antes da 2, e a 2 antes da 3.
 <summary><b>Sprint 3 · 02/11 a 22/11 · estação física, API pública e entrega final</b></summary>
 
 | US | História | Prioridade | Estimativa | Status | Jira |
-| :--: | --- | :--: | :--: | :--: | :--: |
-| US-26 | Estação envia as leituras dos sensores | Baixa | 8 | Pronto (DoR ok) | [ELEM-154](https://elementares-4sem.atlassian.net/browse/ELEM-154) |
-| US-28 | Leitura antiga não gera alarme | Baixa | 3 | Pronto (DoR ok)| [ELEM-156](https://elementares-4sem.atlassian.net/browse/ELEM-156) |
-| US-29 | Conexão das estações ao broker pelo MAC | Baixa | 3 | Pronto (DoR ok) | [ELEM-157](https://elementares-4sem.atlassian.net/browse/ELEM-157) |
-| US-30 | Instalar, calibrar e aceitar a estação | Baixa | 5 | Pronto (DoR ok) | [ELEM-158](https://elementares-4sem.atlassian.net/browse/ELEM-158) |
-| US-31 | Consultar medições e exportar em CSV | Baixa | 5 | Pronto (DoR ok) | [ELEM-159](https://elementares-4sem.atlassian.net/browse/ELEM-159) |
-| US-35 | Dashboards da qualidade do ar e das estações | Baixa | 8 | Pronto (DoR ok) | [ELEM-182](https://elementares-4sem.atlassian.net/browse/ELEM-182) |
-| US-36 | Fluxo completo do frontend | Baixa | 8 | Pronto (DoR ok) | [ELEM-183](https://elementares-4sem.atlassian.net/browse/ELEM-183) |
-| US-37 | Fluxo completo do backend | Baixa | 5 | Pronto (DoR ok) | [ELEM-184](https://elementares-4sem.atlassian.net/browse/ELEM-184) |
-| US-38 | Entregáveis de implantação na Prefeitura | Baixa | 8 | Pronto (DoR ok) | [ELEM-185](https://elementares-4sem.atlassian.net/browse/ELEM-185) |
-| US-39 | Cadastrar qualquer grandeza | Baixa | 3 | Pronto (DoR ok) | [ELEM-261](https://elementares-4sem.atlassian.net/browse/ELEM-261) |
-| US-40 | Valkey como banco temporário (staging) da recepção | Baixa | 8 | Pronto (DoR ok) | [ELEM-207](https://elementares-4sem.atlassian.net/browse/ELEM-207) |
-| US-41 | Entrega do MVP 3 | Baixa | 3 | Pronto (DoR ok)| [ELEM-262](https://elementares-4sem.atlassian.net/browse/ELEM-262) |
-| US-42 | API pública com cadastro, perfis e cotas | Baixa | 8 | Pronto (DoR ok)| [ELEM-263](https://elementares-4sem.atlassian.net/browse/ELEM-263) |
+| :-: | --- | :-: | :-: | :-: | :-: |
+| US-26 | Estação envia as leituras dos sensores | Baixa | 8 | ✅ Finalizado | [ELEM-154](https://elementares-4sem.atlassian.net/browse/ELEM-154) |
+| US-28 | Leitura antiga não gera alarme | Baixa | 3 | ✅ Finalizado | [ELEM-156](https://elementares-4sem.atlassian.net/browse/ELEM-156) |
+| US-29 | Conexão das estações ao broker pelo MAC | Baixa | 3 | ✅ Finalizado | [ELEM-157](https://elementares-4sem.atlassian.net/browse/ELEM-157) |
+| US-30 | Instalar, calibrar e aceitar a estação | Baixa | 5 | ✅ Finalizado | [ELEM-158](https://elementares-4sem.atlassian.net/browse/ELEM-158) |
+| US-31 | Consultar medições e exportar em CSV | Baixa | 5 | ✅ Finalizado | [ELEM-159](https://elementares-4sem.atlassian.net/browse/ELEM-159) |
+| US-35 | Dashboards da qualidade do ar e das estações | Baixa | 8 | ✅ Finalizado | [ELEM-182](https://elementares-4sem.atlassian.net/browse/ELEM-182) |
+| US-36 | Fluxo completo do frontend | Baixa | 8 | ✅ Finalizado | [ELEM-183](https://elementares-4sem.atlassian.net/browse/ELEM-183) |
+| US-37 | Fluxo completo do backend | Baixa | 5 | ✅ Finalizado | [ELEM-184](https://elementares-4sem.atlassian.net/browse/ELEM-184) |
+| US-38 | Entregáveis de implantação na Prefeitura | Baixa | 8 | ✅ Finalizado | [ELEM-185](https://elementares-4sem.atlassian.net/browse/ELEM-185) |
+| US-39 | Cadastrar qualquer grandeza | Baixa | 3 | ✅ Finalizado | [ELEM-261](https://elementares-4sem.atlassian.net/browse/ELEM-261) |
+| US-40 | Valkey como banco temporário (staging) da recepção | Baixa | 8 | ✅ Finalizado | [ELEM-207](https://elementares-4sem.atlassian.net/browse/ELEM-207) |
+| US-41 | Entrega do MVP 3 | Baixa | 3 | ✅ Finalizado | [ELEM-262](https://elementares-4sem.atlassian.net/browse/ELEM-262) |
+| US-42 | API pública com cadastro, perfis e cotas | Baixa | 8 | ✅ Finalizado | [ELEM-263](https://elementares-4sem.atlassian.net/browse/ELEM-263) |
 
 </details>
 
@@ -151,17 +154,17 @@ As sprints vêm em ordem de prioridade: a Sprint 1 antes da 2, e a 2 antes da 3.
 <summary><b>Plataforma, DevOps e Qualidade · itens contínuos</b></summary>
 
 | US | História | Prioridade | Estimativa | Status | Jira |
-| :--: | --- | :--: | :--: | :--: | :--: |
-| US-07 | Documentação e rastreabilidade | Média | 3\* | 🔄 Em andamento | [ELEM-58](https://elementares-4sem.atlassian.net/browse/ELEM-58) |
+| :-: | --- | :-: | :-: | :-: | :-: |
+| US-07 | Documentação e rastreabilidade | Média | 3\* | ✅ Finalizado | [ELEM-58](https://elementares-4sem.atlassian.net/browse/ELEM-58) |
 | US-08 | Repositórios e arquitetura de código | Média | 3\* | ✅ Finalizado | [ELEM-59](https://elementares-4sem.atlassian.net/browse/ELEM-59) |
-| US-09 | Observabilidade e processos de QA | Média | 3\* | 🔄 Em andamento | [ELEM-60](https://elementares-4sem.atlassian.net/browse/ELEM-60) |
+| US-09 | Observabilidade e processos de QA | Média | 3\* | ✅ Finalizado | [ELEM-60](https://elementares-4sem.atlassian.net/browse/ELEM-60) |
 | US-10 | Testes de integração e cobertura mínima | Média | 3\* | ✅ Finalizado | [ELEM-61](https://elementares-4sem.atlassian.net/browse/ELEM-61) |
 | US-16 | Simulador de estações | Média | 5 | ✅ Finalizado | [ELEM-78](https://elementares-4sem.atlassian.net/browse/ELEM-78) |
 | US-21 | Teste contínuo da ingestão | Média | 3 | ✅ Finalizado | [ELEM-136](https://elementares-4sem.atlassian.net/browse/ELEM-136) |
-| US-25 | Testes unitários no backend | Média | 8 | 🔄 Em andamento | [ELEM-116](https://elementares-4sem.atlassian.net/browse/ELEM-116) |
-| US-32 | Processo de deploy automático | Média | 5 | 🔄 Em andamento | [ELEM-130](https://elementares-4sem.atlassian.net/browse/ELEM-130) |
-| US-33 | Monitoramento da infraestrutura e do fluxo de dados | Média | 5 | 🔄 Em andamento | [ELEM-125](https://elementares-4sem.atlassian.net/browse/ELEM-125) |
-| US-34 | Integração contínua (CI) | Baixa | 5 | Pronto (DoR ok) | [ELEM-181](https://elementares-4sem.atlassian.net/browse/ELEM-181) |
+| US-25 | Testes unitários no backend | Média | 8 | ✅ Finalizado | [ELEM-116](https://elementares-4sem.atlassian.net/browse/ELEM-116) |
+| US-32 | Processo de deploy automático | Média | 5 | ✅ Finalizado | [ELEM-130](https://elementares-4sem.atlassian.net/browse/ELEM-130) |
+| US-33 | Monitoramento da infraestrutura e do fluxo de dados | Média | 5 | ✅ Finalizado | [ELEM-125](https://elementares-4sem.atlassian.net/browse/ELEM-125) |
+| US-34 | Integração contínua (CI) | Baixa | 5 | ✅ Finalizado | [ELEM-181](https://elementares-4sem.atlassian.net/browse/ELEM-181) |
 
 </details>
 
@@ -169,15 +172,15 @@ As sprints vêm em ordem de prioridade: a Sprint 1 antes da 2, e a 2 antes da 3.
 <summary><b>Spikes, bugs e débitos · itens de pesquisa</b></summary>
 
 | Código | Tipo | Item | Sprint | Épico | Ticket |
-| :--: | :--: | --- | :--: | :--: | :--: |
-| SPIKE-01 | Spike | Viabilidade de um simulador de estações IoT, para testar o pipeline de ingestão sem depender de hardware físico. | 1 | EPIC-04 | _a criar_ |
-| SPIKE-02 | Spike | Definição do payload de telemetria (grandezas enviadas) e do intervalo de envio das estações. | 1 | EPIC-04 | _a criar_ |
-| TECH-DEBT-01 | Item Técnico | Unificação de nomenclatura de schema entre a documentação de arquitetura e as especificações de User Story. | 1 | EPIC-04 | _a criar_ |
-| BUGS-S1 | Bug | Caça-bugs na `develop` em 26/09: 58 achados (0 críticos, 11 urgentes, 17 perigosos, 14 de risco pequeno e 16 avisos), consolidados em 43 tickets com prioridade por severidade. | 1 | EPIC-04 | _em abertura_ |
-| SPIKE-04 | Spike | Estudar MQTT, base da recepção de dados das estações (US-11). | 2 | EPIC-04 | ELEM-87 |
-| SPIKE-05 | Spike | Estudar como simular o envio de dados das estações de forma fiel (US-16). | 2 | EPIC-04 | ELEM-88 |
-| — | Spike | Estudo de contrato para apresentar ao cliente. | 2 | EPIC-04 | ELEM-120 |
-| SPIKE-06 | Spike | Modelo de manutenção e correção de bugs para a Prefeitura (o pacote de 6 meses já está na Governança). | 3 | EPIC-04 | _a criar_ |
+| :-: | :-: | --- | :-: | :-: | :-: |
+| SPIKE-01 | Spike | Viabilidade de um simulador de estações IoT, para testar o pipeline de ingestão sem depender de hardware físico. | 1 | EPIC-04 | ✅ Feito |
+| SPIKE-02 | Spike | Definição do payload de telemetria (grandezas enviadas) e do intervalo de envio das estações. | 1 | EPIC-04 | ✅ Feito |
+| TECH-DEBT-01 | Item Técnico | Unificação de nomenclatura de schema entre a documentação de arquitetura e as especificações de User Story. | 1 | EPIC-04 | ✅ Feito |
+| BUGS-S1 | Bug | Caça-bugs na `develop` em 26/09: 58 achados (0 críticos, 11 urgentes, 17 perigosos, 14 de risco pequeno e 16 avisos), consolidados em 43 tickets com prioridade por severidade. | 1 | EPIC-04 | ✅ Feito |
+| SPIKE-04 | Spike | Estudar MQTT, base da recepção de dados das estações (US-11). | 2 | EPIC-04 | ELEM-87 · ✅ Feito |
+| SPIKE-05 | Spike | Estudar como simular o envio de dados das estações de forma fiel (US-16). | 2 | EPIC-04 | ELEM-88 · ✅ Feito |
+| — | Spike | Estudo de contrato para apresentar ao cliente. | 2 | EPIC-04 | ELEM-120 · ✅ Feito |
+| SPIKE-06 | Spike | Modelo de manutenção e correção de bugs para a Prefeitura (o pacote de 6 meses já está na Governança). | 3 | EPIC-04 | ✅ Feito |
 
 </details>
 
@@ -200,13 +203,13 @@ O texto completo de cada história, o valor de negócio, os requisitos e as esti
 
 | Documento | Link | Situação |
 | --- | --- | --- |
-| Arquitetura do Sistema | [`Arquitetura.pdf`](docs/Arquitetura.pdf) | 🔄 Atualizando para o Valkey (40.06) |
+| Arquitetura do Sistema | [`Arquitetura.pdf`](docs/Arquitetura.pdf) | ✅ Atualizada para o Valkey (40.06) |
 | Modelo de Dados | [`Modelo_de_Dados.pdf`](docs/Modelo_de_Dados.pdf) | ✅ Publicado |
-| Infraestrutura Física (servidores) | — | 🔄 Em revisão (38.03) |
-| Governança e Responsabilidades | — | 🔄 Em revisão (38.08) |
-| Manual de Instalação | — | 🔄 Em validação (38.05 e 38.06) |
-| API pública (Swagger) | — | ⏳ Sprint 3 (42.06) |
-| Manual do Usuário | — | ⏳ A elaborar |
+| Infraestrutura Física (servidores) | — | ✅ Finalizado (38.03) |
+| Governança e Responsabilidades | — | ✅ Finalizado (38.08) |
+| Manual de Instalação | — | ✅ Finalizado (38.05 e 38.06) |
+| API pública (Swagger público) | — | ✅ Finalizado (42.06) |
+| Manual do Usuário | [`Manual_do_Usuario_Pulso_Urbano.pdf`](docs/Manual_do_Usuario_Pulso_Urbano.pdf) | ✅ Finalizado |
 
 ---
 
@@ -241,7 +244,7 @@ Preencha os dois `.env` antes de subir. O passo a passo completo, com as migrati
 ## 🤝 Nossa Equipe <a id="equipe"></a>
 
 | Nome | Scrum | DevOps | Redes Sociais |
-| :--- | :--- | :--- | :--- |
+| --- | --- | --- | --- |
 | *João Moura* | Scrum Master | Monitoramento | [![GitHub](https://img.shields.io/badge/GitHub-181717?style=flat&logo=github&logoColor=white)](https://github.com/JoaooMoura) [![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?style=flat&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/joaoomoura/) |
 | *Lucas Inácio* | Product Owner (PO) | Testes Unitários | [![GitHub](https://img.shields.io/badge/GitHub-181717?style=flat&logo=github&logoColor=white)](https://github.com/Lukitta013) [![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?style=flat&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/luucasinacioo/) |
 | *João Vitor Siqueira* | DevTeam | Rastreabilidade de Requisitos | [![GitHub](https://img.shields.io/badge/GitHub-181717?style=flat&logo=github&logoColor=white)](https://github.com/kakashinho) [![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?style=flat&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/joao-vitor-siqueira-a2a2a3227/) |
