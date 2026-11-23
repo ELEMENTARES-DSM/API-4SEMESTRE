@@ -40,25 +40,32 @@
 
 ### 🏢 Parceiro de Negócio (Cliente)
 
-**Diogo Branquinho** (Representando a empresa **TECSUS**).
+**Diogo Branquinho** (Representando a empresa **TECSUS**, em parceria com a **Prefeitura de São José dos Campos**).
 
-A [Tecsus](https://www.tecsus.com.br/) é uma empresa de tecnologia especializada em soluções inteligentes para o controle e gestão de utilidades (água, energia e gás) em empresas com múltiplas unidades. Com mais de 10 anos de mercado, a Tecsus atua ajudando negócios a obter visibilidade sobre seus consumos, reduzir desperdícios e automatizar processos operacionais com eficiência e inovação. Seu foco está muito alinhado com as práticas de ESG (Ambiental, Social e Governança), buscando sempre uma gestão sustentável e inteligente.
+A [Tecsus](https://www.tecsus.com.br/) é uma empresa de tecnologia especializada em soluções inteligentes para o controle e gestão de utilidades (água, energia e gás) em empresas com múltiplas unidades. Com mais de 10 anos de mercado, a Tecsus atua ajudando negócios a obter visibilidade sobre seus consumos, reduzir desperdícios e automatizar processos operacionais com eficiência e inovação, alinhada às práticas de ESG (Ambiental, Social e Governança).
 
 ### ⚠️ A Dor
 
-Municípios e consórcios intermunicipais não possuem hoje uma rede acessível de monitoramento ambiental contínuo, o que dificulta identificar variações críticas de qualidade do ar e condições climáticas em tempo hábil. Sem um histórico confiável de temperatura, umidade, vento e concentração de poluentes como o PM2.5, gestores públicos ficam sem uma base de dados estruturada para embasar decisões e agir preventivamente diante de eventos ambientais críticos.
+Municípios como **São José dos Campos** dependem hoje da rede estadual da CETESB, que possui poucos pontos de medição na cidade (como Jardim Satélite e Vista Verde) e não é operada pelo município. Sem uma rede própria, acessível e contínua de monitoramento ambiental, gestores públicos ficam sem histórico confiável de temperatura, umidade, chuva, vento e poluentes (como PM2,5 e PM10) para embasar decisões, agir preventivamente e informar a população.
 
 ### 🚀 O Desafio
 
-Construir uma plataforma capaz de capturar continuamente dados de estações meteorológicas de baixo custo, processá-los de forma confiável e disponibilizá-los como série histórica estruturada — assegurando isolamento territorial entre municípios do consórcio, controle de acesso por perfil e resiliência na ingestão, de modo que nenhuma leitura de campo seja perdida.
+Construir uma plataforma capaz de capturar continuamente dados de estações meteorológicas de baixo custo, processá-los de forma confiável e disponibilizá-los como série histórica estruturada — assegurando isolamento territorial entre municípios, controle de acesso por perfil, soberania de dados e resiliência na ingestão, de modo que nenhuma leitura de campo seja perdida.
 
-### ✨ A Solução
+### ✨ A Solução e Diferenciais
 
-O **Pulso Urbano** é uma rede de estações de baixo custo que mede continuamente a qualidade do ar e as condições do clima — como temperatura, umidade, vento e chuva. Os dados ficam disponíveis para o usuário em painéis, relatórios e séries históricas, e a plataforma avisa automaticamente quando algum valor ultrapassa um limite considerado preocupante, ajudando a acompanhar as condições ambientais e tomar decisões com base em informação confiável.
+O **Pulso Urbano** implanta uma rede própria (MVP com **4 estações físicas ESP32** nas regiões Norte, Norte/Centro, Leste e Sul de SJC) equipada com **6 sensores por estação** (**PM2,5, PM10, temperatura, umidade relativa, velocidade do vento e chuva**), enviando leituras a cada 5 minutos. Os dados alimentam painéis públicos com cálculo de **IQAr** (Índice de Qualidade do Ar), séries históricas sem expurgo, exportação em CSV/JSON (Power BI/Excel) e alertas preventivos por e-mail.
+
+* **100% Open Source (Licença R$ 0):** Toda a stack (incluindo a adoção do **Valkey** no lugar do Redis) utiliza software livre, sem custo de licenciamento para o município.
+* **Operação 100% On-Premise (Sem Nuvem):** Roda diretamente em infraestrutura física local (**Ubuntu Server 24.04 LTS**, sem Docker ou VMs em produção), garantindo soberania dos dados e custo zero de nuvem.
+* **Resiliência e Independência:** Pluviômetro embarcado em cada estação (sem depender de redes externas) e pipeline com **MQTT QoS 1**, staging no **Valkey** e filas **RabbitMQ com DLQ**.
+* **Alta Escalabilidade com Baixo Hardware:** Com cache de 30s no **Nginx 1.30**, suporta até **12.672 req/s** (p95 de 6 ms a 38 ms), atendendo picos de acesso da população (~700 mil habitantes).
 
 ![Arquitetura da plataforma](docs/arquitetura.png)
 
-Cada estação publica as leituras por MQTT. O serviço de ingestão grava a mensagem bruta no banco temporário (Valkey) e a envia pelo RabbitMQ ao serviço de validação, que aplica as regras, calibra e grava o dado tratado no PostgreSQL, onde nada é apagado. Detalhes em [Arquitetura](docs/arquitetura.md) e [Eventos do Backend](docs/eventos.md).
+#### 🔄 Arquitetura de Software e Topologia Física (Bare-Metal)
+
+A plataforma é organizada em **dois fluxos independentes**: um **fluxo assíncrono de telemetria**, no qual as estações publicam via MQTT e o serviço de ingestão grava a leitura bruta no **Valkey** antes de enviá-la pelo **RabbitMQ** para validação, calibração e persistência definitiva no **PostgreSQL** (sem expurgo) — garantindo que quedas no broker ou no banco nunca causem perda de dados em campo —; e um **fluxo síncrono via API REST**, que atende o dashboard municipal, o portal público e as exportações. Detalhes dos serviços, topologia de servidores (S1–S4) e filas em [Arquitetura](docs/arquitetura.md) e [Eventos do Backend](docs/eventos.md).
 
 ---
 
@@ -179,9 +186,9 @@ As sprints vêm em ordem de prioridade: a Sprint 1 antes da 2, e a 2 antes da 3.
 | SPIKE-02 | Spike | Definição do payload de telemetria (grandezas enviadas) e do intervalo de envio das estações. | 1 | EPIC-04 | ✅ Feito |
 | TECH-DEBT-01 | Item Técnico | Unificação de nomenclatura de schema entre a documentação de arquitetura e as especificações de User Story. | 1 | EPIC-04 | ✅ Feito |
 | BUGS-S1 | Bug | Caça-bugs na `develop` em 26/09: 58 achados (0 críticos, 11 urgentes, 17 perigosos, 14 de risco pequeno e 16 avisos), consolidados em 43 tickets com prioridade por severidade. | 1 | EPIC-04 | ✅ Feito |
-| SPIKE-04 | Spike | Estudar MQTT, base da recepção de dados das estações (US-11). | 2 | EPIC-04 | ELEM-87 · ✅ Feito |
-| SPIKE-05 | Spike | Estudar como simular o envio de dados das estações de forma fiel (US-16). | 2 | EPIC-04 | ELEM-88 · ✅ Feito |
-| — | Spike | Estudo de contrato para apresentar ao cliente. | 2 | EPIC-04 | ELEM-120 · ✅ Feito |
+| SPIKE-04 | Spike | Estudar MQTT, base da recepção de dados das estações (US-11). | 2 | EPIC-04 | ✅ Feito |
+| SPIKE-05 | Spike | Estudar como simular o envio de dados das estações de forma fiel (US-16). | 2 | EPIC-04 | ✅ Feito |
+| — | Spike | Estudo de contrato para apresentar ao cliente. | 2 | EPIC-04 | ✅ Feito |
 | SPIKE-06 | Spike | Modelo de manutenção e correção de bugs para a Prefeitura (o pacote de 6 meses já está na Governança). | 3 | EPIC-04 | ✅ Feito |
 
 > O código SPIKE-03 não foi usado: a numeração pula de SPIKE-02 para SPIKE-04.
@@ -258,10 +265,9 @@ Preencha os dois `.env` antes de subir. As migrations rodam nessa ordem, porque 
 | --- | --- | --- | --- |
 | *João Moura* | Scrum Master | Monitoramento | [![GitHub](https://img.shields.io/badge/GitHub-181717?style=flat&logo=github&logoColor=white)](https://github.com/JoaooMoura) [![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?style=flat&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/joaoomoura/) |
 | *Lucas Inácio* | Product Owner (PO) | Testes Unitários | [![GitHub](https://img.shields.io/badge/GitHub-181717?style=flat&logo=github&logoColor=white)](https://github.com/Lukitta013) [![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?style=flat&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/luucasinacioo/) |
-| *João Vitor Siqueira* | DevTeam | Rastreabilidade de Requisitos | [![GitHub](https://img.shields.io/badge/GitHub-181717?style=flat&logo=github&logoColor=white)](https://github.com/kakashinho) [![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?style=flat&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/joao-vitor-siqueira-a2a2a3227/) |
-| *Enzo Gabriel de Paula* | DevTeam | Documentação (Docs) | [![GitHub](https://img.shields.io/badge/GitHub-181717?style=flat&logo=github&logoColor=white)](https://github.com/EnzoGabrielCode) [![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?style=flat&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/enzo-gabriel-de-paula-8795a8332/) |
 | *Ana Graciano* | DevTeam | QA (Garantia da Qualidade) | [![GitHub](https://img.shields.io/badge/GitHub-181717?style=flat&logo=github&logoColor=white)](https://github.com/Ane-Graciano) [![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?style=flat&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/ana-graciano/) |
 | *Gustavo Rosa* | DevTeam | Deploy Automático (CD) | [![GitHub](https://img.shields.io/badge/GitHub-181717?style=flat&logo=github&logoColor=white)](https://github.com/gustasvos) [![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?style=flat&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/gustavo-rosa-46a251180/) |
+| *João Vitor Siqueira* | DevTeam | Rastreabilidade de Requisitos | [![GitHub](https://img.shields.io/badge/GitHub-181717?style=flat&logo=github&logoColor=white)](https://github.com/kakashinho) [![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?style=flat&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/joao-vitor-siqueira-a2a2a3227/) |
 | *Laís Zanardi* | DevTeam | Continuous Integration (CI) | [![GitHub](https://img.shields.io/badge/GitHub-181717?style=flat&logo=github&logoColor=white)](https://github.com/lais-zanardi) [![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?style=flat&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/lais-zanardi-inocencio/) |
 | *Pedro Nascimento* | DevTeam | Testes de Integração | [![GitHub](https://img.shields.io/badge/GitHub-181717?style=flat&logo=github&logoColor=white)](https://github.com/P3dr0213) [![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?style=flat&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/pedro-nascimento-87a22937a/) |
 
