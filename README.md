@@ -83,7 +83,9 @@ Cada estação publica as leituras por MQTT. O serviço de ingestão grava a men
 
 ![Demonstração do MVP da Sprint 2](assets/sprint-2/mvp-sprint-2.gif)
 
-**Sprint 3:** _em breve._
+**Sprint 3**
+
+![Demonstração do MVP da Sprint 3](assets/sprint-3/mvp-sprint-3.gif)
 
 </details>
 
@@ -117,7 +119,7 @@ As sprints vêm em ordem de prioridade: a Sprint 1 antes da 2, e a 2 antes da 3.
 | US-11 | Receber leituras das estações via MQTT | Média | 5 | ✅ Finalizado | [ELEM-73](https://elementares-4sem.atlassian.net/browse/ELEM-73) |
 | US-12 | Validar payload e estação ativa | Média | 3 | ✅ Finalizado | [ELEM-74](https://elementares-4sem.atlassian.net/browse/ELEM-74) |
 | US-13 | Ignorar leituras duplicadas | Média | 2 | ✅ Finalizado | [ELEM-75](https://elementares-4sem.atlassian.net/browse/ELEM-75) |
-| US-14 | Gravar no staging e atualizar o último sinal | Média | 3 | ✅ Finalizado | [ELEM-76](https://elementares-4sem.atlassian.net/browse/ELEM-76) |
+| US-14 | Gravar no banco temporário (staging) e atualizar o último sinal | Média | 3 | ✅ Finalizado | [ELEM-76](https://elementares-4sem.atlassian.net/browse/ELEM-76) |
 | US-15 | Publicar em `telemetria.bruta` | Média | 5 | ✅ Finalizado | [ELEM-77](https://elementares-4sem.atlassian.net/browse/ELEM-77) |
 | US-17 | Calibrar e gravar em `medidas` | Média | 5 | ✅ Finalizado | [ELEM-79](https://elementares-4sem.atlassian.net/browse/ELEM-79) |
 | US-18 | Tratar leituras de sensor inexistente ou inativo | Média | 3 | ✅ Finalizado | [ELEM-80](https://elementares-4sem.atlassian.net/browse/ELEM-80) |
@@ -182,6 +184,8 @@ As sprints vêm em ordem de prioridade: a Sprint 1 antes da 2, e a 2 antes da 3.
 | — | Spike | Estudo de contrato para apresentar ao cliente. | 2 | EPIC-04 | ELEM-120 · ✅ Feito |
 | SPIKE-06 | Spike | Modelo de manutenção e correção de bugs para a Prefeitura (o pacote de 6 meses já está na Governança). | 3 | EPIC-04 | ✅ Feito |
 
+> O código SPIKE-03 não foi usado: a numeração pula de SPIKE-02 para SPIKE-04.
+
 </details>
 
 O texto completo de cada história, o valor de negócio, os requisitos e as estimativas estão no [Backlog completo](docs/backlog.md).
@@ -203,12 +207,16 @@ O texto completo de cada história, o valor de negócio, os requisitos e as esti
 
 | Documento | Link | Situação |
 | --- | --- | --- |
-| Arquitetura do Sistema | [`Arquitetura.pdf`](docs/Arquitetura.pdf) | ✅ Atualizada para o Valkey (40.06) |
-| Modelo de Dados | [`Modelo_de_Dados.pdf`](docs/Modelo_de_Dados.pdf) | ✅ Publicado |
-| Infraestrutura Física (servidores) | — | ✅ Finalizado (38.03) |
-| Governança e Responsabilidades | — | ✅ Finalizado (38.08) |
-| Manual de Instalação | — | ✅ Finalizado (38.05 e 38.06) |
-| API pública (Swagger público) | — | ✅ Finalizado (42.06) |
+| Arquitetura do Sistema | [`Arquitetura.pdf`](docs/Arquitetura.pdf) · [Arquitetura](docs/arquitetura.md) | ✅ Publicado. O PDF é de setembro (Redis); a troca para o Valkey (US-40) está na página [Arquitetura](docs/arquitetura.md) |
+| Modelo de Dados | [`Modelo_de_Dados.pdf`](docs/Modelo_de_Dados.pdf) | ✅ Publicado. Com a US-40, a `staging_telemetria` deixou de receber gravações (o staging foi para o Valkey) |
+| Infraestrutura Física (servidores) | [`arquitetura-fisica.pdf`](docs/arquitetura-fisica.pdf) · [`dimensionamento.pdf`](docs/dimensionamento.pdf) · [`estudo-cobertura-sjc.pdf`](docs/estudo-cobertura-sjc.pdf) | ✅ Finalizado (38.01, 38.02 e 38.03) |
+| Softwares e Licenças | [`softwares-e-licencas.pdf`](docs/softwares-e-licencas.pdf) | ✅ Finalizado (38.04) |
+| Estrutura do Software e Justificativas | [`estrutura-e-justificativas.pdf`](docs/estrutura-e-justificativas.pdf) | ✅ Finalizado (38.07) |
+| Governança e Responsabilidades | [Arquitetura › Quem responde por quê](docs/arquitetura.md#governanca) | ✅ Finalizado |
+| Manual de Instalação (Ubuntu Server) | [`manual-instalacao-ubuntu.pdf`](docs/manual-instalacao-ubuntu.pdf) | ✅ Finalizado (38.05) |
+| Manual de Monitoramento | [`manual-monitoramento.pdf`](docs/manual-monitoramento.pdf) | ✅ Finalizado (38.06) |
+| Manual da Estação (ESP32) | [`manual-estacao-esp32.pdf`](docs/manual-estacao-esp32.pdf) | ✅ Finalizado (US-30) |
+| API pública (Swagger público) | No ambiente de produção | ✅ Finalizado (42.06) |
 | Manual do Usuário | [`Manual_do_Usuario_Pulso_Urbano.pdf`](docs/Manual_do_Usuario_Pulso_Urbano.pdf) | ✅ Finalizado |
 
 ---
@@ -218,10 +226,13 @@ O texto completo de cada história, o valor de negócio, os requisitos e as esti
 ```bash
 git clone --recurse-submodules https://github.com/ELEMENTARES-DSM/API-4SEMESTRE.git
 cd API-4SEMESTRE/backend && cp .env.example .env && docker compose up -d
+for svc in gestao-usuarios gestao-estacoes servico-validacao alertas-notificacoes ingestao-dados; do
+  (cd services/$svc && npm ci && npm run migrate -- up)
+done
 cd ../frontend && cp .env.example .env && npm install && npm run dev
 ```
 
-Preencha os dois `.env` antes de subir. O passo a passo completo, com as migrations e o DevContainer, está em [Instalação](docs/instalacao.md).
+Preencha os dois `.env` antes de subir. As migrations rodam nessa ordem, porque as tabelas de cada serviço apontam para as dos anteriores. O passo a passo completo, com o DevContainer, está em [Instalação](docs/instalacao.md). Para instalar nos servidores da Prefeitura, use o [Manual de Instalação](docs/manual-instalacao-ubuntu.pdf).
 
 ---
 
@@ -231,7 +242,7 @@ Preencha os dois `.env` antes de subir. O passo a passo completo, com as migrati
 | --- | --- |
 | **Frontend** | React · Vite · TypeScript · Tailwind CSS · DaisyUI |
 | **Backend** | Node.js · TypeScript · Express · biblioteca `pg` |
-| **Banco de Dados** | PostgreSQL · Valkey (staging, sessões e cotas) |
+| **Banco de Dados** | PostgreSQL · Valkey (staging, tokens revogados e cotas da API) |
 | **Mensageria** | MQTT (Mosquitto) · RabbitMQ |
 | **Testes** | Vitest (frontend) · Jest (backend) |
 | **Infraestrutura** | Docker · Docker Compose · DevContainers · Ubuntu Server |
