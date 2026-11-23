@@ -41,20 +41,22 @@ O sistema roda na infraestrutura física da Prefeitura, sem nuvem e só com soft
 
 | Servidor | O que roda | Acesso externo |
 | --- | --- | --- |
-| **S1 · Aplicação** | nginx, frontend, auth-service, gestao-usuarios, gestao-estacoes, analise-dados, servico-relatorios e Valkey (sessões e cotas) | HTTPS (443) |
-| **S2 · Recepção** | Mosquitto, ingestao-dados, Valkey (staging), RabbitMQ, servico-validacao e alertas-notificacoes | MQTT com TLS (8883) |
+| **S1 · Aplicação** | nginx, frontend, auth-service, gestao-usuarios, gestao-estacoes, analise-dados, servico-relatorios e Valkey (tokens revogados e cotas da API) | HTTPS (443) |
+| **S2 · Recepção** | Mosquitto, ingestao-dados, Valkey (staging), RabbitMQ, servico-validacao e alertas-notificacoes | MQTT (1883), só na rede das estações |
 | **S3 · Banco** | PostgreSQL | Nenhum |
 | **S4 · Backup e monitoramento** | Cópias do banco, Prometheus e Grafana | Só VPN |
 
-A configuração de cada servidor (CPU, memória, disco e rede) está em revisão na task 38.03. O monitoramento avisa quando CPU passa de 50%, memória de 80% ou disco de 60%, os limites pedidos pelo cliente.
+As estações se identificam pelo MAC e publicam sem senha nem certificado (US-29). Por isso a porta 1883 fica aberta só para a rede das estações, nunca para a internet.
 
-**Quem responde por quê:** a Prefeitura é a dona dos dados e da infraestrutura física e de rede; a Tecsus licencia o sistema, opera os servidores e faz a triagem técnica (suporte nível 2); a Elementares corrige bugs e faz melhorias durante o pacote de manutenção de 6 meses (nível 3). O munícipe fala com a ouvidoria da Prefeitura, nunca direto com a equipe.
+A configuração de cada servidor (CPU, memória, disco e rede) está na [Arquitetura Física](arquitetura-fisica.pdf) (task 38.03). O monitoramento avisa quando CPU passa de 50%, memória de 80% ou disco de 60%, os limites pedidos pelo cliente.
+
+<a id="governanca"></a>**Quem responde por quê:** a Prefeitura é a dona dos dados e da infraestrutura física e de rede; a Tecsus licencia o sistema, opera os servidores e faz a triagem técnica (suporte nível 2); a Elementares corrige bugs e faz melhorias durante o pacote de manutenção de 6 meses (nível 3). O munícipe fala com a ouvidoria da Prefeitura, nunca direto com a equipe.
 
 ### 🗄️ Modelo de Dados
 
 ![Diagrama Entidade-Relacionamento do PostgreSQL](modelo_er.png)
 
-O modelo relacional do PostgreSQL está organizado em quatro blocos: acesso e identidade, domínio operacional, banco temporário (staging) e histórico agregado. O papel de cada tabela, coluna, índice e rotina está explicado no documento [Modelo de Dados](Modelo_de_Dados.pdf). Com a US-40, o staging passa para o Valkey e a tabela `staging_telemetria` deixa de receber gravações.
+O modelo relacional do PostgreSQL está organizado em quatro blocos: acesso e identidade, domínio operacional, banco temporário (staging) e histórico agregado. O papel de cada tabela, coluna, índice e rotina está explicado no documento [Modelo de Dados](Modelo_de_Dados.pdf). Com a US-40, o staging passou para o Valkey e a tabela `staging_telemetria` deixou de receber gravações.
 
 ---
 

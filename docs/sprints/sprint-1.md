@@ -13,21 +13,21 @@
 
 | Ordem | Prioridade | US | Ticket | Objetivo | Estimativa |
 | :--: | :--: | :--: | :--: | --- | :--: |
-| 1 | Alta | US-01 | ELEM-6 | Gestão administrativa de contas e perfis | 5 |
-| 2 | Alta | US-02 | ELEM-11 | Autenticação e controle de sessão | 3 |
-| 3 | Alta | US-03 | ELEM-16 | Cadastro e gestão de estações | 5 |
-| 4 | Alta | US-04 | ELEM-23 | Monitoramento de disponibilidade das estações | 8 |
-| 5 | Alta | US-05 | ELEM-27 | Parametrização e calibração de sensores | 5 |
-| 6 | Alta | US-06 | ELEM-32 | Regras e limiares de alerta | 8 |
+| 1 | Média | US-01 | ELEM-6 | Gestão administrativa de contas e perfis | 5 |
+| 2 | Média | US-02 | ELEM-11 | Autenticação e controle de sessão | 3 |
+| 3 | Média | US-03 | ELEM-16 | Cadastro e gestão de estações | 5 |
+| 4 | Média | US-04 | ELEM-23 | Monitoramento de disponibilidade das estações | 8 |
+| 5 | Média | US-05 | ELEM-27 | Parametrização e calibração de sensores | 5 |
+| 6 | Média | US-06 | ELEM-32 | Regras e limiares de alerta | 8 |
 
 **Plataforma, DevOps e Qualidade iniciados nesta sprint** (continuam nas seguintes):
 
 | Ordem | Prioridade | US | Ticket | Objetivo | Estimativa |
 | :--: | :--: | :--: | :--: | --- | :--: |
-| 1 | Alta | US-07 | ELEM-58 | Documentação e rastreabilidade | 3\* |
-| 2 | Alta | US-08 | ELEM-59 | Repositórios e arquitetura de código | 3\* |
-| 3 | Alta | US-09 | ELEM-60 | Observabilidade e processos de QA | 3\* |
-| 4 | Alta | US-10 | ELEM-61 | Testes de integração e cobertura mínima | 3\* |
+| 1 | Média | US-07 | ELEM-58 | Documentação e rastreabilidade | 3\* |
+| 2 | Média | US-08 | ELEM-59 | Repositórios e arquitetura de código | 3\* |
+| 3 | Média | US-09 | ELEM-60 | Observabilidade e processos de QA | 3\* |
+| 4 | Média | US-10 | ELEM-61 | Testes de integração e cobertura mínima | 3\* |
 
 > As seis histórias de negócio formam uma cadeia sem ramificação — contas → autenticação → estações → calibração → disponibilidade → regras de alerta — e são, literalmente, o texto da 1ª Entrega ao cliente.
 

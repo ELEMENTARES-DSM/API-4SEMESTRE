@@ -15,7 +15,7 @@ API-4SEMESTRE/
 └── README.md
 ```
 
-> Os submódulos apontam para um commit específico de cada repositório. O desenvolvimento acontece diretamente no **BACKEND-4SEMESTRE** e no **FRONTEND-4SEMESTRE**; os ponteiros deste repositório são atualizados ao final de cada sprint, para a tag da versão entregue.
+> Os submódulos apontam para um commit específico de cada repositório. O desenvolvimento acontece diretamente no **BACKEND-4SEMESTRE** e no **FRONTEND-4SEMESTRE**; os ponteiros deste repositório são atualizados ao final de cada sprint, para o commit da `main` entregue (task 41.02).
 
 ## Pré-requisitos
 
@@ -37,8 +37,8 @@ cp .env.example .env
 # 3. Subir os containers (PostgreSQL, Valkey, RabbitMQ, Mosquitto e microsserviços)
 docker compose up -d
 
-# 4. Migrations, por serviço e nesta ordem
-for svc in gestao-usuarios gestao-estacoes alertas-notificacoes; do
+# 4. Migrations, por serviço e nesta ordem (as tabelas de cada um apontam para as dos anteriores)
+for svc in gestao-usuarios gestao-estacoes servico-validacao alertas-notificacoes ingestao-dados; do
   (cd services/$svc && npm ci && npm run migrate -- up)
 done
 
@@ -50,7 +50,7 @@ npm run dev
 # Aplicação em http://localhost:5173
 ```
 
-> O passo 4 deixa de ser manual com a task 37.2 (migrations ao subir o compose). O passo a passo completo, com as variáveis de ambiente e a solução de problemas comuns, estará no **Manual de Instalação**, atualmente em validação.
+> Na instalação nos servidores, o script de deploy roda as migrations sozinho, na mesma ordem (task 37.2). Na execução local com o compose, o passo 4 continua manual. A instalação nos servidores da Prefeitura, com as variáveis de ambiente e a solução de problemas comuns, está no [Manual de Instalação](manual-instalacao-ubuntu.pdf).
 
 > O projeto também disponibiliza configuração de **DevContainer**, permitindo abrir o ambiente já padronizado diretamente no VS Code, sem configuração manual.
 

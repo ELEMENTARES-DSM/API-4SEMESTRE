@@ -207,8 +207,8 @@ O texto completo de cada história, o valor de negócio, os requisitos e as esti
 
 | Documento | Link | Situação |
 | --- | --- | --- |
-| Arquitetura do Sistema | [`Arquitetura.pdf`](docs/Arquitetura.pdf) · [Arquitetura](docs/arquitetura.md) | ✅ Publicado. O PDF é de setembro (Redis); a troca para o Valkey (US-40) está na página [Arquitetura](docs/arquitetura.md) |
-| Modelo de Dados | [`Modelo_de_Dados.pdf`](docs/Modelo_de_Dados.pdf) | ✅ Publicado. Com a US-40, a `staging_telemetria` deixou de receber gravações (o staging foi para o Valkey) |
+| Arquitetura do Sistema | [`Arquitetura.pdf`](docs/Arquitetura.pdf) | ✅ Atualizada para o Valkey (40.06) |
+| Modelo de Dados | [`Modelo_de_Dados.pdf`](docs/Modelo_de_Dados.pdf) | ✅ Atualizado para o Valkey (40.06) |
 | Infraestrutura Física (servidores) | [`arquitetura-fisica.pdf`](docs/arquitetura-fisica.pdf) · [`dimensionamento.pdf`](docs/dimensionamento.pdf) · [`estudo-cobertura-sjc.pdf`](docs/estudo-cobertura-sjc.pdf) | ✅ Finalizado (38.01, 38.02 e 38.03) |
 | Softwares e Licenças | [`softwares-e-licencas.pdf`](docs/softwares-e-licencas.pdf) | ✅ Finalizado (38.04) |
 | Estrutura do Software e Justificativas | [`estrutura-e-justificativas.pdf`](docs/estrutura-e-justificativas.pdf) | ✅ Finalizado (38.07) |
